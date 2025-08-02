@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="cook_q1.css" />
+  <title>Quiz</title>
+</head>
+<body>
+
+<div class="quiz-container">
+  <div id="question-container">
+    <h2 id="question">Question text will appear here</h2>
+    <div id="options-container">
+      <button class="option" onclick="selectOption(0)"></button>
+      <button class="option" onclick="selectOption(1)"></button>
+      <button class="option" onclick="selectOption(2)"></button>
+      <button class="option" onclick="selectOption(3)"></button>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button id="reset-btn" onclick="resetQuiz()">Reset Quiz</button>
+    <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+    <button id="next-btn" onclick="nextQuestion()">Next</button>
+    <button id="submit-btn" onclick="submitQuiz()" style="display: none;">Submit</button>
+    <button id="history-btn" onclick="fetchHistory()">History</button>
+</div>
+
+<!-- <div id="history-container" style="display: none;">
+  <h3>Quiz History</h3>
+  <ul id="history-list"></ul>
+  <button id="close-history-btn" onclick="closeHistory()" style="display: none;">Close History</button>
+</div> -->
+<div id="history-container" style="display: none;">
+  <h3>Quiz History</h3>
+  <div id="history-list"></div> <!-- This will contain score & timestamp buttons -->
+  <button id="close-history-btn" onclick="closeHistory()" style="display: none;">Close History</button>
+</div>
+
+
+
+<div id="result-container" style="display: none;">
+  <button id="close-results-btn" onclick="closeResults()" style="display: none;">Close Results</button>
+</div>
+
+<script src="cook_q2.js"></script>
+</body>
+</html>

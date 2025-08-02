@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Memory Game</title>
+    <style>        
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ffecd2, #fbd3c5);
+            padding: 20px;
+        }
+        h1 {
+            color: #55160e;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1.3em;
+            color: #444;
+        }
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(8, 110px);
+            gap: 14px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        .card {
+            width: 110px;
+            height: 110px;
+            font-size: 2.5em;
+            background: #f5f0de; /* Lighter color for closed cards */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+            color: rgb(31, 29, 29);
+        }
+        .card.revealed {
+            background: white; /* Opened cards will have a white background */
+            color: black;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+        .restart-button {
+            margin-top: 30px;
+            padding: 14px 28px;
+            font-size: 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        .restart-button:hover {
+            background: #0b410a;
+            transform: scale(1.1);
+        }
+        .score-container {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cooking Memory Game 🍽️</h1>
+    <p>Flip two cards to find matching ingredients!</p>
+    <div class="score-container">Score: <span id="score">0</span> | Moves Left: <span id="moves">24</span></div>
+    <div class="game-container" id="gameBoard"></div>
+    <button class="restart-button" onclick="restartGame()">Restart Game</button>
+
+    <script>
+        const ingredients = ['🍅', '🧀', '🍞', '🥬', '🥕', '🥚', '🍄', '🌶️', '🧅', '🧄', '🥔', '🐟'];
+        let cards = [...ingredients, ...ingredients].sort(() => Math.random() - 0.5);
+        let gameBoard = document.getElementById('gameBoard');
+        let selectedCards = [];
+        let matchedPairs = [];
+        let score = 0;
+        let moves = 30;
+
+        function createBoard() {
+            gameBoard.innerHTML = '';
+            document.getElementById('moves').innerText = moves;
+            cards.forEach((ingredient, index) => {
+                let card = document.createElement('div');
+                card.classList.add('card');
+                card.dataset.index = index;
+                card.onclick = () => flipCard(card, ingredient);
+                card.innerHTML = '?';
+                gameBoard.appendChild(card);
+            });
+        }
+
+        function flipCard(card, ingredient) {
+            if (selectedCards.length === 2 || matchedPairs.includes(card.dataset.index) || moves === 0) return;
+            card.innerHTML = ingredient;
+            card.classList.add('revealed');
+            selectedCards.push({ card, ingredient });
+
+            if (selectedCards.length === 2) {
+                moves--;
+                document.getElementById('moves').innerText = moves;
+                setTimeout(checkMatch, 800);
+            }
+        }
+
+        function checkMatch() {
+            const [first, second] = selectedCards;
+            if (first.ingredient === second.ingredient) {
+                matchedPairs.push(first.card.dataset.index, second.card.dataset.index);
+                score += 5;
+                document.getElementById('score').innerText = score;
+            } else {
+                first.card.innerHTML = '?';
+                second.card.innerHTML = '?';
+                first.card.classList.remove('revealed');
+                second.card.classList.remove('revealed');
+            }
+            selectedCards = [];
+        }
+
+        function restartGame() {
+            selectedCards = [];
+            matchedPairs = [];
+            score = 0;
+            moves = 30;
+            document.getElementById('score').innerText = score;
+            document.getElementById('moves').innerText = moves;
+            cards.sort(() => Math.random() - 0.5);
+            createBoard();
+        }
+
+        createBoard();
+    </script>
+</body>
+</html>

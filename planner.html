@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .diet-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .diet {
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .diet.selected {
+            border-color: #ff7f50;
+        }
+        .diet img {
+            width: 50px;
+            height: 50px;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        .nutrients {
+            list-style: none;
+            padding: 0;
+        }
+        .nutrients li {
+            margin: 5px 0;
+        }
+        button {
+            background: #ff7f50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #ff6347;
+        }
+        .meal-plan {
+            background: white;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create your meal plan right here in seconds</h2>
+        <h3>Preferred Diet</h3>
+        <div class="diet-options">
+            <div class="diet" onclick="selectDiet(this)"><img src="anything.png" alt="Anything"><span>Anything</span></div>
+            <div class="diet" onclick="selectDiet(this)"><img src="keto.png" alt="Keto"><span>Keto</span></div>
+            <div class="diet" onclick="selectDiet(this)"><img src="mediterranean.png" alt="Mediterranean"><span>Mediterranean</span></div>
+            <div class="diet" onclick="selectDiet(this)"><img src="paleo.png" alt="Paleo"><span>Paleo</span></div>
+            <div class="diet" onclick="selectDiet(this)"><img src="vegan.png" alt="Vegan"><span>Vegan</span></div>
+            <div class="diet selected" onclick="selectDiet(this)"><img src="vegetarian.png" alt="Vegetarian"><span>Vegetarian</span></div>
+        </div>
+        <div class="input-group">
+            <label>I want to eat</label>
+            <input type="number" id="calories" value="1800"> calories
+        </div>
+        <div class="input-group">
+            <label>in</label>
+            <select id="meals">
+                <option value="1">1 meal</option>
+                <option value="2">2 meals</option>
+                <option value="3" selected>3 meals</option>
+                <option value="4">4 meals</option>
+                <option value="5">5 meals</option>
+            </select>
+        </div>
+        <ul class="nutrients">
+            <li>● At least <b>45g</b> Carbs</li>
+            <li>● At least <b>40g</b> Fat</li>
+            <li>● At least <b>45g</b> Protein</li>
+        </ul>
+        <button onclick="generateMealPlan()">Generate</button>
+    </div>
+    
+    <div class="meal-plan" id="mealPlan"></div>
+
+    <script>
+        function selectDiet(element) {
+            document.querySelectorAll('.diet').forEach(diet => diet.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        const mealsData = [
+            { name: "Chole", carbs: 50, fats: 6, protein: 10, calories: 314 },
+            { name: "Coconut Chutney", carbs: 5, fats: 8, protein: 2, calories: 108 },
+            { name: "Jeera Rice", carbs: 40, fats: 5, protein: 5, calories: 245 },
+            { name: "Matar Paneer", carbs: 25, fats: 15, protein: 18, calories: 327 },
+            { name: "Bhature", carbs: 60, fats: 15, protein: 8, calories: 452 },
+            { name: "Paneer Tikka", carbs: 10, fats: 20, protein: 25, calories: 300 },
+            { name: "Dal Makhani", carbs: 35, fats: 10, protein: 15, calories: 280 },
+            { name: "Aloo Paratha", carbs: 55, fats: 12, protein: 7, calories: 350 },
+            { name: "Vegetable Pulao", carbs: 45, fats: 6, protein: 6, calories: 290 }
+        ];
+
+        function generateMealPlan() {
+            const mealPlanDiv = document.getElementById("mealPlan");
+            const totalCalories = parseInt(document.getElementById("calories").value);
+            const mealCount = parseInt(document.getElementById("meals").value);
+            let remainingCalories = totalCalories;
+            let selectedMeals = [];
+            let availableMeals = [...mealsData];
+
+            for (let i = 0; i < mealCount; i++) {
+                let meal = availableMeals.find(m => m.calories <= remainingCalories / (mealCount - i));
+                if (!meal) break;
+                selectedMeals.push(meal);
+                remainingCalories -= meal.calories;
+                availableMeals = availableMeals.filter(m => m !== meal);
+            }
+
+            let mealContent = "<h3>Your Meal Plan</h3><ul>";
+            selectedMeals.forEach(meal => {
+                mealContent += `<li>${meal.name} (Carbs: ${meal.carbs}g, Fats: ${meal.fats}g, Protein: ${meal.protein}g) - ${meal.calories} kcal</li>`;
+            });
+            mealContent += "</ul>";
+
+            mealPlanDiv.innerHTML = mealContent;
+            mealPlanDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>

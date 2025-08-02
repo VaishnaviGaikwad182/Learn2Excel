@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Skill Development</title>
+    <link rel="stylesheet" href="cooking.css">
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+    
+        if (!hamburger || !navLinks) {
+            console.error("Navbar elements not found!");
+            return;
+        }
+    
+        hamburger.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+    });
+</script>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="logo.png" alt="Learn2Excel Logo" class="logo-img">
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger" onclick="toggleMenu()">☰</button>
+            </div>
+        </nav>
+    </header>
+    <!-- Top Banner with Parallax Effect -->
+    <div class="top-banner">
+        <div class="banner-overlay">
+            <h1>Healthy Habits,</h1>
+            <h1>Healthy Life</h1>
+            <p>Master the art of cooking with expertly designed modules.</p>
+        </div>
+    </div>
+    
+    <!-- Section Before Modules -->
+    <section class="intro-section">
+        <div class="intro-text">
+            <h2>Ready to Take Control of Your Kitchen?</h2>
+            <p>
+                Discover the joy of cooking with personalized tips and expert guidance.
+                Join us to transform your cooking skills and explore the world of culinary excellence.
+            </p>
+        </div>
+        <div class="intro-images">
+            <img src="jar_img.png" alt="Salad in Jar">
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main>
+        <section id="modules" class="module-section">
+            <h2>Start Learning with Our Modules</h2>
+            <div class="module-container">
+                <a href="cook_m1.html" class="module">
+                    <h3>1. Basics of Indian Cooking</h3>
+                    <p>Learn skills like masala preparation and kitchen safety.</p>
+                </a>
+
+                <a href="cook_m2.html" class="module">
+                    <h3>2. Staple Indian Dishes</h3>
+                    <p>Master the art of cooking rice, dals, and Indian breads.</p>
+                </a>
+
+                <a href="cook_m3.html" class="module">
+                    <h3>3. Pickles, Chutneys and Raitas</h3>
+                    <p>Enhance meals with flavorful pickles, chutneys and raitas.</p>
+                </a>
+
+                <a href="cook_m4.html"class="module">
+                    <h3>4. Regional Cuisines of India</h3>
+                    <p>Explore the flavors of North, South, East, or West India.</p>
+                </a>
+
+                <a href="cook_m5.html" class="module">
+                    <h3>5. Street Food Favorites</h3>
+                    <p>Recreate street foods like pani puri, pav bhaji.</p>
+                </a>
+
+                <a href="cook_m6.html" class="module">
+                    <h3>6. Festive and Traditional Foods</h3>
+                    <p>Prepare festive delicacies for every occasion.</p>
+                </a>
+
+                <a href="cook_m7.html" class="module">
+                    <h3>7. Healthy Indian Cooking</h3>
+                    <p>Focus on nutritious, low-oil, and millet-based recipes.</p>
+                </a>
+
+                <a href="cook_m8.html" class="module">
+                    <h3>8. Meal Planning</h3>
+                    <p>Plan balanced meals, reduce waste, and batch-cook effectively.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="interactive-tools">
+            <h2>Interactive Tools</h2>
+            <div class="tool">
+                <a href="Cook_Game1.html">
+                    <h3>Game 1: Cooking Time Management</h3>
+                </a>
+            </div>
+            <div class="tool">
+                <a href="Cook_Game2.html">
+                    <h3>Game 2: Cooking Memory Game</h3>
+                </a>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Cooking Skill Development | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+

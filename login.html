@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #b4f3fe, #8bb0fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Login Container */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #2e2e3a;
+            color: white;
+            border: none;
+            outline: none;
+            margin-bottom: 15px;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            background: linear-gradient(to right, #60a5fa, #1f19c9);
+            color: white;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #1f19c9, #60a5fa);
+        }
+
+        /* Sign Up Link */
+        .signup-text {
+            color: #a1a1aa;
+            margin-top: 15px;
+        }
+
+        .signup-text a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <p>Welcome back! Please login.</p>
+
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+
+            <p class="signup-text">
+                Don't have an account? <a href="signUp.html">Sign Up</a>
+            </p>
+        </div>
+    </div>
+    <script>
+        function login() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (email === "" || password === "") {
+                alert("Please enter both email and password.");
+            } else {
+                alert("Login successful!");
+            }
+        }
+    </script>
+</body>
+</html>

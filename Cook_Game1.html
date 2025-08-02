@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Time Management Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f1e7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #560d0d;
+        }
+
+        #game-area {
+            margin: 20px auto;
+            max-width: 90%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #ingredients button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ee8e65;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        #ingredients button:hover {
+            background-color: #ad3d3d;
+        }
+
+        #timer, #score {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .score-timer-container {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #correct-recipe {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        #new-game {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #new-game:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cooking Time Management Game</h1>
+    <div id="game-area">
+        <h2 id="order">Order: </h2>
+        <div class="score-timer-container">
+            <p id="timer">⏰ Time Left: 60</p>
+            <p id="score">⭐ Score: 0</p>
+        </div>
+        <div id="ingredients">
+            <button id="oil">🧴 Oil</button>
+            <button id="butter">🧈 Butter</button>
+            <button id="green-chili">🌶️ Green Chili</button>
+            <button id="garlic">🧄 Garlic</button>
+            <button id="spices">🌶️ Spices</button>
+            <button id="coriander">🌿 Coriander</button>
+            <button id="salt">🧂 Salt</button>
+            <button id="sugar">🧂 Sugar</button>
+            <button id="jaggery">🍯 Jaggery</button>
+            <button id="rice">🌾 Rice</button>
+            <button id="basmati-rice">🌾 Basmati Rice</button>
+            <button id="puffed-rice">🍚 Puffed Rice</button>
+            <button id="rice-flour">🌾 Rice Flour</button>
+            <button id="flour">🌾 Flour</button>
+            <button id="wheat-flour">🌾 Wheat Flour</button>
+            <button id="jowar-bhakri">🍞 Jowar Bhakri</button>
+            <button id="bhature">🍞 Bhature</button>
+            <button id="pav">🍞 Pav</button>
+            <button id="chana-dal">🌾 Chana Dal</button>
+            <button id="urad-dal">🌾 Urad Dal</button>
+            <button id="chickpeas">🌾 Chickpeas</button>
+            <button id="veggies">🥕 Veggies</button>
+            <button id="lemon">🍋 Lemon</button>
+            <button id="tamarind">🥭 Tamarind</button>
+            <button id="onion">🧅 Onion</button>
+            <button id="tomato">🍅 Tomato</button>
+            <button id="cucumber">🥒 Cucumber</button>
+            <button id="cabbage">🥬 Cabbage</button>
+            <button id="carrot">🥕 Carrot</button>
+            <button id="potato">🥔 Potato</button>
+            <button id="fruits">🍓 Fruits</button>
+            <button id="raw-mango">🥭 Raw Mango</button>
+            <button id="paneer">🧀 Paneer</button>
+            <button id="semolina">🌾 Semolina(Rava)</button>
+            <button id="milk">🥛 Milk</button>
+            <button id="khoya">🥛 Khoya</button>
+            <button id="cardamom">🧄 Cardamom</button>
+            <button id="coconut">🥥 Coconut</button>
+            <button id="oats">🌾 Oats</button>
+            <button id="millets">🌾 Millets</button>
+            <button id="soy-sauce">🧂 Soy Sauce</button>
+            <button id="chicken">🍗 Chicken</button>
+
+        </div>
+        <p id="message"></p>
+        <p id="correct-recipe"></p>
+        <button id="new-game">Start New Game</button>
+    </div>
+
+    <script>
+        // Game Variables
+        let score = 0;
+        let timeLeft = 60;
+        let currentOrder = null;
+        let selectedIngredients = [];
+        let timerInterval;
+
+        // Recipes (20 Dishes with Emojis)
+        const recipes = {
+            "🥭 Mango Pickle": ["🥭 Raw Mango", "🧄 Garlic", "🌶️ Spices", "🧂 Salt"],
+            "🥗 Mixed Salad": ["🥒 Cucumber", "🍅 Tomato", "🧅 Onion", "🍋 Lemon", "🌿 Coriander", "🧂 Salt"],
+            "🥘 Paneer Masala": ["🧀 Paneer", "🍅 Tomato", "🧄 Garlic", "🧅 Onion", "🧈 Butter", "🌶️ Spices", "🧂 Salt"],
+            "🍛 Chole Bhature": ["🌾 Chickpeas", "🧅 Onion", "🍅 Tomato", "🧄 Garlic", "🍞 Bhature", "🌶️ Spices", "🧂 Salt"],
+            "🍚 Idli": ["🌾 Rice", "🌾 Urad Dal", "🧂 Salt"],
+            "🥞 Dosa": ["🌾 Rice", "🌾 Urad Dal", "🧂 Salt", "🧴 Oil"],
+            "🍚 Biryani": ["🌾 Basmati Rice", "🍗 Chicken/🥕 Veggies", "🧅 Onion", "🍅 Tomato", "🌶️ Spices", "🧂 Salt", "🌿 Coriander"],
+            "🥚 Pani Puri": ["🌾 Semolina", "🥔 Potato", "🌿 Coriander", "🥭 Tamarind", "🌶️ Green Chili", "🧂 Salt"],
+            "🥘 Pav Bhaji": ["🥔 Potato", "🍅 Tomato", "🧅 Onion", "🧄 Garlic", "🍞 Pav", "🌶️ Spices", "🧂 Salt", "🌿 Coriander"],
+            "🍔 Vada Pav": ["🥔 Potato", "🧄 Garlic", "🌶️ Green Chili", "🍞 Pav", "🌿 Coriander"],
+            "🥟 Samosa": ["🥔 Potato", "🧅 Onion", "🌶️ Green Chili", "🌾 Flour", "🌿 Coriander"],
+            "🍲 Dhokla": ["🌽 Chickpea Flour", "🥛 Yogurt", "🧂 Salt", "🌶️ Green Chili"],
+            "🥘 Manchurian": ["🧅 Onion", "🥕 Carrot", "🥬 Cabbage", "🧄 Garlic", "🌶️ Spices", "🧂 Soy Sauce"],
+            "🥗 Bhel": ["🍚 Puffed Rice", "🍅 Tomato", "🧅 Onion", "🌶️ Green Chili", "🌿 Coriander"],
+            "🍯 Gulab Jamun": ["🥛 Khoya", "🌾 Flour", "🧂 Sugar"],
+            "🍪 Puran Poli": ["🌾 Wheat Flour", "🌾 Chana Dal", "🍯 Jaggery", "🧄 Cardamom"],
+            "🥟 Modak": ["🌾 Rice Flour", "🥥 Coconut", "🍯 Jaggery", "🧄 Cardamom"],
+            "🥗 Millet Salad": ["🌾 Millets", "🥒 Cucumber", "🍅 Tomato", "🧅 Onion", "🍋 Lemon", "🌿 Coriander"],
+            "🥤 Milkshake": ["🥛 Milk", "🍓 Fruits", "🍯 Sugar"],
+            "🍲 Pithla Bhakri": ["🌽 Chickpea Flour", "🧅 Onion", "🌶️ Green Chili", "🍞 Jowar Bhakri", "🌿 Coriander"],
+            "🍲 Upma": ["🌾 Semolina", "🧅 Onion", "🌶️ Green Chili", "🌿 Coriander"]
+        };
+
+        // DOM Elements
+        const orderElement = document.getElementById("order");
+        const timerElement = document.getElementById("timer");
+        const scoreElement = document.getElementById("score");
+        const messageElement = document.getElementById("message");
+        const correctRecipeElement = document.getElementById("correct-recipe");
+        const newGameButton = document.getElementById("new-game");
+
+        // Function to Start a New Round
+        function startNewRound() {
+            selectedIngredients = [];
+            timeLeft = 60;
+
+            const recipeNames = Object.keys(recipes);
+            currentOrder = recipeNames[Math.floor(Math.random() * recipeNames.length)];
+
+            orderElement.textContent = `Order: Make a ${currentOrder}`;
+            timerElement.textContent = `⏰ Time Left: ${timeLeft}`;
+            messageElement.textContent = "";
+            correctRecipeElement.textContent = "";
+            newGameButton.style.display = "none";
+
+            clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            if (timeLeft > 0) {
+                timeLeft--;
+                timerElement.textContent = `⏰ Time Left: ${timeLeft}`;
+            } else {
+                clearInterval(timerInterval);
+                checkOrder();
+                showCorrectRecipe();
+                newGameButton.style.display = "block";
+            }
+        }
+
+        function selectIngredient(ingredient) {
+            if (!selectedIngredients.includes(ingredient)) {
+                selectedIngredients.push(ingredient);
+                messageElement.textContent = `${ingredient} added!`;
+            }
+        }
+
+        function checkOrder() {
+            const correctIngredients = recipes[currentOrder].sort().join(",");
+            const playerIngredients = selectedIngredients.sort().join(",");
+
+            if (playerIngredients === correctIngredients) {
+                score += 10;
+                messageElement.style.color = "green";
+                messageElement.textContent = `🎉 Great! You made a ${currentOrder}!`;
+            } else {
+                score -= 5;
+                messageElement.style.color = "red";
+                messageElement.textContent = `❌ Oops! The ${currentOrder} was incorrect.`;
+            }
+
+            scoreElement.textContent = `⭐ Score: ${score}`;
+        }
+
+        function showCorrectRecipe() {
+            const correctIngredients = recipes[currentOrder].join(", ");
+            correctRecipeElement.textContent = `✔️ Correct Recipe for ${currentOrder}: ${correctIngredients}`;
+        }
+
+        document.querySelectorAll("#ingredients button").forEach(button => {
+            button.addEventListener("click", () => selectIngredient(button.textContent.trim()));
+        });
+
+        newGameButton.addEventListener("click", startNewRound);
+
+        startNewRound();
+    </script>
+</body>
+</html>
