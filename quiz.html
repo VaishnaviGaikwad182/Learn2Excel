@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Course Quiz</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.quiz-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+#quizQuestions {
+    margin-bottom: 20px;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+.question label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#quizResults {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Cooking Course Quiz</h1>
+        
+        <div id="quizQuestions">
+            <!-- Quiz Questions will be dynamically injected here -->
+        </div>
+        
+        <button id="submitQuiz">Submit Quiz</button>
+
+        <div id="quizResults"></div>
+    </div>
+
+    <script>
+        // Sample quiz questions and answers
+const quizQuestions = [
+    {
+        question: "What is the main ingredient in a traditional pizza dough?",
+        options: ["Flour", "Rice", "Potato", "Corn"],
+        correctAnswer: "Flour"
+    },
+    {
+        question: "Which spice is often used in Indian curries?",
+        options: ["Cumin", "Cinnamon", "Rosemary", "Oregano"],
+        correctAnswer: "Cumin"
+    },
+    {
+        question: "What type of cooking method is used to cook pasta?",
+        options: ["Boiling", "Grilling", "Frying", "Steaming"],
+        correctAnswer: "Boiling"
+    },
+    {
+        question: "Which fruit is used to make guacamole?",
+        options: ["Tomato", "Avocado", "Apple", "Banana"],
+        correctAnswer: "Avocado"
+    },
+    {
+        question: "What is the main ingredient in sushi?",
+        options: ["Rice", "Bread", "Pasta", "Cheese"],
+        correctAnswer: "Rice"
+    },
+];
+
+// Dynamically inject quiz questions into the HTML
+function loadQuiz() {
+    const quizContainer = document.getElementById('quizQuestions');
+    quizContainer.innerHTML = '';
+
+    quizQuestions.forEach((question, index) => {
+        const questionElement = document.createElement('div');
+        questionElement.classList.add('question');
+        
+        const questionLabel = document.createElement('label');
+        questionLabel.innerHTML = `${index + 1}. ${question.question}`;
+        questionElement.appendChild(questionLabel);
+
+        question.options.forEach((option, i) => {
+            const optionInput = document.createElement('input');
+            optionInput.type = 'radio';
+            optionInput.name = `question-${index}`;
+            optionInput.value = option;
+            const optionLabel = document.createElement('label');
+            optionLabel.innerHTML = option;
+
+            questionElement.appendChild(optionInput);
+            questionElement.appendChild(optionLabel);
+        });
+
+        quizContainer.appendChild(questionElement);
+    });
+}
+
+// Function to calculate score
+function calculateScore() {
+    let score = 0;
+
+    quizQuestions.forEach((question, index) => {
+        const selectedOption = document.querySelector(`input[name="question-${index}"]:checked`);
+        
+        if (selectedOption && selectedOption.value === question.correctAnswer) {
+            score++;
+        }
+    });
+
+    return score;
+}
+
+// Handle quiz submission
+document.getElementById('submitQuiz').addEventListener('click', function () {
+    const userId = localStorage.getItem('userId');  // User ID from localStorage
+    const lessonId = 1;  // Assume lesson ID is 1 for now
+    const totalQuestions = quizQuestions.length;
+    const correctAnswers = calculateScore();
+
+    const progressPercentage = Math.floor((correctAnswers / totalQuestions) * 100);
+
+    // Show results on the page
+    const quizResults = document.getElementById('quizResults');
+    quizResults.innerHTML = `
+        <h3>Your Score: ${progressPercentage}%</h3>
+        <p>${correctAnswers} out of ${totalQuestions} questions correct!</p>
+    `;
+
+    // Send progress to the backend
+    fetch('http://localhost:5000/quiz/complete-quiz', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId,
+            lessonId,
+            correctAnswers,
+            totalQuestions
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);  // "Quiz completed and progress updated"
+    })
+    .catch(error => {
+        alert('Error submitting quiz results');
+        console.error(error);
+    });
+});
+
+// Load quiz on page load
+document.addEventListener('DOMContentLoaded', loadQuiz);
+
+    </script>
+</body>
+</html>

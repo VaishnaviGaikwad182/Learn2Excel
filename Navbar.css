@@ -1,0 +1,123 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 2em;
+    background-color: #003049;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+  
+  /* Logo Section */
+  .navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .navbar .logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #eae2b7;
+  }
+  
+  .navbar .logo-img {
+    height: 40px;
+    width: auto;
+  }
+  
+  .navbar .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.4s ease;
+  }
+  
+  .navbar .logo a:hover .logo-text {
+    color: #dfe9e1;
+  }
+  
+  /* Navbar Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.2em;
+  }
+  
+  .nav-links a {
+    color: #fcfbff;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: bold;
+  }
+  
+  .nav-links li a:not(.signup-btn):hover {
+    color: #f4d03f;
+}
+ 
+/* Signup Button */
+.signup-btn {
+    background: #fca311;
+    color: #f1f3f4;
+    padding: 0.6rem 1.2rem; /* Balanced padding */
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.signup-btn:hover {
+    background: #ffba49;
+    color: #241e60; /* Text turns blue */
+}
+  
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fcfbff;
+    cursor: pointer;
+  }
+
+  .auth-links {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 8px;
+}
+
+.login-link {
+    color: #fcfbff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link:hover {
+    color: #f4d03f;
+}

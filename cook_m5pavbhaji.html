@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master the Art of Indian Cooking</title>
+    <link rel="stylesheet" href="cook_m2Daal.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="logo.png" alt="Learn2Excel Logo" class="logo-img">
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger" onclick="toggleMenu()">☰</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Savor spicy and buttery Pav Bhaji</h1>
+    </main>
+    
+    <div class="container">
+        <section>
+            <h2>Pav Bhaji</h2>
+            <h3>Ingredients:</h3>
+            <div class="recipe-content">
+                <div class="ingredients">
+                    <ul>
+                        <li>4 pav (bread rolls)</li>
+                        <li>3 potatoes (boiled and mashed)</li>
+                        <li>1/2 cup peas (boiled)</li>
+                        <li>1/2 cup cauliflower (boiled and mashed)</li>
+                        <li>1 onion (finely chopped)</li>
+                        <li>1 tomato (finely chopped)</li>
+                        <li>1 green chili (chopped)</li>
+                        <li>1 tbsp ginger-garlic paste</li>
+                        <li>1 tsp turmeric powder</li>
+                        <li>1 tbsp pav bhaji masala</li>
+                        <li>1/2 tsp chili powder</li>
+                        <li>2 tbsp butter</li>
+                        <li>Salt to taste</li>
+                        <li>Lemon wedges and chopped coriander (for garnish)</li>
+                    </ul>                   
+                </div>
+                <div class="recipe-image">
+                    <img src="pav-bhaji.jpg" alt="pav-bhaji" width="400">
+                </div>
+            </div>
+            <h3>Recipe:</h3>
+            <ol>
+                <li>Heat butter in a pan. Sauté onions, green chili, and ginger-garlic paste till fragrant.</li>
+                <li>Add tomatoes and cook till soft. Add turmeric, chili powder, pav bhaji masala, and salt.</li>
+                <li>Add mashed potatoes, cauliflower, and peas. Mix and mash everything together. Simmer for 10 minutes.</li>
+                <li>Toast pav with butter on a pan till golden.</li>
+                <li>Serve bhaji with pav, lemon wedges, and coriander on top.</li>
+            </ol>            
+        </section>
+    </div>
+    <footer>
+        <p>© 2025 Cooking Skill Development | <a href="#">Contact Us</a></p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+       const hamburger = document.querySelector(".hamburger");
+       const navLinks = document.querySelector(".nav-links");
+   
+       if (!hamburger || !navLinks) {
+           console.error("Navbar elements not found!");
+           return;
+       }
+   
+       hamburger.addEventListener("click", function () {
+           navLinks.classList.toggle("active");
+       });
+   });
+   </script>
+</body>
+</html>
