@@ -4,23 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn2Excel</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/main/style.css">
 </head>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-    
-        if (!hamburger || !navLinks) {
-            console.error("Navbar elements not found!");
-            return;
-        }
-    
-        hamburger.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
-        });
-    });
-</script>
 <body>
     <!-- Navbar -->
     <header>
@@ -28,7 +13,7 @@
             <!-- Logo Section (Image + Text) -->
             <div class="logo">
                 <a href="#home">
-                    <img src="logo.png" alt="Learn2Excel Logo" class="logo-img">
+                    <img src="assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img">
                     <span class="logo-text">Learn2Excel</span>
                 </a>
             </div>
@@ -41,9 +26,9 @@
                 <li><a href="#about">About Us</a></li>
             </ul>
             <div class="auth-links">
-                <a href="login.html" class="login-link">Login</a>
-                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
-                <button class="hamburger" onclick="toggleMenu()">☰</button>
+                <a href="pages/auth/login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="pages/auth/signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
             </div>
         </nav>
     </header>
@@ -69,25 +54,25 @@
         <h2>Explore Top Skills</h2>
         <div class="skills-grid">
             <div class="card">
-                <img src="farming.jpg" alt="farming">
+                <img src="assets/images/farming/farming.jpg" alt="farming">
                 <h3>Farming and Gardening</h3>
                 <p>Unlock the secrets to sustainable farming and grow your own food with expert tips!</p>
                 <button class="btn">Explore</button>
             </div>
             <div class="card">
-                <img src="cooking.png" alt="Cooking">
+                <img src="assets/images/cooking/cooking.png" alt="Cooking">
                 <h3>Cooking</h3>
                 <p>Master the kitchen and delight your taste buds with easy-to-follow recipes.</p>
-                <button class="btn" id="open-cooking">Explore</button>
+                <button class="btn" id="open-cooking" onclick="window.location.href='pages/courses/cooking.html'">Explore</button>
             </div>
             <div class="card">
-                <img src="selfdefence.png" alt="self defense">
+                <img src="assets/images/self-defense/selfdefence.png" alt="self defense">
                 <h3>Self Defense</h3>
                 <p>Empower yourself with the knowledge and skills to protect what matters most.</p>
                 <button class="btn">Explore</button>
             </div>
             <div class="card">
-                <img src="finance.png" alt="financial planning">
+                <img src="assets/images/finance/finance.png" alt="financial planning">
                 <h3>Financial Planning</h3>
                 <p>Take control of your financial future with smart, actionable planning techniques.</p>
                 <button class="btn">Explore</button>
@@ -142,6 +127,6 @@
         </div>
         <p>&copy; 2025 Learn2Excel. All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="assets/js/main/script.js"></script>
     </body>
 </html>

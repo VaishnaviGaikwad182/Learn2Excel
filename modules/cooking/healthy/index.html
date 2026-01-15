@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Cooking Guide</title>
+    <link rel="stylesheet" href="../../../assets/css/modules/cook_m2.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="../../../assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img">
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="../../../index.html#home">Home</a></li>
+                <li><a href="../../../index.html#courses">Courses</a></li>
+                <li><a href="../../../index.html#testimonials">Testimonials</a></li>
+                <li><a href="../../../#about">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Healthy Cooking, Happy Living – Nourish Your Body, One Meal at a Time!</h1>
+    </main>
+
+    <div class="container">
+        <div class="card-grid">
+            <a href="salad.html" class="card">
+                <img src="../../../assets/images/cooking/salad.jpg" alt="salad">
+                <h2>Salads</h2>
+                <p>Fresh, nutritious, and crunchy vegetable or fruit-based preparations.</p>
+            </a>
+
+            <a href="millet.html" class="card">
+                <img src="../../../assets/images/cooking/millets.jpg" alt="millets">
+                <h2>Millets</h2>
+                <p>Nutritious and fiber-rich grains cooked in various forms like porridge, rotis, and khichdi.</p>
+            </a>
+
+            <a href="milkshake.html" class="card">
+                <img src="../../../assets/images/cooking/milkshakes.jpg" alt="milkshakes">
+                <h2>Milkshakes</h2>
+                <p> A creamy and refreshing blend of milk, fruits, and sweeteners.</p>
+            </a>
+            <a href="upma.html" class="card">
+                <img src="../../../assets/images/cooking/upma.jpg" alt="upma">
+                <h2>Upma</h2>
+                <p>A South Indian savory dish made with roasted semolina, veggies, and tempered spices.</p>
+            </a>
+        </div>
+    </div>
+    <div style="text-align: center; width: 100%;">
+        <div class="quiz-container">
+            <a href="../../../quizzes/cooking/quiz7.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Cooking Skill Development | <a href="#">Contact Us</a></p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+       const hamburger = document.querySelector(".hamburger");
+       const navLinks = document.querySelector(".nav-links");
+   
+       if (!hamburger || !navLinks) {
+           console.error("Navbar elements not found!");
+           return;
+       }
+   
+       hamburger.addEventListener("click", function () {
+           navLinks.classList.toggle("active");
+       });
+   });
+   </script>
+</body>
+</html>
+
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master the Art of Indian Cooking</title>
+    <link rel="stylesheet" href="../../../assets/css/modules/cook_m2Daal.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="../../../assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img">
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+    
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="../../../index.html#home">Home</a></li>
+                <li><a href="../../../index.html#courses">Courses</a></li>
+                <li><a href="../../../index.html#testimonials">Testimonials</a></li>
+                <li><a href="../../../#about">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Enjoy Various types of Chutneys</h1>
+    </main>
+    
+    <div class="container">
+        <section>
+            <h2>Peanut Chutney</h2>
+            <h3>Ingredients:</h3>
+            <div class="recipe-content">
+                <div class="ingredients">
+                <ul>
+                    <li>1/2 cup peanuts (roasted)</li>
+                    <li>2 garlic cloves</li>
+                    <li>salt to taste</li>
+                    <li>1 tsp red chili powder</li>
+                    <li>2 tbsp cumin seeds (jeera seeds)</li>
+                </ul>
+                </div>
+                <div class="recipe-image">
+                    <img src="../../../assets/images/cooking/peanutChutney.jpg" alt="peanutChutney" width="300">
+                </div>
+            </div>
+            <h3>Recipe:</h3>
+            <ol>
+                <li>Roast peanuts till golden, then cool.</li>
+                <li>Coursely grind peanuts with garlic, red chili powder, cumin seeds and salt.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Green Chili Chutney (Thecha)</h2>
+            <h3>Ingredients:</h3>
+            <div class="recipe-content">
+                <div class="ingredients">
+                <ul>
+                    <li>10-12 green chilies</li>
+                    <li>2 tbsp roasted peanuts</li>
+                    <li>1 tbsp coriander leaves</li>
+                    <li>1 tbsp oil</li>
+                    <li>Salt to taste</li>
+                </ul>
+                </div>
+                <div class="recipe-image">
+                    <img src="../../../assets/images/cooking/thecha.jpg" alt="thecha" width="300">
+                </div>
+            </div>
+            <h3>Recipe:</h3>
+            <ol>
+                <li>Roast green chilies and garlic in oil till blistered and fragrant.</li>
+                <li>Pound or blend with salt and coriander (make it coarse for rustic texture).</li>
+                <li>Mix in roasted peanuts for added texture and a slightly milder heat.</li>
+            </ol>
+        </section>
+        <section>
+            <h2> Raw Mango Chutney (Kairi Chutney)</h2>
+            <h3>Ingredients:</h3>
+            <div class="recipe-content">
+                <div class="ingredients">
+                <ul>
+                    <li>1 raw mango (peeled, chopped)</li>
+                    <li>1 big onion chopped</li>
+                    <li>2 tbsp raw peanuts</li>
+                    <li>2-3 green chilies</li>
+                    <li>2 garlic cloves</li>
+                    <li>Salt to taste</li>
+                </ul>
+                </div>
+                <div class="recipe-image">
+                    <img src="../../../assets/images/cooking/rawMangoChutney.jpg" alt="rawMangoChutney" width="300">
+                </div>
+            </div>
+            <h3>Recipe:</h3>
+            <ol>
+                <li>Mash mango, onion, chilies, garlic and salt together to a roughly grinded chutney.</li>
+                <li>Adjust spice and salt to taste.</li>
+            </ol>
+        </section>
+    </div>
+    <footer>
+        <p>© 2025 Cooking Skill Development | <a href="#">Contact Us</a></p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+       const hamburger = document.querySelector(".hamburger");
+       const navLinks = document.querySelector(".nav-links");
+   
+       if (!hamburger || !navLinks) {
+           console.error("Navbar elements not found!");
+           return;
+       }
+   
+       hamburger.addEventListener("click", function () {
+           navLinks.classList.toggle("active");
+       });
+   });
+   </script>
+</body>
+</html>
+
