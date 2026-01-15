@@ -108,10 +108,8 @@ learn2excel-project/
 │       ├── quiz7.html          # cook_q7.html
 │       └── quiz8.html          # cook_q8.html
 ├── games/                      # Interactive games
-│   ├── time-management.html    # Cook_Game1.html
-│   └── memory-game.html        # Cook_Game2.html
-└── shared/                     # Shared components
-    ├── components/             # Reusable HTML components
-    └── utils/                  # Utility scripts
+   ├── time-management.html     # Cook_Game1.html
+   └── memory-game.html         # Cook_Game2.html
+
 ```
 
