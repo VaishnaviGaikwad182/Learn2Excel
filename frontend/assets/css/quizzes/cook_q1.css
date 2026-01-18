@@ -1,0 +1,134 @@
+/* ===== Base Layout ===== */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* ✅ CENTER LIKE BEFORE */
+  height: 100vh;
+  position: relative;
+}
+
+/* Background Image Overlay */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../../images/cooking/cook_quiz.jpg') no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* ===== Quiz Container ===== */
+.quiz-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  border: 0.3rem solid rgb(10, 62, 24);
+}
+
+/* ===== Question ===== */
+#question {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* ===== Options (RESTORED) ===== */
+.option {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: #f1f1f1; /* ✅ ORIGINAL HOVER */
+}
+
+.option.selected {
+  background-color: #4caf50; /* ✅ ORIGINAL SELECT */
+  color: #ffffff;
+  border-color: #4caf50;
+}
+
+/* ===== Controls ===== */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #0b0b0b;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Reset Button */
+#reset-btn {
+  background-color: red;
+  color: white;
+}
+
+#reset-btn:hover {
+  background-color: darkred;
+}
+
+/* ===== Results Section ===== */
+#result-container {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Result Items */
+.result-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+}
+
+.result-item.correct {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+}
+
+.result-item.wrong {
+  background-color: #f8d7da;
+  border-left: 5px solid #dc3545;
+}
+
+/* Final Score */
+.final-score {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+}
