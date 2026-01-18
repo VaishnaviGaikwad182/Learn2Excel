@@ -22,9 +22,8 @@
 ## Project Structure
 
 ```
-learn2excel-project/
+learn2excel-project/frontend
 ├── index.html                  # Main landing page
-├── README.md                   # Project documentation
 ├── assets/                     # Static assets
 │   ├── images/                 # All images (organized by category)
 │   │   ├── logos/              # logo.png
@@ -36,13 +35,11 @@ learn2excel-project/
 │   ├── css/                    # All CSS files
 │   │   ├── main/               # style.css, Navbar.css, cooking.css
 │   │   ├── modules/            # cook_m1.css, cook_m2.css, etc.
-│   │   ├── quizzes/            # cook_q1.css, etc.
-│   │   └── auth/               # Login/signup styles if separate
+│   │   └── quizzes/            # cook_q1.css, etc.
 │   └── js/                     # All JavaScript files
 │       ├── main/               # script.js
 │       ├── modules/            # cook_m1.js, cook_m2.js, etc.
-│       ├── quizzes/            # cook_q1.js, cook_q2.js, etc.
-│       └── auth/               # Authentication scripts if any
+│       └── quizzes/            # cook_q1.js, cook_q2.js, etc.
 ├── pages/                      # Main application pages
 │   ├── auth/                   # Authentication pages
 │   │   ├── login.html
@@ -52,8 +49,8 @@ learn2excel-project/
 │   │   ├── farming.html        # (when implemented)
 │   │   ├── self-defense.html   # (when implemented)
 │   │   └── finance.html        # (when implemented)
-│   ├── planner.html            # Meal planner
-│   └── quiz.html               # General quiz page
+│   └── profile/                
+│       └── profile.html        # profile page
 ├── modules/                    # Course modules
 │   └── cooking/                # Cooking course modules
 │       ├── basics/             # Module 1
@@ -107,9 +104,9 @@ learn2excel-project/
 │       ├── quiz6.html          # cook_q6.html
 │       ├── quiz7.html          # cook_q7.html
 │       └── quiz8.html          # cook_q8.html
-├── games/                      # Interactive games
-   ├── time-management.html     # Cook_Game1.html
-   └── memory-game.html         # Cook_Game2.html
+└── games/                      # Interactive games
+      ├── time-management.html  # Cook_Game1.html
+      └── memory-game.html      # Cook_Game2.html
 
 ```
 

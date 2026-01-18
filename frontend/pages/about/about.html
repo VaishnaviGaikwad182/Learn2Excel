@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Us | Learn2Excel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- KEEP EXISTING NAVBAR STYLE -->
+    <link rel="stylesheet" href="../../assets/css/main/cooking.css" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f8f1e9;
+        color: #333;
+      }
+
+      /* HERO – KEEP SAME STYLE */
+      .about-hero {
+        height: 60vh;
+        background:
+          linear-gradient(rgba(0, 48, 73, 0.75), rgba(0, 48, 73, 0.75)),
+          url("../../assets/images/ui/c_hero.png") center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #eae2b7;
+        padding: 2rem;
+        margin-top: 3.5rem;
+      }
+
+      .about-hero h1 {
+        font-size: 3rem;
+      }
+
+      .about-hero p {
+        font-size: 1.4rem;
+        margin-top: 0.5rem;
+      }
+
+      /* MAIN CONTENT */
+      .about-wrapper {
+        max-width: 1100px;
+        margin: auto;
+        padding: 4rem 1.5rem;
+      }
+
+      /* INFO CARDS */
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .info-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        border-top: 6px solid #fca311;
+      }
+
+      .info-card h2 {
+        color: #003049;
+        margin-bottom: 0.6rem;
+      }
+
+      /* ===== ENHANCED FEATURE CARD (NO LAYOUT CHANGE) ===== */
+
+      .difference-section {
+        background:  #fdfcfa;
+        padding: 3.5rem 2rem;
+        border-radius: 18px;
+        border: 2px solid rgba(252, 163, 17, 0.35);
+        margin-bottom: 4rem;
+      }
+
+      .difference-section h2 {
+        text-align: center;
+        color: #003049;
+        font-size: 2.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .divider {
+        width: 80px;
+        height: 4px;
+        background: #fca311;
+        margin: 0 auto 2.5rem;
+        border-radius: 4px;
+      }
+
+      .difference-content {
+        max-width: 900px;
+        margin: auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      .difference-content p {
+        margin-bottom: 1.2rem;
+      }
+
+      .highlight-text {
+        font-weight: bold;
+        color: #003049;
+        margin-top: 1.8rem;
+        font-size: 1.35rem;
+        letter-spacing: 0.5px;
+      }
+
+      .highlight-box {
+        margin-top: 2.5rem;
+        padding: 1.8rem 2rem;
+        background: #fff3d6; 
+        border-radius: 12px;
+        box-shadow: inset 0 0 0 1px rgba(252, 163, 17, 0.2);
+      }
+
+      .highlight-text {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #003049;
+        margin-bottom: 0.6rem;
+        letter-spacing: 0.5px;
+      }
+
+      .highlight-desc {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #444;
+      }
+
+      /* CTA STRIP */
+      .cta-strip {
+        background: #fca311;
+        color: #003049;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .cta-strip h2 {
+        font-size: 2rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .cta-strip p {
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 768px) {
+        .about-hero h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="/frontend/index.html">
+            <img src="../../assets/images/logos/logo.png" class="logo-img" />
+            <span class="logo-text">Learn2Excel</span>
+          </a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="/frontend/index.html#home">Home</a></li>
+          <li><a href="/frontend/index.html#courses">Courses</a></li>
+          <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+          <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+        </ul>
+
+        <div class="auth-links"></div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="about-hero">
+      <h1>Building Skills That Matter</h1>
+      <p>Practical learning designed for real-world success</p>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="about-wrapper">
+      <!-- INFO CARDS -->
+      <div class="info-grid">
+        <div class="info-card">
+          <h2>Who We Are</h2>
+          <p>
+            Learn2Excel is a skill-focused learning platform built to help
+            learners grow through structured content and real practice.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h2>Our Mission</h2>
+          <p>
+            To make learning practical, engaging, and outcome-driven for every
+            user.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h2>Our Vision</h2>
+          <p>
+            To bridge the gap between knowledge and application through modern
+            learning.
+          </p>
+        </div>
+      </div>
+
+      <!-- FEATURE CARD -->
+      <div class="difference-section">
+        <h2>What Sets Learn2Excel Apart</h2>
+        <div class="divider"></div>
+
+        <div class="difference-content">
+          <p>
+            Learn2Excel is built for learners who want more than just
+            information. We believe real learning happens when concepts are
+            practiced, progress is tracked, and skills are applied with
+            confidence. Our platform combines structured lessons, interactive
+            assessments, and clear performance insights to keep learners
+            motivated and moving forward.
+          </p>
+
+          <div class="highlight-box">
+            <p class="highlight-text">Learn • Practice • Excel</p>
+            <p class="highlight-desc">
+              This is more than a tagline — it’s our approach. Every feature is
+              thoughtfully designed to support confident learning, measurable
+              progress, and meaningful skill development that lasts.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-strip">
+        <h2>Start Your Learning Journey Today</h2>
+        <p>Grow skills. Track progress. Achieve excellence.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 Learn2Excel | Learn. Practice. Excel.</p>
+    </footer>
+
+    <script src="../../assets/js/main/script.js"></script>
+  </body>
+</html>

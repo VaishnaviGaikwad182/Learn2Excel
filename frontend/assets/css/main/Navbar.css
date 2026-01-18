@@ -1,0 +1,195 @@
+/* =========================
+   GENERAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 2em;
+    background-color: #003049;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   LOGO
+========================= */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar .logo a {
+    display: flex;
+    align-items: center;
+    color: #eae2b7;
+}
+
+.navbar .logo-img {
+    height: 40px;
+}
+
+.navbar .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar .logo a:hover .logo-text {
+    color: #dfe9e1;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.2em;
+}
+
+.nav-links a {
+    color: #fcfbff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #f4d03f;
+}
+
+/* =========================
+   AUTH LINKS (RIGHT SIDE)
+========================= */
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Login link */
+.login-link {
+    color: #fcfbff;
+    font-weight: bold;
+}
+
+.login-link:hover {
+    color: #f4d03f;
+}
+
+/* Signup button */
+.signup-btn {
+    background: #fca311;
+    color: #f1f3f4;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.signup-btn:hover {
+    background: #ffba49;
+    color: #241e60;
+}
+
+/* =========================
+   USER PROFILE (LOGGED IN)
+========================= */
+.user-profile {
+    position: relative;
+}
+
+/* Circular avatar */
+.profile-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fca311, #ffba49);
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Dropdown menu */
+.profile-dropdown .dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 52px;
+    background: #ffffff;
+    border-radius: 8px;
+    min-width: 160px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    display: none;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+/* Show dropdown */
+.profile-dropdown.active .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #003049;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #f1f1f1;
+}
+
+/* =========================
+   HAMBURGER (MOBILE)
+========================= */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fcfbff;
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
