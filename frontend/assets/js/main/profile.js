@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadUserProfile();
   loadQuizResults();
+  loadCourseProgress();
 });
 
 /********************************
@@ -104,6 +105,49 @@ async function loadQuizResults() {
   } catch (err) {
     console.error(err);
     resultsContainer.innerHTML = `<div class="no-results">Error loading results.</div>`;
+  }
+}
+
+/********************************
+ 📊 COURSE PROGRESS BARS
+********************************/
+async function loadCourseProgress() {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  try {
+    const res = await fetch(
+      `http://localhost:3000/api/progress/course-progress/${user.id}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
+
+    if (!res.ok) return;
+
+    const data = await res.json();
+
+    const courses = ["cooking", "farming", "self_defence", "finance"];
+    let html = "";
+
+    courses.forEach((course) => {
+      const progress = data[course] || { learned: 0, total: 0, percent: 0 };
+      html += `
+        <div class="course-progress">
+          <div class="course-title">${course.replace("_", " ").toUpperCase()}</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: ${progress.percent}%"></div>
+          </div>
+          <div class="progress-info">
+            ${progress.learned} / ${progress.total} modules completed (${progress.percent}%)
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById("courseProgressContainer").innerHTML = html;
+  } catch (err) {
+    console.error(err);
   }
 }
 

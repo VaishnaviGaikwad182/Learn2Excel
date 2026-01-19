@@ -29,6 +29,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hamburger && navLinks) {
         hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
     }
+
+    /* ===============================
+       📘 LEARN PROGRESS TRACKING
+       =============================== */
+    const body = document.body;
+    const course = body.dataset.course;
+    const moduleNumber = body.dataset.module;
+
+    if (course && moduleNumber) {
+        const token = localStorage.getItem("token");
+        if (token) {
+            fetch("http://localhost:3000/api/progress/learn", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + token
+                },
+                body: JSON.stringify({
+                    course,
+                    module_number: Number(moduleNumber)
+                })
+            }).catch(err =>
+                console.error("Progress update failed", err)
+            );
+        }
+    }
 });
 
 // ===========================
