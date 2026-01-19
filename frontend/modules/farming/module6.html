@@ -1,260 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pest and Disease Control for Farming and Gardening in India</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            font-family: Arial, sans-serif;
-            background-color: #f5fff0;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        background-color: #f5fff0;
+      }
 
-        /* Navbar Styling */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5em 1em;
-            background-color: #003049;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            height: 3.5rem;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            box-sizing: border-box;
-        }
+      /* Navbar Styling */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em 1em;
+        background-color: #003049;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: 3.5rem;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+      }
 
-        /* Logo Section */
-        .navbar .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+      /* Logo Section */
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
 
-        .navbar .logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #eae2b7;
-        }
+      .navbar .logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #eae2b7;
+      }
 
-        .navbar .logo-img {
-            height: 40px;
-            width: auto;
-        }
+      .navbar .logo-img {
+        height: 40px;
+        width: auto;
+      }
 
-        .navbar .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: color 0.4s ease;
-        }
+      .navbar .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: color 0.4s ease;
+      }
 
-        .navbar .logo a:hover .logo-text {
-            color: #dfe9e1;
-        }
+      .navbar .logo a:hover .logo-text {
+        color: #dfe9e1;
+      }
 
-        /* Navbar Links */
+      /* Navbar Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.2em;
+      }
+
+      .nav-links a {
+        color: #fcfbff;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: bold;
+      }
+
+      .nav-links li a:not(.signup-btn):hover {
+        color: #f4d03f;
+      }
+
+      /* Signup Button */
+      .signup-btn {
+        background: #fca311;
+        color: #f1f3f4;
+        padding: 0.6rem 1.2rem;
+        border-radius: 5px;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      .signup-btn:hover {
+        background: #ffba49;
+        color: #241e60;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: #fcfbff;
+        cursor: pointer;
+      }
+
+      .auth-links {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 8px;
+      }
+
+      .login-link {
+        color: #fcfbff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .login-link:hover {
+        color: #f4d03f;
+      }
+
+      /* Profile dropdown styles */
+      .profile-dropdown {
+        position: relative;
+      }
+
+      .profile-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fca311, #ffba49);
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .profile-dropdown .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 52px;
+        background: #ffffff;
+        border-radius: 8px;
+        min-width: 160px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        display: none;
+        overflow: hidden;
+        z-index: 2000;
+      }
+
+      .profile-dropdown.active .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 12px 16px;
+        color: #003049;
+        font-weight: 500;
+        transition: background 0.2s ease;
+      }
+
+      .dropdown-menu a:hover {
+        background: #f1f1f1;
+      }
+
+      /* ================== MOBILE NAVBAR ================== */
+      @media (max-width: 768px) {
         .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.2em;
+          position: absolute;
+          top: 3.5rem;
+          left: 0;
+          right: 0;
+          background: #003049;
+          flex-direction: column;
+          gap: 0;
+          display: none;
         }
 
-        .nav-links a {
-            color: #fcfbff;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: bold;
+        .nav-links li {
+          text-align: center;
+          padding: 12px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .nav-links li a:not(.signup-btn):hover {
-            color: #f4d03f;
+        .nav-links.active {
+          display: flex;
         }
 
-        /* Signup Button */
-        .signup-btn {
-            background: #fca311;
-            color: #f1f3f4;
-            padding: 0.6rem 1.2rem;
-            border-radius: 5px;
-            border: none;
-            text-decoration: none;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .signup-btn:hover {
-            background: #ffba49;
-            color: #241e60;
-        }
-
-        /* Hamburger Menu */
         .hamburger {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            color: #fcfbff;
-            cursor: pointer;
+          display: block;
         }
+      }
 
-        .auth-links {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 8px;
-        }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
 
-        .login-link {
-            color: #fcfbff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
 
-        .login-link:hover {
-            color: #f4d03f;
-        }
+      h2 {
+        color: #4d290f;
+        font-size: 1.8rem;
+      }
 
-        /* Profile dropdown styles */
-        .profile-dropdown {
-            position: relative;
-        }
+      h3 {
+        color: #1f989a;
+        font-size: 1.5rem;
+      }
 
-        .profile-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #fca311, #ffba49);
-            color: #fff;
-            font-weight: bold;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            user-select: none;
-        }
+      ul {
+        padding-left: 20px;
+      }
 
-        .profile-dropdown .dropdown-menu {
-            position: absolute;
-            right: 0;
-            top: 52px;
-            background: #ffffff;
-            border-radius: 8px;
-            min-width: 160px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            display: none;
-            overflow: hidden;
-            z-index: 2000;
-        }
+      ul li {
+        margin-bottom: 8px;
+      }
 
-        .profile-dropdown.active .dropdown-menu {
-            display: block;
-        }
+      table {
+        width: 90%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
 
-        .dropdown-menu a {
-            display: block;
-            padding: 12px 16px;
-            color: #003049;
-            font-weight: 500;
-            transition: background 0.2s ease;
-        }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
 
-        .dropdown-menu a:hover {
-            background: #f1f1f1;
-        }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+      }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 20px;
+      th {
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      td {
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
         }
 
         .card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+          margin: 10px 0;
         }
+      }
 
-        h2 {
-            color: #4d290f;
-            font-size: 1.8rem;
-        }
+      .class1 {
+        padding-top: 2em;
+      }
 
-        h3 {
-            color: #1f989a;
-            font-size: 1.5rem;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin-bottom: 8px;
-        }
-
-        table {
-            width: 90%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid #ddd;
-        }
-
-        th,
-        td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        td {
-            background-color: #f9f9f9;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            .card {
-                margin: 10px 0;
-            }
-        }
-
-        .class1 {
-            padding-top: 2em;
-        }
-
-        /* ================== QUIZ ================== */
+      /* ================== QUIZ ================== */
       .quiz-container {
         display: flex;
         justify-content: center;
@@ -293,181 +319,320 @@
         text-decoration: underline;
       }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <nav class="navbar">
-            <!-- Logo Section (Image + Text) -->
-            <div class="logo">
-                <a href="#home">
-                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
-                    <span class="logo-text">Learn2Excel</span>
-                </a>
-            </div>
+      <nav class="navbar">
+        <!-- Logo Section (Image + Text) -->
+        <div class="logo">
+          <a href="#home">
+            <img
+              src="/frontend/assets/images/logos/logo.png"
+              alt="Learn2Excel Logo"
+              class="logo-img"
+            />
+            <span class="logo-text">Learn2Excel</span>
+          </a>
+        </div>
 
-            <!-- Navigation Links -->
-            <ul class="nav-links">
-                <li><a href="/frontend/index.html#home">Home</a></li>
-                <li><a href="/frontend/index.html#courses">Courses</a></li>
-                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
-                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
-            </ul>
-            <div class="auth-links">
-                <a href="login.html" class="login-link">Login</a>
-                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
-                <button class="hamburger">☰</button>
-            </div>
-        </nav>
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="/frontend/index.html#home">Home</a></li>
+          <li><a href="/frontend/index.html#courses">Courses</a></li>
+          <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+          <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+        </ul>
+        <div class="auth-links">
+          <a href="login.html" class="login-link">Login</a>
+          <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+          <button class="hamburger">☰</button>
+        </div>
+      </nav>
     </header>
 
     <div class="container">
+      <!-- Pest and Disease Control Title -->
+      <div class="card">
+        <h2>Pest and Disease Control for Farming and Gardening in India</h2>
+        <p>
+          Effective pest and disease control are essential for ensuring healthy
+          crops and plants in both farming and gardening. Pests and diseases can
+          cause significant damage, reduce yields, and impact the quality of the
+          produce. In India, with its diverse climatic conditions and
+          agricultural practices, pest and disease management is a critical part
+          of both large-scale farming and home gardening.
+        </p>
+      </div>
 
-        <!-- Pest and Disease Control Title -->
-        <div class="card">
-            <h2>Pest and Disease Control for Farming and Gardening in India</h2>
-            <p>
-                Effective pest and disease control are essential for ensuring healthy crops and plants in both farming and gardening. Pests and diseases can cause significant damage, reduce yields, and impact the quality of the produce. In India, with its diverse climatic conditions and agricultural practices, pest and disease management is a critical part of both large-scale farming and home gardening.
-            </p>
-        </div>
+      <!-- Pest Control in Farming and Gardening -->
+      <div class="card">
+        <h3>Pest Control in Farming and Gardening</h3>
+        <p>
+          Pests are organisms that can harm plants by feeding on leaves, roots,
+          stems, or fruit. In India, common pests include insects, rodents, and
+          birds, and their control is crucial for crop health.
+        </p>
+      </div>
 
-        <!-- Pest Control in Farming and Gardening -->
-        <div class="card">
-            <h3>Pest Control in Farming and Gardening</h3>
-            <p>
-                Pests are organisms that can harm plants by feeding on leaves, roots, stems, or fruit. In India, common pests include insects, rodents, and birds, and their control is crucial for crop health.
-            </p>
-        </div>
+      <!-- Common Pests in Indian Farming and Gardening -->
+      <div class="card">
+        <h4>Common Pests in Indian Farming and Gardening</h4>
+        <ul>
+          <li>
+            <strong>Aphids</strong> – Small sap-sucking insects that can stunt
+            plant growth and transmit viruses.
+          </li>
+          <li>
+            <strong>Whiteflies</strong> – Known to attack vegetables and fruit
+            crops, causing yellowing of leaves and stunted growth.
+          </li>
+          <li>
+            <strong>Termites</strong> – Wood-feeding insects that affect trees,
+            crops, and structures.
+          </li>
+          <li>
+            <strong>Fruit Flies</strong> – Cause damage by laying eggs in fruit,
+            leading to rotting.
+          </li>
+          <li>
+            <strong>Caterpillars and Worms</strong> – Larvae of moths and
+            butterflies that damage leaves, flowers, and fruit.
+          </li>
+          <li>
+            <strong>Rodents (Rats and Mice)</strong> – Can damage seedlings,
+            crops, and storage facilities.
+          </li>
+        </ul>
+      </div>
 
-        <!-- Common Pests in Indian Farming and Gardening -->
-        <div class="card">
-            <h4>Common Pests in Indian Farming and Gardening</h4>
-            <ul>
-                <li><strong>Aphids</strong> – Small sap-sucking insects that can stunt plant growth and transmit viruses.</li>
-                <li><strong>Whiteflies</strong> – Known to attack vegetables and fruit crops, causing yellowing of leaves and stunted growth.</li>
-                <li><strong>Termites</strong> – Wood-feeding insects that affect trees, crops, and structures.</li>
-                <li><strong>Fruit Flies</strong> – Cause damage by laying eggs in fruit, leading to rotting.</li>
-                <li><strong>Caterpillars and Worms</strong> – Larvae of moths and butterflies that damage leaves, flowers, and fruit.</li>
-                <li><strong>Rodents (Rats and Mice)</strong> – Can damage seedlings, crops, and storage facilities.</li>
-            </ul>
-        </div>
+      <!-- Pest Control Methods -->
+      <div class="card">
+        <h4>Pest Control Methods</h4>
+        <p><strong>Cultural Control:</strong></p>
+        <ul>
+          <li>
+            <strong>Crop Rotation</strong> – Prevents the buildup of pest
+            populations by changing the type of crop grown each season.
+          </li>
+          <li>
+            <strong>Intercropping</strong> – Planting multiple crops together
+            can confuse pests and reduce pest attacks.
+          </li>
+          <li>
+            <strong>Proper Spacing</strong> – Ensuring plants are well-spaced to
+            allow good airflow can reduce pest infestations.
+          </li>
+        </ul>
 
-        <!-- Pest Control Methods -->
-        <div class="card">
-            <h4>Pest Control Methods</h4>
-            <p><strong>Cultural Control:</strong></p>
-            <ul>
-                <li><strong>Crop Rotation</strong> – Prevents the buildup of pest populations by changing the type of crop grown each season.</li>
-                <li><strong>Intercropping</strong> – Planting multiple crops together can confuse pests and reduce pest attacks.</li>
-                <li><strong>Proper Spacing</strong> – Ensuring plants are well-spaced to allow good airflow can reduce pest infestations.</li>
-            </ul>
+        <p><strong>Biological Control:</strong></p>
+        <ul>
+          <li>
+            <strong>Beneficial Insects</strong> – Introducing natural predators
+            (e.g., ladybugs for aphids) to control pest populations.
+          </li>
+          <li>
+            <strong>Neem Oil</strong> – A natural pesticide that works
+            effectively against pests like aphids, whiteflies, and caterpillars.
+          </li>
+          <li>
+            <strong>Insecticidal Soap</strong> – Used to control soft-bodied
+            insects without harming beneficial insects.
+          </li>
+        </ul>
 
-            <p><strong>Biological Control:</strong></p>
-            <ul>
-                <li><strong>Beneficial Insects</strong> – Introducing natural predators (e.g., ladybugs for aphids) to control pest populations.</li>
-                <li><strong>Neem Oil</strong> – A natural pesticide that works effectively against pests like aphids, whiteflies, and caterpillars.</li>
-                <li><strong>Insecticidal Soap</strong> – Used to control soft-bodied insects without harming beneficial insects.</li>
-            </ul>
+        <p><strong>Chemical Control:</strong></p>
+        <ul>
+          <li>
+            <strong>Chemical Pesticides</strong> – In cases of severe pest
+            attacks, chemical pesticides like cypermethrin or malathion are
+            used. However, their usage must be controlled to avoid resistance
+            buildup and environmental damage.
+          </li>
+          <li>
+            <strong>Organic Pesticides</strong> – Chemicals like garlic or
+            chilli-based sprays that are safer for the environment and
+            beneficial insects.
+          </li>
+        </ul>
 
-            <p><strong>Chemical Control:</strong></p>
-            <ul>
-                <li><strong>Chemical Pesticides</strong> – In cases of severe pest attacks, chemical pesticides like cypermethrin or malathion are used. However, their usage must be controlled to avoid resistance buildup and environmental damage.</li>
-                <li><strong>Organic Pesticides</strong> – Chemicals like garlic or chilli-based sprays that are safer for the environment and beneficial insects.</li>
-            </ul>
+        <p><strong>Physical Barriers:</strong></p>
+        <ul>
+          <li>
+            <strong>Netting and Mesh</strong> – Used to protect crops from birds
+            and insects.
+          </li>
+          <li>
+            <strong>Traps</strong> – Sticky traps and pheromone traps can be
+            used for controlling pests like fruit flies.
+          </li>
+        </ul>
+      </div>
 
-            <p><strong>Physical Barriers:</strong></p>
-            <ul>
-                <li><strong>Netting and Mesh</strong> – Used to protect crops from birds and insects.</li>
-                <li><strong>Traps</strong> – Sticky traps and pheromone traps can be used for controlling pests like fruit flies.</li>
-            </ul>
-        </div>
+      <!-- Disease Control in Farming and Gardening -->
+      <div class="card">
+        <h3>Disease Control in Farming and Gardening</h3>
+        <p>
+          Plant diseases, caused by pathogens such as fungi, bacteria, and
+          viruses, can destroy crops and garden plants if not properly managed.
+        </p>
+      </div>
 
-        <!-- Disease Control in Farming and Gardening -->
-        <div class="card">
-            <h3>Disease Control in Farming and Gardening</h3>
-            <p>
-                Plant diseases, caused by pathogens such as fungi, bacteria, and viruses, can destroy crops and garden plants if not properly managed.
-            </p>
-        </div>
+      <!-- Common Plant Diseases in India -->
+      <div class="card">
+        <h4>Common Plant Diseases in India</h4>
+        <ul>
+          <li>
+            <strong>Powdery Mildew</strong> – A fungal disease that affects a
+            wide range of crops, producing white, powdery patches on leaves.
+          </li>
+          <li>
+            <strong>Rusts</strong> – Fungal diseases that create orange, yellow,
+            or red spots on leaves and stems, leading to reduced plant health.
+          </li>
+          <li>
+            <strong>Downy Mildew</strong> – Another fungal disease that affects
+            cucurbits (e.g., cucumbers, pumpkins), causing yellowing and
+            wilting.
+          </li>
+          <li>
+            <strong>Bacterial Wilt</strong> – A bacterial disease that infects
+            crops like tomatoes, potatoes, and brinjal, causing wilting and
+            death of plants.
+          </li>
+          <li>
+            <strong>Leaf Blight</strong> – A fungal or bacterial disease causing
+            lesions or spots on plant leaves, often leading to reduced yield.
+          </li>
+          <li>
+            <strong>Root Rot</strong> – Caused by fungi such as Fusarium, this
+            disease affects roots, leading to stunted plant growth and wilting.
+          </li>
+        </ul>
+      </div>
 
-        <!-- Common Plant Diseases in India -->
-        <div class="card">
-            <h4>Common Plant Diseases in India</h4>
-            <ul>
-                <li><strong>Powdery Mildew</strong> – A fungal disease that affects a wide range of crops, producing white, powdery patches on leaves.</li>
-                <li><strong>Rusts</strong> – Fungal diseases that create orange, yellow, or red spots on leaves and stems, leading to reduced plant health.</li>
-                <li><strong>Downy Mildew</strong> – Another fungal disease that affects cucurbits (e.g., cucumbers, pumpkins), causing yellowing and wilting.</li>
-                <li><strong>Bacterial Wilt</strong> – A bacterial disease that infects crops like tomatoes, potatoes, and brinjal, causing wilting and death of plants.</li>
-                <li><strong>Leaf Blight</strong> – A fungal or bacterial disease causing lesions or spots on plant leaves, often leading to reduced yield.</li>
-                <li><strong>Root Rot</strong> – Caused by fungi such as Fusarium, this disease affects roots, leading to stunted plant growth and wilting.</li>
-            </ul>
-        </div>
+      <!-- Disease Control Methods -->
+      <div class="card">
+        <h4>Disease Control Methods</h4>
+        <p><strong>Cultural Practices:</strong></p>
+        <ul>
+          <li>
+            <strong>Good Drainage</strong> – Ensuring that crops are planted in
+            well-drained soils can prevent fungal diseases like root rot and
+            downy mildew.
+          </li>
+          <li>
+            <strong>Sanitation</strong> – Removing diseased plants and plant
+            debris reduces the spread of diseases.
+          </li>
+          <li>
+            <strong>Resistant Varieties</strong> – Planting disease-resistant
+            crop varieties that are bred to resist specific pathogens (e.g.,
+            rust-resistant wheat).
+          </li>
+        </ul>
 
-        <!-- Disease Control Methods -->
-        <div class="card">
-            <h4>Disease Control Methods</h4>
-            <p><strong>Cultural Practices:</strong></p>
-            <ul>
-                <li><strong>Good Drainage</strong> – Ensuring that crops are planted in well-drained soils can prevent fungal diseases like root rot and downy mildew.</li>
-                <li><strong>Sanitation</strong> – Removing diseased plants and plant debris reduces the spread of diseases.</li>
-                <li><strong>Resistant Varieties</strong> – Planting disease-resistant crop varieties that are bred to resist specific pathogens (e.g., rust-resistant wheat).</li>
-            </ul>
+        <p><strong>Biological Control:</strong></p>
+        <ul>
+          <li>
+            <strong>Fungicides</strong> – Using bio-fungicides like Trichoderma
+            or Bacillus subtilis that control fungal diseases without harming
+            the environment.
+          </li>
+          <li>
+            <strong>Beneficial Microorganisms</strong> – Introducing bacteria or
+            fungi that outcompete or inhibit the growth of harmful pathogens.
+          </li>
+        </ul>
 
-            <p><strong>Biological Control:</strong></p>
-            <ul>
-                <li><strong>Fungicides</strong> – Using bio-fungicides like Trichoderma or Bacillus subtilis that control fungal diseases without harming the environment.</li>
-                <li><strong>Beneficial Microorganisms</strong> – Introducing bacteria or fungi that outcompete or inhibit the growth of harmful pathogens.</li>
-            </ul>
+        <p><strong>Chemical Control:</strong></p>
+        <ul>
+          <li>
+            <strong>Fungicides</strong> – In cases of severe fungal infections,
+            chemical fungicides like copper oxychloride or maneb are used to
+            manage diseases like downy mildew and blight.
+          </li>
+          <li>
+            <strong>Bactericides</strong> – For bacterial diseases, chemicals
+            like streptomycin may be used to control bacterial wilt and other
+            bacterial infections.
+          </li>
+        </ul>
 
-            <p><strong>Chemical Control:</strong></p>
-            <ul>
-                <li><strong>Fungicides</strong> – In cases of severe fungal infections, chemical fungicides like copper oxychloride or maneb are used to manage diseases like downy mildew and blight.</li>
-                <li><strong>Bactericides</strong> – For bacterial diseases, chemicals like streptomycin may be used to control bacterial wilt and other bacterial infections.</li>
-            </ul>
+        <p><strong>Preventive Measures:</strong></p>
+        <ul>
+          <li>
+            <strong>Crop Rotation</strong> – Helps in preventing the buildup of
+            soil-borne diseases.
+          </li>
+          <li>
+            <strong>Proper Watering Techniques</strong> – Avoid overhead
+            watering, which can spread fungal spores, and water at the base of
+            the plant to reduce the risk of diseases.
+          </li>
+        </ul>
+      </div>
 
-            <p><strong>Preventive Measures:</strong></p>
-            <ul>
-                <li><strong>Crop Rotation</strong> – Helps in preventing the buildup of soil-borne diseases.</li>
-                <li><strong>Proper Watering Techniques</strong> – Avoid overhead watering, which can spread fungal spores, and water at the base of the plant to reduce the risk of diseases.</li>
-            </ul>
-        </div>
+      <!-- Neem-Based Treatments -->
+      <div class="card">
+        <h4>Neem-Based Treatments</h4>
+        <ul>
+          <li>
+            <strong>Neem Oil and Extracts</strong> – Acts as a natural fungicide
+            and insect repellent, useful for controlling various plant diseases
+            and pests.
+          </li>
+          <li>
+            <strong>Neem Cake</strong> – Used as a soil amendment to control
+            soil-borne fungal diseases and improve soil health.
+          </li>
+        </ul>
+      </div>
 
-        <!-- Neem-Based Treatments -->
-        <div class="card">
-            <h4>Neem-Based Treatments</h4>
-            <ul>
-                <li><strong>Neem Oil and Extracts</strong> – Acts as a natural fungicide and insect repellent, useful for controlling various plant diseases and pests.</li>
-                <li><strong>Neem Cake</strong> – Used as a soil amendment to control soil-borne fungal diseases and improve soil health.</li>
-            </ul>
-        </div>
+      <!-- Integrated Pest and Disease Management (IPM) -->
+      <div class="card">
+        <h3>Integrated Pest and Disease Management (IPM)</h3>
+        <p>
+          IPM is a holistic approach to managing pests and diseases, combining
+          different control methods to reduce chemical use and minimize
+          environmental impact. In India, IPM is increasingly being promoted for
+          sustainable farming and gardening.
+        </p>
 
-        <!-- Integrated Pest and Disease Management (IPM) -->
-        <div class="card">
-            <h3>Integrated Pest and Disease Management (IPM)</h3>
-            <p>IPM is a holistic approach to managing pests and diseases, combining different control methods to reduce chemical use and minimize environmental impact. In India, IPM is increasingly being promoted for sustainable farming and gardening.</p>
-
-            <h4>Key components of IPM include:</h4>
-            <ul>
-                <li><strong>Monitoring and Early Detection</strong> – Regularly inspecting crops and plants to identify pests and diseases early.</li>
-                <li><strong>Cultural Practices</strong> – Crop rotation, intercropping, and sanitation practices play a crucial role.</li>
-                <li><strong>Biological Control</strong> – Encouraging natural predators and using beneficial microorganisms to control pests and diseases.</li>
-                <li><strong>Chemical Control</strong> – As a last resort, applying pesticides and fungicides with care to minimize harm to the environment and beneficial organisms.</li>
-            </ul>
-        </div>
-
+        <h4>Key components of IPM include:</h4>
+        <ul>
+          <li>
+            <strong>Monitoring and Early Detection</strong> – Regularly
+            inspecting crops and plants to identify pests and diseases early.
+          </li>
+          <li>
+            <strong>Cultural Practices</strong> – Crop rotation, intercropping,
+            and sanitation practices play a crucial role.
+          </li>
+          <li>
+            <strong>Biological Control</strong> – Encouraging natural predators
+            and using beneficial microorganisms to control pests and diseases.
+          </li>
+          <li>
+            <strong>Chemical Control</strong> – As a last resort, applying
+            pesticides and fungicides with care to minimize harm to the
+            environment and beneficial organisms.
+          </li>
+        </ul>
+      </div>
     </div>
     <div style="text-align: center; width: 100%">
-        <div class="quiz-container">
-            <a href="/frontend/quizzes/farming/quiz6.html" class="quiz-btn">Take a Quiz</a>
-        </div>
+      <div class="quiz-container">
+        <a href="/frontend/quizzes/farming/quiz6.html" class="quiz-btn"
+          >Take a Quiz</a
+        >
+      </div>
     </div>
 
     <footer>
-        <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+      <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
     </footer>
-    
-    <script src="/frontend/assets/js/main/script.js"></script>
-</body>
 
+    <script src="/frontend/assets/js/main/script.js"></script>
+  </body>
 </html>

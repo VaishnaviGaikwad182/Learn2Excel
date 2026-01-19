@@ -1,613 +1,658 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farming & Gardening First Aid</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        background-color: #f5fff0;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Farming & Gardening First Aid</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      font-family: Arial, sans-serif;
-      background-color: #f5fff0;
-    }
+      /* Navbar Styling */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em 1em;
+        background-color: #003049;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: 3.5rem;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+      }
 
-    /* Navbar Styling */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5em 1em;
-      background-color: #003049;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      height: 3.5rem;
-      width: 100%;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      box-sizing: border-box;
-    }
+      /* Logo Section */
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
 
-    /* Logo Section */
-    .navbar .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+      .navbar .logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #eae2b7;
+      }
 
-    .navbar .logo a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: #eae2b7;
-    }
+      .navbar .logo-img {
+        height: 40px;
+        width: auto;
+      }
 
-    .navbar .logo-img {
-      height: 40px;
-      width: auto;
-    }
+      .navbar .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: color 0.4s ease;
+      }
 
-    .navbar .logo-text {
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: color 0.4s ease;
-    }
+      .navbar .logo a:hover .logo-text {
+        color: #dfe9e1;
+      }
 
-    .navbar .logo a:hover .logo-text {
-      color: #dfe9e1;
-    }
+      /* Navbar Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.2em;
+      }
 
-    /* Navbar Links */
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.2em;
-    }
+      .nav-links a {
+        color: #fcfbff;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: bold;
+      }
 
-    .nav-links a {
-      color: #fcfbff;
-      text-decoration: none;
-      transition: color 0.3s;
-      font-weight: bold;
-    }
+      .nav-links li a:not(.signup-btn):hover {
+        color: #f4d03f;
+      }
 
-    .nav-links li a:not(.signup-btn):hover {
-      color: #f4d03f;
-    }
+      /* Signup Button */
+      .signup-btn {
+        background: #fca311;
+        color: #f1f3f4;
+        padding: 0.6rem 1.2rem;
+        border-radius: 5px;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
 
-    /* Signup Button */
-    .signup-btn {
-      background: #fca311;
-      color: #f1f3f4;
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
-      border: none;
-      text-decoration: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
+      .signup-btn:hover {
+        background: #ffba49;
+        color: #241e60;
+      }
 
-    .signup-btn:hover {
-      background: #ffba49;
-      color: #241e60;
-    }
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: #fcfbff;
+        cursor: pointer;
+      }
 
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      color: #fcfbff;
-      cursor: pointer;
-    }
+      .auth-links {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 8px;
+      }
 
-    .auth-links {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      gap: 8px;
-    }
+      .login-link {
+        color: #fcfbff;
+        text-decoration: none;
+        font-weight: bold;
+      }
 
-    .login-link {
-      color: #fcfbff;
-      text-decoration: none;
-      font-weight: bold;
-    }
+      .login-link:hover {
+        color: #f4d03f;
+      }
 
-    .login-link:hover {
-      color: #f4d03f;
-    }
+      /* Profile dropdown styles */
+      .profile-dropdown {
+        position: relative;
+      }
 
-    /* Profile dropdown styles */
-    .profile-dropdown {
-      position: relative;
-    }
+      .profile-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fca311, #ffba49);
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+      }
 
-    .profile-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #fca311, #ffba49);
-      color: #fff;
-      font-weight: bold;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      user-select: none;
-    }
+      .profile-dropdown .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 52px;
+        background: #ffffff;
+        border-radius: 8px;
+        min-width: 160px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        display: none;
+        overflow: hidden;
+        z-index: 2000;
+      }
 
-    .profile-dropdown .dropdown-menu {
-      position: absolute;
-      right: 0;
-      top: 52px;
-      background: #ffffff;
-      border-radius: 8px;
-      min-width: 160px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      display: none;
-      overflow: hidden;
-      z-index: 2000;
-    }
+      .profile-dropdown.active .dropdown-menu {
+        display: block;
+      }
 
-    .profile-dropdown.active .dropdown-menu {
-      display: block;
-    }
+      .dropdown-menu a {
+        display: block;
+        padding: 12px 16px;
+        color: #003049;
+        font-weight: 500;
+        transition: background 0.2s ease;
+      }
 
-    .dropdown-menu a {
-      display: block;
-      padding: 12px 16px;
-      color: #003049;
-      font-weight: 500;
-      transition: background 0.2s ease;
-    }
+      .dropdown-menu a:hover {
+        background: #f1f1f1;
+      }
 
-    .dropdown-menu a:hover {
-      background: #f1f1f1;
-    }
+      /* ================== MOBILE NAVBAR ================== */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 3.5rem;
+          left: 0;
+          right: 0;
+          background: #003049;
+          flex-direction: column;
+          gap: 0;
+          display: none;
+        }
 
-    /* First Aid Section */
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 20px 20px;
-      gap: 15px;
-      margin-top: 100px;
-      margin-bottom: 50px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
+        .nav-links li {
+          text-align: center;
+          padding: 12px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    h1 {
-      color: #2c3e50;
-      margin-bottom: 20px;
-    }
+        .nav-links.active {
+          display: flex;
+        }
 
-    .btn {
-      display: block;
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      background: #ff5733;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
+        .hamburger {
+          display: block;
+        }
+      }
 
-    .btn:hover {
-      background: #e04e2b;
-    }
+      /* First Aid Section */
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px 20px;
+        gap: 15px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
 
-    .advice {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f9f9f9;
-      border-radius: 5px;
-      display: none;
-      font-size: 18px;
-      font-weight: bold;
-      color: #2c3e50;
-      border-left: 5px solid #ff5733;
-    }
+      h1 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
 
-    /* ================= FIRST AID SECTION ================= */
+      .btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        background: #ff5733;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
 
-    .firstaid-section {
-      padding: 4rem 2rem;
-      background-color: #ddf3e4;
-    }
+      .btn:hover {
+        background: #e04e2b;
+      }
 
-    .firstaid-section h1 {
-      text-align: center;
-      color: #2c5f2d;
-      margin-bottom: 2rem;
-    }
+      .advice {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        display: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50;
+        border-left: 5px solid #ff5733;
+      }
 
-    /* Cards */
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
+      /* ================= FIRST AID SECTION ================= */
 
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      .firstaid-section {
+        padding: 4rem 2rem;
+        background-color: #ddf3e4;
+      }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
+      .firstaid-section h1 {
+        text-align: center;
+        color: #2c5f2d;
+        margin-bottom: 2rem;
+      }
 
-    .card-icon {
-      font-size: 40px;
-      margin-bottom: 10px;
-      color: #4caf50;
-    }
+      /* Cards */
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
 
-    .card-title {
-      font-size: 20px;
-      font-weight: bold;
-      color: #2c5f2d;
-      margin-bottom: 8px;
-    }
+      .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-    .card-description {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.6;
-    }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
 
-    /* ================= MODAL ================= */
+      .card-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: #4caf50;
+      }
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 2000;
-    }
+      .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2c5f2d;
+        margin-bottom: 8px;
+      }
 
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
-      margin: 60px auto;
-      position: relative;
-    }
+      .card-description {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+      }
 
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #e53935;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      font-size: 16px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
+      /* ================= MODAL ================= */
 
-    .close-btn:hover {
-      background: #c62828;
-    }
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2000;
+      }
 
+      .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 500px;
+        margin: 60px auto;
+        position: relative;
+      }
 
-    /* ================== QUIZ ================== */
-    .quiz-container {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #e53935;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 16px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
 
-    .quiz-btn {
-      background-color: #45a049;
-      color: #ffffff;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      border-radius: 10px;
-      text-decoration: none;
-    }
+      .close-btn:hover {
+        background: #c62828;
+      }
 
-    .quiz-btn:hover {
-      background-color: #52bb56;
-    }
+      /* ================== QUIZ ================== */
+      .quiz-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
 
-    /* ================== FOOTER ================== */
-    footer {
-      text-align: center;
-      background-color: #003049;
-      color: white;
-      padding: 0.25px 0;
-      font-size: 15px;
-    }
+      .quiz-btn {
+        background-color: #45a049;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+      }
 
-    footer a {
-      color: #ff7a18;
-      text-decoration: none;
-    }
+      .quiz-btn:hover {
+        background-color: #52bb56;
+      }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
+      /* ================== FOOTER ================== */
+      footer {
+        text-align: center;
+        background-color: #003049;
+        color: white;
+        padding: 0.25px 0;
+        font-size: 15px;
+      }
 
-<body>
-  <header>
-    <nav class="navbar">
-      <!-- Logo Section (Image + Text) -->
-      <div class="logo">
-        <a href="#home">
-          <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
-          <span class="logo-text">Learn2Excel</span>
-        </a>
-      </div>
+      footer a {
+        color: #ff7a18;
+        text-decoration: none;
+      }
 
-      <!-- Navigation Links -->
-      <ul class="nav-links">
-        <li><a href="/frontend/index.html#home">Home</a></li>
-        <li><a href="/frontend/index.html#courses">Courses</a></li>
-        <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
-        <li><a href="/frontend/pages/about/about.html">About Us</a></li>
-      </ul>
-      <div class="auth-links">
-        <a href="login.html" class="login-link">Login</a>
-        <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
-        <button class="hamburger">☰</button>
-      </div>
-    </nav>
-  </header>
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
 
-  <div class="container">
-    <h1>Injuries You Should Watch Out For</h1>
-    <button class="btn" onclick="showAdvice('cuts')">Cuts & Wounds</button>
-    <button class="btn" onclick="showAdvice('bites')">Insect Bites</button>
-    <button class="btn" onclick="showAdvice('sunburn')">Sunburn</button>
-    <button class="btn" onclick="showAdvice('sprains')">
-      Sprains & Strains
-    </button>
+  <body>
+    <header>
+      <nav class="navbar">
+        <!-- Logo Section (Image + Text) -->
+        <div class="logo">
+          <a href="#home">
+            <img
+              src="/frontend/assets/images/logos/logo.png"
+              alt="Learn2Excel Logo"
+              class="logo-img"
+            />
+            <span class="logo-text">Learn2Excel</span>
+          </a>
+        </div>
 
-    <div id="advice" class="advice"></div>
-  </div>
-  <!-- ================= FIRST AID CARDS SECTION ================= -->
-  <section class="firstaid-section">
-    <h1>First Aid Tips for Farmers and Gardeners</h1>
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="/frontend/index.html#home">Home</a></li>
+          <li><a href="/frontend/index.html#courses">Courses</a></li>
+          <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+          <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+        </ul>
+        <div class="auth-links">
+          <a href="login.html" class="login-link">Login</a>
+          <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+          <button class="hamburger">☰</button>
+        </div>
+      </nav>
+    </header>
 
-    <div class="card-container">
-      <div class="card" onclick="openModal('cuts')">
-        <div class="card-icon">🩹</div>
-        <div class="card-title">Cuts and Scrapes</div>
-        <div class="card-description">Clean and cover to prevent infection.</div>
-      </div>
+    <div class="container">
+      <h1>Injuries You Should Watch Out For</h1>
+      <button class="btn" onclick="showAdvice('cuts')">Cuts & Wounds</button>
+      <button class="btn" onclick="showAdvice('bites')">Insect Bites</button>
+      <button class="btn" onclick="showAdvice('sunburn')">Sunburn</button>
+      <button class="btn" onclick="showAdvice('sprains')">
+        Sprains & Strains
+      </button>
 
-      <div class="card" onclick="openModal('bites')">
-        <div class="card-icon">🐝</div>
-        <div class="card-title">Insect Bites</div>
-        <div class="card-description">Reduce swelling and prevent itching.</div>
-      </div>
+      <div id="advice" class="advice"></div>
+    </div>
+    <!-- ================= FIRST AID CARDS SECTION ================= -->
+    <section class="firstaid-section">
+      <h1>First Aid Tips for Farmers and Gardeners</h1>
 
-      <div class="card" onclick="openModal('blisters')">
-        <div class="card-icon">🛠️</div>
-        <div class="card-title">Blisters from Tools</div>
-        <div class="card-description">Clean, cover, and reduce friction.</div>
-      </div>
+      <div class="card-container">
+        <div class="card" onclick="openModal('cuts')">
+          <div class="card-icon">🩹</div>
+          <div class="card-title">Cuts and Scrapes</div>
+          <div class="card-description">
+            Clean and cover to prevent infection.
+          </div>
+        </div>
 
-      <div class="card" onclick="openModal('fungus')">
-            <div class="card-icon">🍄</div>
-            <div class="card-title">Fungal Infections</div>
-            <div class="card-description">Keep dry and use antifungal treatment.</div>
+        <div class="card" onclick="openModal('bites')">
+          <div class="card-icon">🐝</div>
+          <div class="card-title">Insect Bites</div>
+          <div class="card-description">
+            Reduce swelling and prevent itching.
+          </div>
+        </div>
+
+        <div class="card" onclick="openModal('blisters')">
+          <div class="card-icon">🛠️</div>
+          <div class="card-title">Blisters from Tools</div>
+          <div class="card-description">Clean, cover, and reduce friction.</div>
+        </div>
+
+        <div class="card" onclick="openModal('fungus')">
+          <div class="card-icon">🍄</div>
+          <div class="card-title">Fungal Infections</div>
+          <div class="card-description">
+            Keep dry and use antifungal treatment.
+          </div>
         </div>
 
         <div class="card" onclick="openModal('pesticide')">
-            <div class="card-icon">☠️</div>
-            <div class="card-title">Pesticide Poisoning</div>
-            <div class="card-description">Move to fresh air, wash skin, seek help.</div>
+          <div class="card-icon">☠️</div>
+          <div class="card-title">Pesticide Poisoning</div>
+          <div class="card-description">
+            Move to fresh air, wash skin, seek help.
+          </div>
         </div>
 
         <div class="card" onclick="openModal('thorn')">
-            <div class="card-icon">🌵</div>
-            <div class="card-title">Thorn or Splinter Wounds</div>
-            <div class="card-description">Remove carefully, clean, and cover.</div>
+          <div class="card-icon">🌵</div>
+          <div class="card-title">Thorn or Splinter Wounds</div>
+          <div class="card-description">
+            Remove carefully, clean, and cover.
+          </div>
         </div>
 
         <div class="card" onclick="openModal('back')">
-            <div class="card-icon">🏋️</div>
-            <div class="card-title">Back Strain</div>
-            <div class="card-description">Rest, use ice or heat, and lift properly.</div>
+          <div class="card-icon">🏋️</div>
+          <div class="card-title">Back Strain</div>
+          <div class="card-description">
+            Rest, use ice or heat, and lift properly.
+          </div>
         </div>
 
         <div class="card" onclick="openModal('hypothermia')">
-            <div class="card-icon">❄️</div>
-            <div class="card-title">Hypothermia</div>
-            <div class="card-description">Get warm, change wet clothes.</div>
+          <div class="card-icon">❄️</div>
+          <div class="card-title">Hypothermia</div>
+          <div class="card-description">Get warm, change wet clothes.</div>
         </div>
 
         <div class="card" onclick="openModal('dehydration')">
-            <div class="card-icon">🚰</div>
-            <div class="card-title">Dehydration</div>
-            <div class="card-description">Drink water, take breaks in shade.</div>
+          <div class="card-icon">🚰</div>
+          <div class="card-title">Dehydration</div>
+          <div class="card-description">Drink water, take breaks in shade.</div>
         </div>
 
         <div class="card" onclick="openModal('electric')">
-            <div class="card-icon">⚡</div>
-            <div class="card-title">Electrocution</div>
-            <div class="card-description">Turn off power, check for burns.</div>
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Electrocution</div>
+          <div class="card-description">Turn off power, check for burns.</div>
         </div>
 
         <div class="card" onclick="openModal('tetanus')">
-            <div class="card-icon">🦠</div>
-            <div class="card-title">Tetanus Risk</div>
-            <div class="card-description">Clean wounds, update vaccination.</div>
+          <div class="card-icon">🦠</div>
+          <div class="card-title">Tetanus Risk</div>
+          <div class="card-description">Clean wounds, update vaccination.</div>
         </div>
 
         <div class="card" onclick="openModal('handfoot')">
-            <div class="card-icon">👢</div>
-            <div class="card-title">Hand & Foot Injuries</div>
-            <div class="card-description">Stop bleeding, seek medical care.</div>
+          <div class="card-icon">👢</div>
+          <div class="card-title">Hand & Foot Injuries</div>
+          <div class="card-description">Stop bleeding, seek medical care.</div>
         </div>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- ================= MODAL ================= -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal()">X</button>
-      <div id="modal-info"></div>
+    <!-- ================= MODAL ================= -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">X</button>
+        <div id="modal-info"></div>
+      </div>
     </div>
-  </div>
-  <!-- ================= QUIZ BUTTON ================= -->
-  <div style="text-align: center; width: 100%">
-    <div class="quiz-container">
-      <a href="/frontend/quizzes/farming/quiz10.html" class="quiz-btn">Take a Quiz</a>
+    <!-- ================= QUIZ BUTTON ================= -->
+    <div style="text-align: center; width: 100%">
+      <div class="quiz-container">
+        <a href="/frontend/quizzes/farming/quiz10.html" class="quiz-btn"
+          >Take a Quiz</a
+        >
+      </div>
     </div>
-  </div>
-  <footer>
-        <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
-  </footer>
+    <footer>
+      <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
 
-  <script>
-    function showAdvice(type) {
-      const adviceBox = document.getElementById("advice");
-      let adviceText = "";
+    <script>
+      function showAdvice(type) {
+        const adviceBox = document.getElementById("advice");
+        let adviceText = "";
 
-      switch (type) {
-        case "cuts":
-          adviceText =
-            "Clean with water, apply antiseptic, and cover with a bandage.";
-          break;
-        case "bites":
-          adviceText =
-            "Wash the area, apply ice, and use antihistamine cream if needed.";
-          break;
-        case "sunburn":
-          adviceText =
-            "Move to shade, apply aloe vera, and drink plenty of water.";
-          break;
-        case "sprains":
-          adviceText = "Rest, ice the area, compress, and elevate the limb.";
-          break;
+        switch (type) {
+          case "cuts":
+            adviceText =
+              "Clean with water, apply antiseptic, and cover with a bandage.";
+            break;
+          case "bites":
+            adviceText =
+              "Wash the area, apply ice, and use antihistamine cream if needed.";
+            break;
+          case "sunburn":
+            adviceText =
+              "Move to shade, apply aloe vera, and drink plenty of water.";
+            break;
+          case "sprains":
+            adviceText = "Rest, ice the area, compress, and elevate the limb.";
+            break;
+        }
+
+        adviceBox.innerHTML = `<strong>Advice:</strong> ${adviceText}`;
+        adviceBox.style.display = "block";
       }
 
-      adviceBox.innerHTML = `<strong>Advice:</strong> ${adviceText}`;
-      adviceBox.style.display = "block";
-    }
-
-    const data = {
-            cuts: `
+      const data = {
+        cuts: `
         <h2>🩹 Cuts and Scrapes</h2>
         <p>1. Clean the wound with clean water and mild soap.</p>
         <p>2. Apply an antiseptic to prevent infection.</p>
         <p>3. Cover the wound with a sterile bandage.</p>
         <p>4. Change the bandage daily.</p>
     `,
-            bites: `
+        bites: `
         <h2>🐝 Insect Bites</h2>
         <p>1. Remove the stinger if present using tweezers.</p>
         <p>2. Clean the area with soap and water.</p>
         <p>3. Apply ice to reduce swelling.</p>
         <p>4. Use antihistamine cream if itching persists.</p>
     `,
-            blisters: `
+        blisters: `
         <h2>🛠️ Blisters from Tools</h2>
         <p>1. Clean the area with mild soap and water.</p>
         <p>2. Cover the blister with a sterile bandage to prevent further irritation.</p>
         <p>3. Avoid popping the blister to reduce the risk of infection.</p>
     `,
-            fungus: `
+        fungus: `
         <h2>🍄 Fungal Infections</h2>
         <p>1. Keep the affected area dry and clean.</p>
         <p>2. Apply antifungal cream as directed.</p>
         <p>3. Wear loose-fitting clothes to allow the skin to breathe.</p>
     `,
-            pesticide: `
+        pesticide: `
         <h2>☠️ Pesticide Poisoning</h2>
         <p>1. Move the person to fresh air immediately.</p>
         <p>2. Remove contaminated clothing and wash the skin with soap and water.</p>
         <p>3. Seek medical attention immediately.</p>
     `,
-            thorn: `
+        thorn: `
         <h2>🌵 Thorn or Splinter Wounds</h2>
         <p>1. Carefully remove the thorn or splinter using tweezers.</p>
         <p>2. Clean the wound with soap and water.</p>
         <p>3. Apply an antiseptic and cover with a sterile bandage.</p>
     `,
-            back: `
+        back: `
         <h2>🏋️ Back Strain</h2>
         <p>1. Rest and avoid heavy lifting.</p>
         <p>2. Apply ice or heat to reduce inflammation.</p>
         <p>3. Lift properly using your legs, not your back.</p>
     `,
-            hypothermia: `
+        hypothermia: `
         <h2>❄️ Hypothermia</h2>
         <p>1. Get the person out of the cold and into a warm environment.</p>
         <p>2. Change into dry clothes to reduce heat loss.</p>
         <p>3. Give warm drinks (but not alcohol) to raise body temperature.</p>
     `,
-            dehydration: `
+        dehydration: `
         <h2>🚰 Dehydration</h2>
         <p>1. Drink plenty of water, especially in hot weather.</p>
         <p>2. Rest in a shaded or cool area.</p>
         <p>3. Avoid caffeinated and alcoholic beverages.</p>
     `,
-            electric: `
+        electric: `
         <h2>⚡ Electrocution</h2>
         <p>1. Turn off the power supply immediately to avoid further injury.</p>
         <p>2. Check for burns and treat as needed.</p>
         <p>3. Call emergency services immediately.</p>
     `,
-            tetanus: `
+        tetanus: `
         <h2>🦠 Tetanus Risk</h2>
         <p>1. Clean the wound thoroughly with soap and water.</p>
         <p>2. Apply an antiseptic to reduce infection risk.</p>
         <p>3. Ensure tetanus vaccination is up to date.</p>
     `,
-            handfoot: `
+        handfoot: `
         <h2>👢 Hand & Foot Injuries</h2>
         <p>1. Stop bleeding by applying pressure.</p>
         <p>2. Clean the injury and apply a sterile dressing.</p>
         <p>3. Seek immediate medical attention if the injury is severe.</p>
-    `
-        };
+    `,
+      };
 
-    function openModal(type) {
-      document.getElementById("modal-info").innerHTML = data[type];
-      document.getElementById("modal").style.display = "block";
-    }
+      function openModal(type) {
+        document.getElementById("modal-info").innerHTML = data[type];
+        document.getElementById("modal").style.display = "block";
+      }
 
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
 
-    window.onclick = function (e) {
-      if (e.target.id === "modal") closeModal();
-    };
-  </script>
+      window.onclick = function (e) {
+        if (e.target.id === "modal") closeModal();
+      };
+    </script>
 
-  <script src="/frontend/assets/js/main/script.js"></script>
-</body>
-
+    <script src="/frontend/assets/js/main/script.js"></script>
+  </body>
 </html>

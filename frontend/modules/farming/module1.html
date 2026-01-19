@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to Farming</title>
-    <link rel="stylesheet" href="module1.css" />
     <style>
       /* ================== GLOBAL FIXES ================== */
       html,
@@ -180,6 +179,34 @@
         background: #f1f1f1;
       }
 
+      /* ================== MOBILE NAVBAR ================== */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 3.5rem;
+          left: 0;
+          right: 0;
+          background: #003049;
+          flex-direction: column;
+          gap: 0;
+          display: none;
+        }
+
+        .nav-links li {
+          text-align: center;
+          padding: 12px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: block;
+        }
+      }
+
       /* ================== CONTENT ================== */
       .module1-container {
         max-width: 1200px;
@@ -338,7 +365,7 @@
       footer a:hover {
         text-decoration: underline;
       }
-      
+
       /* ================== RESPONSIVE ================== */
       @media (max-width: 768px) {
         .intro-section {
