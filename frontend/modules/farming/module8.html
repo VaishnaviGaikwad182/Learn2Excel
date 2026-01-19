@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvesting and Storage in India</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f5fff0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 1em;
+            background-color: #003049;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 3.5rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        /* Logo Section */
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #eae2b7;
+        }
+
+        .navbar .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .navbar .logo a:hover .logo-text {
+            color: #dfe9e1;
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.2em;
+        }
+
+        .nav-links a {
+            color: #fcfbff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .nav-links li a:not(.signup-btn):hover {
+            color: #f4d03f;
+        }
+
+        /* Signup Button */
+        .signup-btn {
+            background: #fca311;
+            color: #f1f3f4;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background: #ffba49;
+            color: #241e60;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fcfbff;
+            cursor: pointer;
+        }
+
+        .auth-links {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .login-link {
+            color: #fcfbff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            color: #f4d03f;
+        }
+
+        /* Profile dropdown styles */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fca311, #ffba49);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .profile-dropdown .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            background: #ffffff;
+            border-radius: 8px;
+            min-width: 160px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            z-index: 2000;
+        }
+
+        .profile-dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #003049;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f1f1f1;
+        }        
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        h2 {
+            color: #4d290f;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #1f989a;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+        }
+
+        /* ================== QUIZ ================== */
+      .quiz-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .quiz-btn {
+        background-color: #45a049;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      .quiz-btn:hover {
+        background-color: #52bb56;
+      }
+
+      /* ================== FOOTER ================== */
+      footer {
+        text-align: center;
+        background-color: #003049;
+        color: white;
+        padding: 0.25px 0;
+        font-size: 15px;
+      }
+
+      footer a {
+        color: #ff7a18;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        <!-- Harvesting and Storage in Farming -->
+        <div class="card">
+            <h2>Harvesting and Storage in Farming in India</h2>
+
+            <!-- Harvesting in Farming -->
+            <h3>Harvesting in Farming</h3>
+            <p>
+                Harvesting refers to the collection of crops when they have reached their peak maturity, both in terms of yield and quality. The timing of the harvest is crucial for maximizing the produce and minimizing losses. Here's how it differs across major farming types:
+            </p>
+
+            <h4>Kharif Crops (Monsoon Cropping):</h4>
+            <ul>
+                <li>Rice: Harvested when the grains are fully matured and the plants start to turn yellow.</li>
+                <li>Cotton: Cotton bolls are picked when they are fully opened and fluffy.</li>
+                <li>Maize: Harvested when kernels are fully formed and hard.</li>
+                <li>Groundnut: Harvested when the leaves of the plants begin to yellow and dry.</li>
+            </ul>
+
+            <h4>Rabi Crops (Winter Cropping):</h4>
+            <ul>
+                <li>Wheat: Typically harvested when the grain is hard, and the plants have dried out. It’s usually done by early spring.</li>
+                <li>Mustard: Harvested when the pods turn yellow and dry.</li>
+                <li>Barley: Harvested when the grains are fully mature, and the plant turns golden.</li>
+                <li>Gram (Chickpea): Harvested when the pods are dry, and the plants start to wither.</li>
+            </ul>
+
+            <h4>Zaid Crops (Summer Cropping):</h4>
+            <ul>
+                <li>Watermelon and Cucumber: Harvested when fruits are fully developed, and the skin becomes firm and shiny.</li>
+                <li>Tomato: Harvested when tomatoes turn red or their variety-specific color.</li>
+                <li>Okra (Ladyfinger): Harvested when the pods are tender and young, typically every 2-3 days.</li>
+            </ul>
+
+            <!-- Storage in Farming -->
+            <h3>Storage in Farming</h3>
+            <p>
+                Storage techniques help maintain the quality and prevent the spoilage of harvested crops. Storage in farming is essential because crops often need to be preserved for future use, as most of them are perishable.
+            </p>
+            <h4>Paddy (Rice):</h4>
+            <p>Once harvested, rice is allowed to dry in the sun for 2-3 days before storage in large storage bins. In areas with high humidity, proper ventilation and drying are critical to avoid mold and fungal growth.</p>
+
+            <h4>Wheat:</h4>
+            <p>Stored in airtight bins or silos after proper drying to reduce moisture content. Grains are often stored in cool, dry places to prevent pest infestation.</p>
+
+            <h4>Cereals & Pulses:</h4>
+            <p>Generally stored in bags or containers made of breathable materials. Insecticides or natural repellents like neem leaves are sometimes used to protect the crops.</p>
+
+            <h4>Fruits and Vegetables:</h4>
+            <p>Typically, fresh vegetables are stored in cool, dark, and ventilated areas to reduce spoilage. Root vegetables, like potatoes, are often stored in underground storage to maintain temperature and humidity.</p>
+
+            <h4>Oilseeds:</h4>
+            <p>Stored in moisture-free conditions and sometimes treated with anti-fungal agents to avoid spoilage.</p>
+        </div>
+
+        <!-- Harvesting and Storage in Gardening -->
+        <div class="card">
+            <h2>Harvesting and Storage in Gardening in India</h2>
+
+            <!-- Harvesting in Gardening -->
+            <h3>Harvesting in Gardening</h3>
+            <p>
+                In gardening, the principle of harvesting is similar to farming, but on a smaller scale. The focus is on home-grown produce, often used for personal consumption or local markets.
+            </p>
+
+            <h4>Vegetables:</h4>
+            <ul>
+                <li>Tomatoes: Harvested when they are ripe but still firm. Overripe tomatoes can be used for sauces or preservation.</li>
+                <li>Lettuce and Spinach: Harvested when they reach full size but before they start bolting (flowering).</li>
+                <li>Peppers: Plucked when the color is fully developed (red, green, or yellow depending on the variety).</li>
+            </ul>
+
+            <h4>Fruits:</h4>
+            <ul>
+                <li>Bananas: Harvested while still green, just before they ripen. They are left to ripen indoors.</li>
+                <li>Mangoes: Plucked when they have a slight yellowish hue and are not too ripe. Ripe mangoes can be stored for a shorter time in cool conditions.</li>
+                <li>Citrus: Lemons and oranges are harvested when they attain the right size and color.</li>
+            </ul>
+
+            <h4>Herbs:</h4>
+            <ul>
+                <li>Coriander, Mint, and Basil: Harvested regularly, once they are mature but before flowering.</li>
+            </ul>
+
+            <!-- Storage in Gardening -->
+            <h3>Storage in Gardening</h3>
+            <p>Gardeners usually focus on home storage methods to preserve the produce until it is used.</p>
+
+            <h4>Tomatoes:</h4>
+            <p>Can be stored in a cool room or kitchen for short periods, but longer storage involves canning or freezing.</p>
+
+            <h4>Herbs:</h4>
+            <p>Can be stored fresh in jars of water or frozen. Some herbs like basil can be dried for long-term use.</p>
+
+            <h4>Leafy Vegetables:</h4>
+            <p>Best used immediately. However, if needed, they can be stored in the refrigerator for a few days or even frozen (blanching is necessary for long-term freezing).</p>
+
+            <h4>Fruits:</h4>
+            <p>Fruits like apples and pears are stored in a cool, dry place to slow down the ripening process. They can be preserved for long durations in the form of jams, jellies, and pickles.</p>
+
+            <h4>Root Vegetables (Carrots, Beets):</h4>
+            <p>Stored in sand or soil in a cool, dry, and dark location to retain moisture and prevent sprouting.</p>
+
+            <h4>Potatoes:</h4>
+            <p>Store in a cool, dark, and dry area. They should not be refrigerated, as it alters the starch content. A ventilated storage place ensures better preservation.</p>
+        </div>
+
+        <!-- Challenges in Harvesting and Storage in India -->
+        <div class="card">
+            <h3>Challenges in Harvesting and Storage in India</h3>
+            <p><strong>Climate Issues:</strong> High humidity and temperature fluctuations often lead to spoilage and pest infestations during storage.</p>
+            <p><strong>Lack of Proper Infrastructure:</strong> In rural areas, there is a lack of modern storage facilities, such as cold storage, which leads to wastage of a significant amount of produce.</p>
+            <p><strong>Storage Technology:</strong> Advanced storage technologies like refrigeration or controlled atmosphere storage are not widespread in all regions.</p>
+            <p><strong>Pest Infestation:</strong> Both in the field and during storage, pests like rats, insects, and fungi can damage produce.</p>
+        </div>
+
+        <!-- Solutions -->
+        <div class="card">
+            <h3>Solutions</h3>
+            <p><strong>Improved Storage Facilities:</strong> Expansion of cold storage chains, proper packaging, and effective transportation systems can help reduce crop loss.</p>
+            <p><strong>Use of Organic Preservatives:</strong> Methods like neem oil and organic insect repellents can be used for preserving crops in storage.</p>
+            <p><strong>Farmer Education:</strong> Training on the importance of timely harvesting and proper storage methods can reduce waste and improve the shelf-life of produce.</p>
+        </div>
+
+    </div>
+    <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+            <a href="/frontend/quizzes/farming/quiz8.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="/frontend/assets/js/main/script.js"></script>
+</body>
+
+</html>

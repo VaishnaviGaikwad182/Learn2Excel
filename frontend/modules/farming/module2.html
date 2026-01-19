@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Types of Soil and Composting</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        background-color: #f5fff0;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em 1em;
+        background-color: #003049;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: 3.5rem;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+      }
+
+      /* Logo Section */
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .navbar .logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #eae2b7;
+      }
+
+      .navbar .logo-img {
+        height: 40px;
+        width: auto;
+      }
+
+      .navbar .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: color 0.4s ease;
+      }
+
+      .navbar .logo a:hover .logo-text {
+        color: #dfe9e1;
+      }
+
+      /* Navbar Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.2em;
+      }
+
+      .nav-links a {
+        color: #fcfbff;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: bold;
+      }
+
+      .nav-links li a:not(.signup-btn):hover {
+        color: #f4d03f;
+      }
+
+      /* Signup Button */
+      .signup-btn {
+        background: #fca311;
+        color: #f1f3f4;
+        padding: 0.6rem 1.2rem;
+        border-radius: 5px;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      .signup-btn:hover {
+        background: #ffba49;
+        color: #241e60;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: #fcfbff;
+        cursor: pointer;
+      }
+
+      .auth-links {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 8px;
+      }
+
+      .login-link {
+        color: #fcfbff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .login-link:hover {
+        color: #f4d03f;
+      }
+
+      /* Profile dropdown styles */
+      .profile-dropdown {
+        position: relative;
+      }
+
+      .profile-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fca311, #ffba49);
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .profile-dropdown .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 52px;
+        background: #ffffff;
+        border-radius: 8px;
+        min-width: 160px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        display: none;
+        overflow: hidden;
+        z-index: 2000;
+      }
+
+      .profile-dropdown.active .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 12px 16px;
+        color: #003049;
+        font-weight: 500;
+        transition: background 0.2s ease;
+      }
+
+      .dropdown-menu a:hover {
+        background: #f1f1f1;
+      }
+
+      /* Composting section */
+
+      .composting-section {
+        padding: 30px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      .composting-section h1 {
+        font-size: 32px;
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .composting-content {
+        margin-bottom: 30px;
+      }
+
+      .composting-content h2 {
+        font-size: 24px;
+        color: #27ae60;
+        margin-bottom: 10px;
+      }
+
+      .composting-content p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .composting-content ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .composting-content li {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+
+      .composting-content strong {
+        color: #16a085;
+      }
+
+      /* Soil Testing Section */
+
+      .soil-testing-section {
+        padding: 20px;
+        margin: 20px 20px;
+        background-color: #f9f9f9;
+        border-left: 5px solid;
+        border-radius: 8px;
+      }
+
+      .soil-testing-section h2 {
+        font-size: 44px;
+        color: #5a3b1d;
+        margin-bottom: 10px;
+      }
+
+      .soil-testing-section p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .soil-testing-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      /* Intro section */
+
+      .intro-section {
+        padding: 20px;
+        padding-top: 0.3rem;
+        margin: 20px 0;
+
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .intro-section h2 {
+        font-size: 44px;
+        color: #5a3b1d;
+        margin-bottom: 10px;
+      }
+
+      .intro-section p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Soil Season Section */
+
+      .soil-season-section {
+        padding: 20px;
+        margin: 20px 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .soil-season-section h2 {
+        font-size: 36px;
+        color: #5a3b1d;
+        margin-bottom: 16px;
+      }
+
+      .soil-season-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      .soil-season-table th,
+      .soil-season-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      .soil-season-table th {
+        background-color: #e8d8c4;
+        color: #5a3b1d;
+        font-weight: bold;
+      }
+
+      .soil-season-table tr:nth-child(even) {
+        background-color: #f4f4f4;
+      }
+
+      .soil-season-table tr:hover {
+        background-color: #f0e5da;
+      }
+
+      /* Card Styling */
+
+      .card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-left: 5px solid #5a3b1d;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .card h2 {
+        font-size: 24px;
+        color: #5a3b1d;
+        margin-bottom: 10px;
+      }
+
+      .card h3 {
+        font-size: 20px;
+        color: #4d3622;
+        margin-bottom: 8px;
+      }
+
+      .card ul,
+      .card ol {
+        padding-left: 20px;
+      }
+
+      .card li {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Responsive Grid Adjustments */
+      @media (max-width: 1024px) {
+        .soil-grid,
+        .testing-grid,
+        .compost-grid {
+          grid-template-columns: 1fr 1fr;
+          /* Two columns on medium screens */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .soil-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .soil-season-table th,
+        .soil-season-table td {
+          padding: 8px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .soil-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card img {
+          width: 100%;
+          height: auto;
+        }
+
+        .quiz-button {
+          font-size: 16px;
+          padding: 8px 16px;
+        }
+
+        .navbar .logo-text {
+          font-size: 1.2rem;
+        }
+      }
+
+      .soil-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 20px 20px;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fbf9f5;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        border-color: #003049;
+        border: 2px solid rgb(236, 230, 230);
+        margin-bottom: 10px;
+      }
+
+      .card-content h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #2b210b;
+        text-align: center;
+      }
+
+      .card-content p {
+        margin: 5px 0;
+        color: #2f0505;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .composting-section {
+        padding: 30px;
+        margin: 20px 20px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      .composting-section h1 {
+        font-size: 32px;
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* ================== QUIZ ================== */
+      .quiz-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .quiz-btn {
+        background-color: #45a049;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      .quiz-btn:hover {
+        background-color: #52bb56;
+      }
+
+      /* ================== FOOTER ================== */
+      footer {
+        text-align: center;
+        background-color: #003049;
+        color: white;
+        padding: 0.25px 0;
+        font-size: 15px;
+      }
+
+      footer a {
+        color: #ff7a18;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <!-- Logo Section (Image + Text) -->
+        <div class="logo">
+          <a href="#home">
+            <img
+              src="/frontend/assets/images/logos/logo.png"
+              alt="Learn2Excel Logo"
+              class="logo-img"
+            />
+            <span class="logo-text">Learn2Excel</span>
+          </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="/frontend/index.html#home">Home</a></li>
+          <li><a href="/frontend/index.html#courses">Courses</a></li>
+          <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+          <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+        </ul>
+        <div class="auth-links">
+          <a href="login.html" class="login-link">Login</a>
+          <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+          <button class="hamburger">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Introduction to Types of Soil -->
+    <div class="intro-section">
+      <h2>Types of Soil</h2>
+      <p>
+        Soil is a vital component of agriculture and gardening, providing
+        nutrients, water, and support for plant growth. Different types of soil
+        have unique properties that affect how plants grow. Understanding the
+        type of soil helps in selecting suitable plants and improving soil
+        quality for better yield and health.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="soil-grid">
+
+        <!-- Clay Soil -->
+        <div class="card">
+          <img src="/frontend/assets/images/farming/clay.png" alt="Clay Soil" />
+          <div class="card-content">
+            <h2>Clay Soil</h2>
+            <p>
+              Clay soil has small particles, which makes it heavy and compact.
+              It retains water well but may cause root rot due to poor drainage.
+              Adding organic matter helps improve its structure.
+            </p>
+          </div>
+        </div>
+
+        <!-- Silt Soil -->
+        <div class="card">
+          <img src="/frontend/assets/images/farming/silt.png" alt="Silt Soil" />
+          <div class="card-content">
+            <h2>Silt Soil</h2>
+            <p>
+              Silt has fine particles and holds moisture better than sandy soil.
+              It's more fertile than sandy soil but prone to compaction.
+            </p>
+          </div>
+        </div>
+
+        <!-- Loamy Soil -->
+        <div class="card">
+          <img
+            src="/frontend/assets/images/farming/loamy1.png"
+            alt="Loamy Soil"
+          />
+          <div class="card-content">
+            <h2>Loamy Soil</h2>
+            <p>
+              Loam is a balanced mix of sand, silt, and clay. It provides
+              excellent drainage, holds nutrients well, and is easy to work
+              with. Most garden plants thrive in loamy soil.
+            </p>
+          </div>
+        </div>
+
+        <!-- Peaty Soil -->
+        <div class="card">
+          <img
+            src="/frontend/assets/images/farming/peat.png"
+            alt="Peaty Soil"
+          />
+          <div class="card-content">
+            <h2>Peaty Soil</h2>
+            <p>
+              Peat soil is rich in organic matter and retains a lot of moisture.
+              But it may become acidic over time, which require lime treatment
+              to balance the pH.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sandy Soil -->
+        <div class="card">
+          <img
+            src="/frontend/assets/images/farming/sandy1.png"
+            alt="Sandy Soil"
+          />
+          <div class="card-content">
+            <h2>Sandy Soil</h2>
+            <p>
+              Sandy soil has large particles and feels gritty. It drains quickly
+              but has low nutrient retention. Ideal for plants that prefer dry
+              conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="soil-season-section">
+      <h2>Suitable Soil Types for Different Seasons</h2>
+      <table class="soil-season-table">
+        <thead>
+          <tr>
+            <th>Season</th>
+            <th>Suitable Soil Type</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Spring</td>
+            <td>Loamy Soil</td>
+            <td>
+              Well-balanced mix of sand, silt, and clay provides good drainage
+              and nutrient retention for new growth.
+            </td>
+          </tr>
+          <tr>
+            <td>Summer</td>
+            <td>Sandy Soil</td>
+            <td>
+              Drains quickly, preventing waterlogging, and warms up quickly for
+              rapid plant growth.
+            </td>
+          </tr>
+          <tr>
+            <td>Autumn</td>
+            <td>Silt Soil</td>
+            <td>
+              Holds moisture well and provides nutrients for late-season crops.
+            </td>
+          </tr>
+          <tr>
+            <td>Winter</td>
+            <td>Clay Soil</td>
+            <td>
+              Retains heat and moisture, offering protection to plants during
+              colder months.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="soil-testing-section">
+      <h2>Introduction to Soil Testing</h2>
+      <p>
+        Soil testing is essential for understanding the nutrient content and
+        overall health of the soil. It helps determine the soil's pH level,
+        nutrient deficiencies, and organic matter content. By testing the soil,
+        farmers and gardeners can adjust fertilization, improve soil structure,
+        and enhance crop yield. Regular soil testing ensures that plants receive
+        the right nutrients, promoting healthier growth and sustainable farming
+        practices.
+      </p>
+    </div>
+    <div class="soil-testing-container">
+      <div class="card">
+        <h2>Why is Soil Testing Important?</h2>
+        <ul>
+          <li>
+            <strong>Optimizing Plant Growth:</strong> Soil tests help determine
+            the nutrient levels and pH of the soil, allowing farmers and
+            gardeners to make informed decisions about fertilization and soil
+            amendments to optimize plant growth.
+          </li>
+          <li>
+            <strong>Identifying Problems:</strong> Soil tests can identify
+            nutrient deficiencies, imbalances, or other issues that may be
+            affecting plant health and yield.
+          </li>
+          <li>
+            <strong>Environmental Protection:</strong> Soil testing can help
+            assess the presence of contaminants or other environmental concerns,
+            allowing for appropriate management and remediation.
+          </li>
+          <li>
+            <strong>In Civil Engineering:</strong> Soil tests are used to
+            determine the soil's physical state, seepage properties, shear
+            strength, and deformation properties, which are crucial for
+            foundation design and construction.
+          </li>
+        </ul>
+      </div>
+
+      <!-- What is Tested? -->
+      <div class="card">
+        <div id="what"><h2>What is Tested?</h2></div>
+        <h3>Chemical Properties:</h3>
+        <ul>
+          <li>
+            <strong>pH:</strong> Measures the acidity or alkalinity of the soil.
+          </li>
+          <li>
+            <strong>Nutrient Levels:</strong> Tests for essential plant
+            nutrients
+            <p>
+              like nitrogen (N), phosphorus (P), and potassium (K), as well as
+              micronutrients.
+            </p>
+          </li>
+          <li>
+            <strong>Organic Matter:</strong> Measures the amount of decomposed
+            plant and animal matter in the soil.
+          </li>
+          <li>
+            <strong>Salinity:</strong> Measures the concentration of dissolved
+            salts in the soil.
+          </li>
+        </ul>
+        <h3>Physical Properties:</h3>
+        <ul>
+          <li>
+            <strong>Texture:</strong> Determines the proportions of sand, silt,
+            and clay particles in the soil.
+          </li>
+          <li>
+            <strong>Moisture Content:</strong> Measures the amount of water in
+            the soil.
+          </li>
+          <li>
+            <strong>Density and Compaction:</strong> Measures how tightly the
+            soil particles are packed together.
+          </li>
+        </ul>
+        <h3>Biological Properties:</h3>
+        <ul>
+          <li>
+            <strong>Microbial Activity:</strong> Assesses the presence and
+            activity of beneficial microorganisms in the soil.
+          </li>
+          <li>
+            <strong>Disease Risks:</strong> Identifies potential soilborne
+            diseases.
+          </li>
+        </ul>
+      </div>
+
+      <!-- How is Soil Testing Done? -->
+      <div class="card">
+        <h2>How is Soil Testing Done?</h2>
+        <ol>
+          <li>
+            <strong>Sampling:</strong> Collect soil samples from different areas
+            of the field or garden, ensuring representative samples are taken.
+          </li>
+          <li>
+            <strong>Preparation:</strong> Samples are dried and prepared for
+            analysis.
+          </li>
+          <li>
+            <strong>Analysis:</strong> Samples are sent to a laboratory for
+            analysis, where they are tested for various parameters.
+          </li>
+          <li>
+            <strong>Interpretation:</strong> The results are interpreted and
+            used to make recommendations for soil management and fertilization.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Composting Methods Section -->
+    <section class="composting-section">
+      <h1>Composting Methods for Farming and Gardening</h1>
+
+      <!-- Farming Composting -->
+      <div class="composting-content">
+        <h2>Composting for Farming</h2>
+        <p>
+          Composting in farming is essential for enriching soil health,
+          improving crop yield, and reducing dependency on chemical fertilizers.
+          Here are the key methods used in farming:
+        </p>
+        <ul>
+          <li>
+            <strong>Windrow Composting:</strong> Organic waste is placed in long
+            rows and periodically turned to aid decomposition.
+          </li>
+          <li>
+            <strong>Vermicomposting:</strong> Earthworms are used to break down
+            organic matter, producing nutrient-rich worm castings.
+          </li>
+          <li>
+            <strong>Trench Composting:</strong> Organic waste is buried in
+            trenches, allowing it to decompose directly in the soil.
+          </li>
+          <li>
+            <strong>Static Pile Composting:</strong> Organic matter is piled up
+            and left undisturbed, relying on microbial activity for
+            decomposition.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Gardening Composting -->
+      <div class="composting-content">
+        <h2>Composting for Gardening</h2>
+        <p>
+          Home gardening composting helps improve soil fertility and promotes
+          healthy plant growth. Here are some effective methods:
+        </p>
+        <ul>
+          <li>
+            <strong>Backyard Composting:</strong> Organic waste from the kitchen
+            and yard is composted in a pile or bin.
+          </li>
+          <li>
+            <strong>Vermicomposting:</strong> Similar to farming, worms are used
+            to create nutrient-rich compost.
+          </li>
+          <li>
+            <strong>Tumbler Composting:</strong> A compost tumbler helps mix
+            organic waste, speeding up the decomposition process.
+          </li>
+          <li>
+            <strong>Bokashi Composting:</strong> Fermented composting using
+            effective microorganisms (EM) to break down waste quickly.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Quiz Button -->
+    <div style="text-align: center; width: 100%">
+      <div class="quiz-container">
+        <a href="/frontend/quizzes/farming/quiz2.html" class="quiz-btn"
+          >Take a Quiz</a
+        >
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
+
+    <script src="/frontend/assets/js/main/script.js"></script>
+  </body>
+</html>

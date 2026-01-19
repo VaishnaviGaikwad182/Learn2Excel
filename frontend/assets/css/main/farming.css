@@ -1,0 +1,366 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 2em;
+  background-color: #003049;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 3.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  color: #eae2b7;
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.logo a:hover .logo-text {
+  color: #dfe9e1;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fcfbff;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #f4d03f;
+}
+
+/* Auth */
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* User profile */
+.user-profile {
+  position: relative;
+}
+
+.profile-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fca311, #ffba49);
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background: white;
+  min-width: 160px;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.profile-dropdown.active .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  padding: 12px 16px;
+  display: block;
+  color: #003049;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f1f1;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   HERO / TOP BANNER
+========================= */
+.top-banner {
+  height: 100vh;
+  background: url("/frontend/assets/images/farming/bg2.jpg") center/cover fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-overlay {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.banner-overlay h1 {
+  font-size: 7rem;
+  margin-bottom: 1rem;
+}
+
+.banner-overlay p {
+  font-size: 2.5rem;
+}
+
+/* =========================
+   INTRO SECTION
+========================= */
+.intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f8f1e9;
+}
+
+.intro-text {
+  max-width: 50%;
+  padding-left: 5rem;
+}
+
+.intro-text h2 {
+  font-size: 3rem;
+  color: #603913;
+}
+
+.intro-text p {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+}
+
+.intro-images {
+  max-width: 20%;
+  margin-right: 5%;
+}
+
+.intro-images img {
+  width: 100%;
+}
+
+/* =========================
+   MODULES
+========================= */
+.module-section {
+  padding: 30px;
+  background-color: #e2fdd5;
+  text-align: center;
+}
+
+.module-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #592c0e;
+}
+
+.module-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 90%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.module {
+  width: calc(50% - 10px);
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.module:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.module h3 {
+  font-size: 18px;
+  color: #1b5e20;
+}
+
+.module p {
+  font-size: 16px;
+  color: #333;
+}
+
+.module-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.learn-btn,
+.quiz-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.learn-btn {
+  background: #007bff;
+  color: white;
+}
+
+.learn-btn:hover {
+  background: #0056b3;
+}
+
+.quiz-btn {
+  background: #28a745;
+  color: white;
+}
+
+.quiz-btn:hover {
+  background: #1e7e34;
+}
+
+/* =========================
+   INTERACTIVE TOOLS
+========================= */
+.interactive-tools {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.interactive-tools h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.tool h3 {
+  background: #28303e;
+  color: #f8f1e9;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  background-color: #003049;
+  color: white;
+  padding: 15px;
+}
+
+footer a {
+  color: #ff7a18;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .module-container {
+    flex-direction: column;
+  }
+  .module {
+    width: 90%;
+  }
+}
+
+@media (max-width: 868px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    background: #003049;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-text {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .intro-images {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 510px) {
+  .banner-overlay h1 {
+    font-size: 4rem;
+  }
+
+  .banner-overlay p {
+    font-size: 1.5rem;
+  }
+}

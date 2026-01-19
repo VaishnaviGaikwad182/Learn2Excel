@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Selection and Preparation for Farming and Gardening in India</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f5fff0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 1em;
+            background-color: #003049;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 3.5rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        /* Logo Section */
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #eae2b7;
+        }
+
+        .navbar .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .navbar .logo a:hover .logo-text {
+            color: #dfe9e1;
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.2em;
+        }
+
+        .nav-links a {
+            color: #fcfbff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .nav-links li a:not(.signup-btn):hover {
+            color: #f4d03f;
+        }
+
+        /* Signup Button */
+        .signup-btn {
+            background: #fca311;
+            color: #f1f3f4;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background: #ffba49;
+            color: #241e60;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fcfbff;
+            cursor: pointer;
+        }
+
+        .auth-links {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .login-link {
+            color: #fcfbff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            color: #f4d03f;
+        }
+
+        /* Profile dropdown styles */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fca311, #ffba49);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .profile-dropdown .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            background: #ffffff;
+            border-radius: 8px;
+            min-width: 160px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            z-index: 2000;
+        }
+
+        .profile-dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #003049;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f1f1f1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        h2 {
+            color: #4d290f;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #1f989a;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+        }
+
+        /* ================== QUIZ ================== */
+        .quiz-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .quiz-btn {
+            background-color: #45a049;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .quiz-btn:hover {
+            background-color: #52bb56;
+        }
+
+        /* ================== FOOTER ================== */
+        footer {
+            text-align: center;
+            background-color: #003049;
+            color: white;
+            padding: 0.25px 0;
+            font-size: 15px;
+        }
+
+        footer a {
+            color: #ff7a18;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <!-- Seed Selection Card -->
+        <div class="card">
+            <h2>Seed Selection</h2>
+            <p>
+                Seed selection is a crucial first step in ensuring healthy and productive plants.
+                Choosing high-quality seeds that are suited to your local climate and soil conditions can improve
+                germination rates and yield.
+                This process plays a significant role in achieving a successful farming or gardening experience.</p>
+        </div>
+
+        <!-- Factors to Consider in Seed Selection -->
+        <div class="card">
+            <h3>A. Factors to Consider When Selecting Seeds</h3>
+            <ul>
+                <li><strong>Climate Suitability</strong> – Choose seeds that thrive in your region’s temperature,
+                    rainfall, and seasonal conditions.</li>
+                <li><strong>Soil Type Adaptability</strong> – Some crops grow well in specific soil types:
+                    <ul>
+                        <li>Sandy soil – Peanuts, carrots, watermelon</li>
+                        <li>Loamy soil – Wheat, paddy, vegetables</li>
+                        <li>Clayey soil – Rice, sugarcane</li>
+                    </ul>
+                </li>
+                <li><strong>High Germination Rate</strong> – Select seeds with a minimum 80% germination rate for better
+                    plant establishment.</li>
+                <li><strong>Certified Seeds</strong> – Use ICAR, Krishi Vigyan Kendra, or NABL-certified seeds to ensure
+                    genetic purity and disease resistance.</li>
+                <li><strong>Disease Resistance</strong> – Select varieties resistant to fungal, bacterial, or viral
+                    diseases (e.g., rust-resistant wheat, virus-resistant tomatoes).</li>
+                <li><strong>Crop Duration</strong> – Choose seeds based on short-duration or long-duration cropping
+                    needs.</li>
+                <li><strong>Purpose of Cultivation</strong> – Choose based on whether they are for cash crops or food
+                    crops.</li>
+            </ul>
+        </div>
+
+        <!-- Types of Seeds -->
+        <div class="card">
+            <h3>B. Types of Seeds Used in Indian Agriculture</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Seed Type</th>
+                        <th>Characteristics</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hybrid Seeds</td>
+                        <td>High yield, disease resistance, requires chemical fertilizers</td>
+                        <td>Hybrid Rice, Hybrid Maize</td>
+                    </tr>
+                    <tr>
+                        <td>Open-Pollinated Seeds</td>
+                        <td>Naturally pollinated, stable traits, seeds can be reused</td>
+                        <td>Traditional wheat, pulses</td>
+                    </tr>
+                    <tr>
+                        <td>Heirloom Seeds</td>
+                        <td>Non-hybrid, indigenous, good for organic farming</td>
+                        <td>Native Tomato, Brinjal</td>
+                    </tr>
+                    <tr>
+                        <td>Genetically Modified (GM) Seeds</td>
+                        <td>Modified for pest resistance, high yield</td>
+                        <td>Bt Cotton</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Seed Preparation Card -->
+        <div class="card">
+            <h2>Seed Preparation</h2>
+            <p>Seed preparation involves cleaning, treating, and testing seeds before sowing to ensure better
+                germination and disease prevention.</p>
+        </div>
+
+        <!-- Seed Cleaning Section -->
+        <div class="card">
+            <h3>A. Seed Cleaning</h3>
+            <p>Before sowing, remove:</p>
+            <ul>
+                <li>Broken seeds – Reduce germination rates.</li>
+                <li>Inert matter – Stones, dust, plant debris.</li>
+                <li>Weed seeds – Prevent competition with crops.</li>
+            </ul>
+        </div>
+
+        <!-- Seed Treatment Methods Section -->
+        <div class="card">
+            <h3>B. Seed Treatment Methods</h3>
+            <p>Seed treatment improves germination, protects from diseases, and enhances nutrient absorption.</p>
+
+            <h4>1. Seed Priming (Pre-Soaking)</h4>
+            <ul>
+                <li>Soak in clean water for 12-24 hours (for beans, rice).</li>
+                <li>Use salt water to separate healthy seeds (for grains like wheat, millet).</li>
+                <li>Chemical priming with potassium nitrate enhances root growth.</li>
+            </ul>
+
+            <h4>2. Fungicide Treatment</h4>
+            <ul>
+                <li>Carbendazim (0.1%) – For vegetables and pulses.</li>
+                <li>Thiram (2g/kg seed) – For cereals and oilseeds.</li>
+                <li>Trichoderma (bio-fungicide) – For organic farming.</li>
+            </ul>
+
+            <h4>3. Insecticide Treatment</h4>
+            <ul>
+                <li>Imidacloprid (5ml/kg seed) – For maize, paddy, cotton.</li>
+                <li>Neem seed extract – Organic alternative.</li>
+            </ul>
+
+            <h4>4. Biofertilizer Coating</h4>
+            <ul>
+                <li>Rhizobium culture – For pulses (e.g., chickpea, lentil).</li>
+                <li>Azotobacter & Azospirillum – For cereals and vegetables.</li>
+                <li>Phosphate Solubilizing Bacteria (PSB) – For oilseeds, wheat, and maize.</li>
+            </ul>
+        </div>
+
+        <!-- Seed Germination Testing -->
+        <div class="card">
+            <h3>C. Seed Germination Testing</h3>
+            <ul>
+                <li>Take 100 seeds and place them on a damp cloth.</li>
+                <li>Keep them in a warm place (25-30°C) for 3-5 days.</li>
+                <li>Count the number of germinated seeds.</li>
+                <li>If 80% or more germinate, they are suitable for sowing.</li>
+            </ul>
+        </div>
+
+        <!-- Best Practices for Seed Storage Card -->
+        <div class="card">
+            <h2>Best Practices for Seed Storage</h2>
+            <p>Proper storage ensures that seeds remain viable for longer periods.</p>
+
+            <h3>A. Storage Conditions</h3>
+            <ul>
+                <li><strong>Temperature</strong> – Store seeds at cool (10-15°C) and dry conditions.</li>
+                <li><strong>Humidity</strong> – Maintain below 50% to prevent fungal growth.</li>
+                <li><strong>Ventilation</strong> – Store in a well-ventilated room to prevent insect infestation.</li>
+            </ul>
+
+            <h3>B. Seed Storage Methods</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Storage Method</th>
+                        <th>Benefits</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Airtight Containers</td>
+                        <td>Prevents moisture absorption</td>
+                        <td>Plastic bins, metal drums</td>
+                    </tr>
+                    <tr>
+                        <td>Jute Bags with Neem Leaves</td>
+                        <td>Natural insect repellent</td>
+                        <td>Wheat, rice storage</td>
+                    </tr>
+                    <tr>
+                        <td>Vacuum Sealed Packets</td>
+                        <td>Extends shelf life</td>
+                        <td>Vegetable seeds, hybrid seeds</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Organic vs Hybrid Seed Selection Card -->
+        <div class="card">
+            <h2>Organic vs Hybrid Seed Selection for Gardening</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Hybrid Seeds</th>
+                        <th>Organic/Heirloom Seeds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yield</td>
+                        <td>High</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr>
+                        <td>Pest Resistance</td>
+                        <td>High</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr>
+                        <td>Nutritional Value</td>
+                        <td>May be lower</td>
+                        <td>Higher</td>
+                    </tr>
+                    <tr>
+                        <td>Seed Saving</td>
+                        <td>Not viable</td>
+                        <td>Can be saved for replanting</td>
+                    </tr>
+                    <tr>
+                        <td>Cost</td>
+                        <td>Expensive</td>
+                        <td>Affordable</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!--  Quiz  -->
+    <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+            <a href="/frontend/quizzes/farming/quiz3.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="/frontend/assets/js/main/script.js"></script>
+
+</body>
+
+</html>

@@ -1,132 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn2Excel</title>
-    <link rel="stylesheet" href="assets/css/main/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/main/style.css" />
+  </head>
+  <body>
     <!-- Navbar -->
     <header>
-        <nav class="navbar">
-            <!-- Logo Section (Image + Text) -->
-            <div class="logo">
-                <a href="#home">
-                    <img src="assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img">
-                    <span class="logo-text">Learn2Excel</span>
-                </a>
-            </div>
-    
-            <!-- Navigation Links -->
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-<li><a href="/frontend/pages/about/about.html">About Us</a></li>
-            </ul>
-            <div class="auth-links">
-                <a href="pages/auth/login.html" class="login-link">Login</a>
-                <button class="signup-btn"><a href="pages/auth/signUp.html">Sign Up</a></button>
-                <button class="hamburger">☰</button>
-            </div>
-        </nav>
+      <nav class="navbar">
+        <!-- Logo Section (Image + Text) -->
+        <div class="logo">
+          <a href="#home">
+            <img
+              src="assets/images/logos/logo.png"
+              alt="Learn2Excel Logo"
+              class="logo-img"
+            />
+            <span class="logo-text">Learn2Excel</span>
+          </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+        </ul>
+        <div class="auth-links">
+          <a href="pages/auth/login.html" class="login-link">Login</a>
+          <button class="signup-btn">
+            <a href="pages/auth/signUp.html">Sign Up</a>
+          </button>
+          <button class="hamburger">☰</button>
+        </div>
+      </nav>
     </header>
-    
+
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="header">
-            <!-- Upper half -->
-            <div class="header-upper">
-              <h1>Unlock Your Potential <br>with <span class="highlight">Learn2Excel</span></h1>
-            </div>
-            
-            <!-- Lower half -->
-            <div class="header-lower">
-              <p>Transform your career with cutting-edge skills. Start your journey to excellence today!</p>
-            </div>
+      <div class="header">
+        <!-- Upper half -->
+        <div class="header-upper">
+          <h1>
+            Unlock Your Potential <br />with
+            <span class="highlight">Learn2Excel</span>
+          </h1>
         </div>
+
+        <!-- Lower half -->
+        <div class="header-lower">
+          <p>
+            Transform your career with cutting-edge skills. Start your journey
+            to excellence today!
+          </p>
+        </div>
+      </div>
     </section>
-    
 
     <!-- Skills Section -->
     <section id="courses" class="skills">
-        <h2>Explore Top Skills</h2>
-        <div class="skills-grid">
-            <div class="card">
-                <img src="assets/images/farming/farming.jpg" alt="farming">
-                <h3>Farming and Gardening</h3>
-                <p>Unlock the secrets to sustainable farming and grow your own food with expert tips!</p>
-                <button class="btn">Explore</button>
-            </div>
-            <div class="card">
-                <img src="assets/images/cooking/cooking.png" alt="Cooking">
-                <h3>Cooking</h3>
-                <p>Master the kitchen and delight your taste buds with easy-to-follow recipes.</p>
-                <button class="btn" id="open-cooking" onclick="window.location.href='pages/courses/cooking.html'">Explore</button>
-            </div>
-            <div class="card">
-                <img src="assets/images/self-defense/selfdefence.png" alt="self defense">
-                <h3>Self Defense</h3>
-                <p>Empower yourself with the knowledge and skills to protect what matters most.</p>
-                <button class="btn">Explore</button>
-            </div>
-            <div class="card">
-                <img src="assets/images/finance/finance.png" alt="financial planning">
-                <h3>Financial Planning</h3>
-                <p>Take control of your financial future with smart, actionable planning techniques.</p>
-                <button class="btn">Explore</button>
-            </div>
+      <h2>Explore Top Skills</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <img src="assets/images/farming/farming.jpg" alt="farming" />
+          <h3>Farming and Gardening</h3>
+          <p>
+            Unlock the secrets to sustainable farming and grow your own food
+            with expert tips!
+          </p>
+          <button
+            class="btn"
+            id="open-cooking"
+            onclick="window.location.href = 'pages/courses/farming.html'"
+          >
+            Explore
+          </button>
         </div>
+        <div class="card">
+          <img src="assets/images/cooking/cooking.png" alt="Cooking" />
+          <h3>Cooking</h3>
+          <p>
+            Master the kitchen and delight your taste buds with easy-to-follow
+            recipes.
+          </p>
+          <button
+            class="btn"
+            id="open-cooking"
+            onclick="window.location.href = 'pages/courses/cooking.html'"
+          >
+            Explore
+          </button>
+        </div>
+        <div class="card">
+          <img
+            src="assets/images/self-defense/selfdefence.png"
+            alt="self defense"
+          />
+          <h3>Self Defense</h3>
+          <p>
+            Empower yourself with the knowledge and skills to protect what
+            matters most.
+          </p>
+          <button class="btn">Explore</button>
+        </div>
+        <div class="card">
+          <img
+            src="assets/images/finance/finance.png"
+            alt="financial planning"
+          />
+          <h3>Financial Planning</h3>
+          <p>
+            Take control of your financial future with smart, actionable
+            planning techniques.
+          </p>
+          <button class="btn">Explore</button>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
-        <h2>What Our Students Say</h2><br>
-        <div class="testimonial-grid">
-            <div class="testimonial">
-                <p>"Learn2Excel helped me learn various essential life skills."</p>
-                <span><b>- Rakesh Sharma</b></span>
-            </div>
-            <div class="testimonial">
-                <p>"The courses are practical and easy to follow. Highly recommend!"</p>
-                <span><b>- Manoj Pandey</b></span>
-            </div>
-            <div class="testimonial">
-                <p>"The skills are well explained in modules followed by quizzes."</p>
-                <span><b>- Rohit Kumar</b></span>
-            </div>
+      <h2>What Our Students Say</h2>
+      <br />
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p>"Learn2Excel helped me learn various essential life skills."</p>
+          <span><b>- Rakesh Sharma</b></span>
         </div>
+        <div class="testimonial">
+          <p>
+            "The courses are practical and easy to follow. Highly recommend!"
+          </p>
+          <span><b>- Manoj Pandey</b></span>
+        </div>
+        <div class="testimonial">
+          <p>"The skills are well explained in modules followed by quizzes."</p>
+          <span><b>- Rohit Kumar</b></span>
+        </div>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
-        <h2>Features of Learn2Excel</h2>
-        <div class="features-grid">
-            <div class="feature">
-                <h3>Modulewise Lessons</h3>
-                <p>Master concepts step by step through well-structured modules designed to build your knowledge progressively and effectively.</p>
-            </div>
-            <div class="feature">
-                <h3>Quick Assessment</h3>
-                <p>Test your knowledge with engaging quizzes designed to reinforce learning and track your progress.</p>
-            </div>
-            <div class="feature">
-                <h3>Gamified Structure</h3>
-                <p>Experience a fun and immersive learning journey with interactive challenges and engaging activities that keep you motivated.</p>
-            </div>
+      <h2>Features of Learn2Excel</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Modulewise Lessons</h3>
+          <p>
+            Master concepts step by step through well-structured modules
+            designed to build your knowledge progressively and effectively.
+          </p>
         </div>
+        <div class="feature">
+          <h3>Quick Assessment</h3>
+          <p>
+            Test your knowledge with engaging quizzes designed to reinforce
+            learning and track your progress.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Gamified Structure</h3>
+          <p>
+            Experience a fun and immersive learning journey with interactive
+            challenges and engaging activities that keep you motivated.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <h3>Learn2Excel</h3>
-            <p>Empowering your future with world-class skill development programs.</p>
-            <br>
-        </div>
-        <p>&copy; 2025 Learn2Excel. All Rights Reserved.</p>
+      <div class="footer-content">
+        <h3>Learn2Excel</h3>
+        <p>
+          Empowering your future with world-class skill development programs.
+        </p>
+        <br />
+      </div>
+      <p>&copy; 2025 Learn2Excel. All Rights Reserved.</p>
     </footer>
     <script src="assets/js/main/script.js"></script>
-    </body>
+  </body>
 </html>

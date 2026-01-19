@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watering and Irrigation for Farming and Gardening in India</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f5fff0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 1em;
+            background-color: #003049;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 3.5rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        /* Logo Section */
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #eae2b7;
+        }
+
+        .navbar .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .navbar .logo a:hover .logo-text {
+            color: #dfe9e1;
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.2em;
+        }
+
+        .nav-links a {
+            color: #fcfbff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .nav-links li a:not(.signup-btn):hover {
+            color: #f4d03f;
+        }
+
+        /* Signup Button */
+        .signup-btn {
+            background: #fca311;
+            color: #f1f3f4;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background: #ffba49;
+            color: #241e60;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fcfbff;
+            cursor: pointer;
+        }
+
+        .auth-links {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .login-link {
+            color: #fcfbff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            color: #f4d03f;
+        }
+
+        /* Profile dropdown styles */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fca311, #ffba49);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .profile-dropdown .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            background: #ffffff;
+            border-radius: 8px;
+            min-width: 160px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            z-index: 2000;
+        }
+
+        .profile-dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #003049;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f1f1f1;
+        }
+
+        #heading {
+            background-color: #a5d1b6;
+        }
+
+        /* Heading Styling */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            line-height: 2em;
+        }
+
+        h2 {
+            color: #4d290f;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #1f989a;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Cards and Sub-Cards Styling */
+        .card,
+        .sub-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-top: 10px;
+            line-height: 2em;
+
+        }
+
+        /* Section Headings */
+        h2 {
+            color: #4d290f;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #1f989a;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Design for Cards and Navigation */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+        }
+
+        /* ================== QUIZ ================== */
+      .quiz-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .quiz-btn {
+        background-color: #45a049;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      .quiz-btn:hover {
+        background-color: #52bb56;
+      }
+
+      /* ================== FOOTER ================== */
+      footer {
+        text-align: center;
+        background-color: #003049;
+        color: white;
+        padding: 0.25px 0;
+        font-size: 15px;
+      }
+
+      footer a {
+        color: #ff7a18;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+
+            <p>Watering and irrigation are crucial for farming and gardening in India due to varying climatic conditions
+                and water availability.</p>
+            <ul>
+                <li><strong>Climate Variability</strong>: India has diverse climates requiring different irrigation
+                    methods.</li>
+                <li><strong>Crop Yield</strong>: Proper irrigation ensures healthy crop growth and improves
+                    productivity.</li>
+                <li><strong>Water Conservation</strong>: Efficient irrigation methods help conserve water, especially in
+                    regions with water scarcity.</li>
+            </ul>
+        </div>
+
+        <!-- Types of Irrigation Systems -->
+        <div class="card1">
+            <h2>Types of Irrigation Systems</h2>
+            <p>Various irrigation methods are adopted depending on water availability, terrain, and crop type.</p>
+
+            <!-- Surface Irrigation -->
+            <div class="sub-card">
+                <h3>Surface Irrigation</h3>
+                <p>Water is supplied to the field’s surface using channels or furrows.</p>
+                <ul>
+                    <li><strong>Methods</strong>: Flood irrigation, furrow irrigation, basin irrigation.</li>
+                    <li><strong>Suitable Crops</strong>: Rice, wheat, sugarcane, cotton.</li>
+                    <li><strong>Challenges</strong>: Water wastage, uneven distribution in sloped areas.</li>
+                </ul>
+            </div>
+
+            <!-- Drip Irrigation -->
+            <div class="sub-card">
+                <h3>Drip Irrigation</h3>
+                <p>Water is delivered directly to the plant roots via tubes and emitters.</p>
+                <ul>
+                    <li><strong>Advantages</strong>: Conserves water, reduces waste, efficient for water-sensitive
+                        crops.</li>
+                    <li><strong>Suitable Crops</strong>: Fruits, vegetables, high-water-requirement crops.</li>
+                    <li><strong>Challenges</strong>: High installation cost.</li>
+                </ul>
+            </div>
+
+            <!-- Sprinkler Irrigation -->
+            <div class="sub-card">
+                <h3>Sprinkler Irrigation</h3>
+                <p>Water is sprayed through sprinklers, mimicking rainfall.</p>
+                <ul>
+                    <li><strong>Advantages</strong>: Useful for uneven terrain, provides uniform water distribution.
+                    </li>
+                    <li><strong>Suitable Crops</strong>: Wheat, maize, vegetables, fruits.</li>
+                    <li><strong>Challenges</strong>: Affected by wind, higher water usage than drip irrigation.</li>
+                </ul>
+            </div>
+
+            <!-- Subsurface Irrigation -->
+            <div class="sub-card">
+                <h3>Subsurface Irrigation</h3>
+                <p>Water is delivered below the surface directly to the roots through buried pipes.</p>
+                <ul>
+                    <li><strong>Advantages</strong>: Reduces evaporation, minimizes weed growth, efficient for
+                        high-value crops.</li>
+                    <li><strong>Suitable Crops</strong>: Orchards, vineyards, vegetables.</li>
+                    <li><strong>Challenges</strong>: Expensive to install.</li>
+                </ul>
+            </div>
+
+            <!-- Rainwater Harvesting -->
+            <div class="sub-card">
+                <h3>Rainwater Harvesting</h3>
+                <p>Collecting and storing rainwater for use during dry periods.</p>
+                <ul>
+                    <li><strong>Advantages</strong>: Sustainable, eco-friendly, reduces dependence on groundwater.</li>
+                    <li><strong>Challenges</strong>: Requires infrastructure and adequate rainfall.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Irrigation Based on Water Availability -->
+        <div class="card2">
+            <h2>Irrigation Based on Water Availability</h2>
+
+            <!-- Canal Irrigation -->
+            <div class="sub-card">
+                <h3>Canal Irrigation</h3>
+                <p>Used in regions with access to large-scale canal systems, this system is efficient for providing
+                    water to vast tracts of land.</p>
+            </div>
+
+            <!-- Well and Borewell Irrigation -->
+            <div class="sub-card">
+                <h3>Well and Borewell Irrigation</h3>
+                <p>Groundwater irrigation using wells and borewells, common in states like Gujarat and Maharashtra.</p>
+            </div>
+
+            <!-- Rainfed Farming -->
+            <div class="sub-card">
+                <h3>Rainfed Farming</h3>
+                <p>Relying on natural rainfall for crops, mostly practiced in areas like Rajasthan and Madhya Pradesh.
+                </p>
+            </div>
+        </div>
+
+        <!-- Challenges in Irrigation -->
+        <div class="card">
+            <h2>Challenges in Irrigation</h2>
+            <ul>
+                <li><strong>Water Scarcity</strong>: Over-extraction of groundwater, especially in the northern states
+                    like Punjab and Haryana.</li>
+                <li><strong>Uneven Water Distribution</strong>: Inadequate irrigation systems in some regions, causing
+                    crop stress and reduced yields.</li>
+                <li><strong>High Costs</strong>: Installation of modern irrigation systems like drip and sprinkler
+                    irrigation is expensive, making it unaffordable for small farmers.</li>
+                <li><strong>Climate Change</strong>: Irregular rainfall patterns and changing weather conditions make
+                    water management more difficult.</li>
+            </ul>
+        </div>
+
+        <!-- Best Practices for Watering and Irrigation -->
+        <div class="card">
+            <h2>Best Practices for Watering and Irrigation</h2>
+            <ul>
+                <li><strong>Timing</strong>: Water early in the morning or late in the evening to reduce evaporation and
+                    ensure the water reaches the roots effectively.</li>
+                <li><strong>Efficient Irrigation</strong>: Use drip or sprinkler systems to conserve water and ensure
+                    uniform distribution.</li>
+                <li><strong>Soil Moisture Management</strong>: Use mulch to retain moisture and reduce evaporation,
+                    especially in dry areas.</li>
+                <li><strong>Water Scheduling</strong>: Water crops based on their needs and local weather conditions,
+                    adjusting the frequency of irrigation during the rainy season.</li>
+                <li><strong>Rainwater Harvesting</strong>: Collect rainwater during the monsoon season and use it for
+                    irrigation in drier months.</li>
+            </ul>
+        </div>
+
+        <!-- Government Initiatives -->
+        <div class="card">
+            <h2>Government Initiatives for Irrigation</h2>
+            <ul>
+                <li><strong>Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)</strong>: Expands irrigation coverage to
+                    ensure water reaches every farm, with a focus on micro-irrigation and efficient water management.
+                </li>
+                <li><strong>National Mission on Micro Irrigation</strong>: Provides subsidies for drip and sprinkler
+                    irrigation systems to improve water-use efficiency.</li>
+                <li><strong>Command Area Development Program</strong>: Aims to enhance water-use efficiency in
+                    canal-irrigated areas by improving infrastructure and management practices.</li>
+            </ul>
+        </div>
+
+        <!-- Watering Tips for Gardening -->
+        <div class="card">
+            <h2>Watering Tips for Gardening</h2>
+            <ul>
+                <li><strong>Deep Watering</strong>: Water deeply rather than shallow watering. Deep watering encourages
+                    roots to grow deeper, making plants more drought-resistant.</li>
+                <li><strong>Watering Can or Drip Irrigation</strong>: Use a watering can or drip irrigation system for
+                    precise watering, which reduces water wastage.</li>
+                <li><strong>Consider Local Climate</strong>: Adjust watering schedules based on local weather and plant
+                    types. For example, during hot weather, you may need to water more frequently.</li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+    <!--  Quiz  -->
+    <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+            <a href="/frontend/quizzes/farming/quiz5.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="/frontend/assets/js/main/script.js"></script>
+</body>
+
+</html>

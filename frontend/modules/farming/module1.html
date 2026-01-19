@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Farming</title>
+    <link rel="stylesheet" href="module1.css" />
+    <style>
+      /* ================== GLOBAL FIXES ================== */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #f5fff0;
+        font-family: Arial, sans-serif;
+      }
+
+      main {
+        background-color: #f5fff0;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em 1em;
+        background-color: #003049;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        height: 3.5rem;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+      }
+
+      /* Logo Section */
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .navbar .logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #eae2b7;
+      }
+
+      .navbar .logo-img {
+        height: 40px;
+        width: auto;
+      }
+
+      .navbar .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: color 0.4s ease;
+      }
+
+      .navbar .logo a:hover .logo-text {
+        color: #dfe9e1;
+      }
+
+      /* Navbar Links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.2em;
+      }
+
+      .nav-links a {
+        color: #fcfbff;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: bold;
+      }
+
+      .nav-links li a:not(.signup-btn):hover {
+        color: #f4d03f;
+      }
+
+      /* Signup Button */
+      .signup-btn {
+        background: #fca311;
+        color: #f1f3f4;
+        padding: 0.6rem 1.2rem;
+        border-radius: 5px;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      .signup-btn:hover {
+        background: #ffba49;
+        color: #241e60;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: #fcfbff;
+        cursor: pointer;
+      }
+
+      .auth-links {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 8px;
+      }
+
+      .login-link {
+        color: #fcfbff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .login-link:hover {
+        color: #f4d03f;
+      }
+
+      /* Profile dropdown styles */
+      .profile-dropdown {
+        position: relative; /* important for dropdown positioning */
+      }
+
+      .profile-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fca311, #ffba49);
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .profile-dropdown .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 52px;
+        background: #ffffff;
+        border-radius: 8px;
+        min-width: 160px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        display: none;
+        overflow: hidden;
+        z-index: 2000;
+      }
+
+      .profile-dropdown.active .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 12px 16px;
+        color: #003049;
+        font-weight: 500;
+        transition: background 0.2s ease;
+      }
+
+      .dropdown-menu a:hover {
+        background: #f1f1f1;
+      }
+
+      /* ================== CONTENT ================== */
+      .module1-container {
+        max-width: 1200px;
+        margin: 80px auto 40px;
+        padding: 20px;
+      }
+
+      .module1-container h2 {
+        font-size: 30px;
+        color: #2c5f2d;
+        margin-bottom: 12px;
+      }
+
+      .module1-container p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Intro */
+      .intro-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .intro-text {
+        flex: 1;
+      }
+
+      .intro-image {
+        flex: 1;
+        max-width: 300px;
+      }
+
+      .intro-image img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ================== GRIDS ================== */
+      .farming-grid,
+      .gardening-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .farming-card,
+      .gardening-card {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .farming-card:hover,
+      .gardening-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .farming-card h3,
+      .gardening-card h3 {
+        color: #3a7d44;
+      }
+
+      /* ================== DIFFERENCES (UNCHANGED LOOK) ================== */
+      #differences {
+        padding: 40px 20px;
+        background-color: #f9f9f9;
+      }
+
+      #differences h2 {
+        text-align: center;
+      }
+
+      .differences-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .difference-card {
+        background-color: #e8f5e9;
+        border: 1px solid #c8e6c9;
+        padding: 20px;
+        border-radius: 10px;
+        width: 45%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ================== BENEFITS ================== */
+      #benefits {
+        padding: 40px 20px;
+      }
+      #benefits h2 {
+        text-align: center;
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .benefit-card {
+        background-color: #e3f2fd;
+        border: 1px solid #bbdefb;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ================== QUIZ ================== */
+      .quiz-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .quiz-btn {
+        background-color: #45a049;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      .quiz-btn:hover {
+        background-color: #52bb56;
+      }
+
+      /* ================== FOOTER (FIXED) ================== */
+      footer {
+        text-align: center;
+        background-color: #003049;
+        color: white;
+        padding: 0.25px 0;
+        font-size: 15px;
+      }
+
+      footer a {
+        color: #ff7a18;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+      
+      /* ================== RESPONSIVE ================== */
+      @media (max-width: 768px) {
+        .intro-section {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .farming-grid,
+        .gardening-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .differences-container {
+          flex-direction: column;
+        }
+
+        .difference-card {
+          width: 100%;
+        }
+
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <!-- Logo Section (Image + Text) -->
+        <div class="logo">
+          <a href="#home">
+            <img
+              src="/frontend/assets/images/logos/logo.png"
+              alt="Learn2Excel Logo"
+              class="logo-img"
+            />
+            <span class="logo-text">Learn2Excel</span>
+          </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="/frontend/index.html#home">Home</a></li>
+          <li><a href="/frontend/index.html#courses">Courses</a></li>
+          <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+          <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+        </ul>
+        <div class="auth-links">
+          <a href="login.html" class="login-link">Login</a>
+          <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+          <button class="hamburger">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="module1-container">
+        <h2>Introduction to Farming</h2>
+        <div class="intro-section">
+          <div class="intro-text">
+            <p>
+              Farming is one of the oldest human activities, dating back
+              thousands of years. It provides us with food, clothing, and even
+              fuel! From growing crops to raising livestock, farming plays a
+              crucial role in sustaining civilizations.
+              <br /><br />
+              Whether it’s a high-tech commercial farm or a humble backyard
+              garden,
+              <strong
+                >farming is basically nature’s version of a startup—except the
+                investors are the sun, rain, and soil.</strong
+              >
+            </p>
+          </div>
+          <div class="intro-image">
+            <img
+              src="/frontend/assets/images/farming/farming_module1.jpg"
+              alt="Farming Image"
+            />
+          </div>
+        </div>
+
+        <h2>Types of Farming</h2>
+        <div class="farming-grid">
+          <div class="farming-card">
+            <h3>1. Subsistence Farming</h3>
+            <p>
+              Farming mainly for personal survival, providing just enough food
+              for the family.
+            </p>
+          </div>
+          <div class="farming-card">
+            <h3>2. Commercial Farming</h3>
+            <p>
+              Large-scale production of crops and livestock for sale in markets.
+            </p>
+          </div>
+          <div class="farming-card">
+            <h3>3. Organic Farming</h3>
+            <p>
+              No synthetic fertilizers or pesticides, just natural goodness!
+            </p>
+          </div>
+          <div class="farming-card">
+            <h3>4. Intensive Farming</h3>
+            <p>High-input farming to maximize yield per unit of land.</p>
+          </div>
+          <div class="farming-card">
+            <h3>5. Extensive Farming</h3>
+            <p>Large farms with minimal labor.</p>
+          </div>
+          <div class="farming-card">
+            <h3>6. Plantation Farming</h3>
+            <p>
+              Large-scale farming of cash crops like tea, coffee, and rubber.
+            </p>
+          </div>
+          <div class="farming-card">
+            <h3>7. Mixed Farming</h3>
+            <p>Growing crops and raising animals on the same farm.</p>
+          </div>
+          <div class="farming-card">
+            <h3>8. Dry Farming</h3>
+            <p>Farming without irrigation in arid regions.</p>
+          </div>
+          <div class="farming-card">
+            <h3>9. Terrace Farming</h3>
+            <p>Step-like fields cut into hills to prevent soil erosion.</p>
+          </div>
+          <div class="farming-card">
+            <h3>10. Aquaculture</h3>
+            <p>Raising fish, shellfish, and aquatic plants.</p>
+          </div>
+          <div class="farming-card">
+            <h3>11. Dairy Farming</h3>
+            <p>
+              Farming focused on milk production from cows, goats, or sheep.
+            </p>
+          </div>
+          <div class="farming-card">
+            <h3>12. Horticulture</h3>
+            <p>Intensive growing of fruits, vegetables, and flowers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- gardning -->
+      <div class="module1-container">
+        <h2>Introduction to Gardening</h2>
+        <div class="intro-section">
+          <div class="intro-text">
+            <p>
+              Gardening is the art and science of growing plants, from flowers
+              and vegetables to herbs and trees. It’s a rewarding activity that
+              enhances the environment, provides fresh produce, and reduces
+              stress.
+              <br /><br />
+              Whether it’s a small balcony garden or a sprawling backyard,
+              <strong
+                >gardening teaches patience, care, and a deep connection with
+                nature.</strong
+              >
+            </p>
+          </div>
+          <div class="intro-image">
+            <img
+              src="/frontend/assets/images/farming/gard_module1.jpg"
+              alt="Gardening Image"
+            />
+          </div>
+        </div>
+
+        <h2>Types of Gardening</h2>
+        <div class="gardening-grid">
+          <div class="gardening-card">
+            <h3>1. Container Gardening</h3>
+            <p>
+              Growing plants in pots and containers, perfect for small spaces.
+            </p>
+          </div>
+          <div class="gardening-card">
+            <h3>2. Vertical Gardening</h3>
+            <p>Using walls or trellises to grow plants vertically.</p>
+          </div>
+          <div class="gardening-card">
+            <h3>3. Raised Bed Gardening</h3>
+            <p>
+              Growing plants in elevated soil beds for better control over soil
+              quality.
+            </p>
+          </div>
+          <div class="gardening-card">
+            <h3>4. Hydroponic Gardening</h3>
+            <p>Growing plants in nutrient-rich water instead of soil.</p>
+          </div>
+          <div class="gardening-card">
+            <h3>5. Indoor Gardening</h3>
+            <p>
+              Growing plants indoors using pots, shelves, and artificial
+              lighting.
+            </p>
+          </div>
+          <div class="gardening-card">
+            <h3>6. Organic Gardening</h3>
+            <p>
+              Using natural fertilizers and pesticides to grow plants
+              sustainably.
+            </p>
+          </div>
+          <div class="gardening-card">
+            <h3>7. Herb Gardening</h3>
+            <p>Growing culinary and medicinal herbs.</p>
+          </div>
+          <div class="gardening-card">
+            <h3>8. Flower Gardening</h3>
+            <p>Planting and maintaining colorful flower beds.</p>
+          </div>
+          <div class="gardening-card">
+            <h3>9. Succulent Gardening</h3>
+            <p>Growing drought-resistant plants like cacti and succulents.</p>
+          </div>
+          <div class="gardening-card">
+            <h3>10. Aquatic Gardening</h3>
+            <p>Growing water plants in ponds or water containers.</p>
+          </div>
+          <div class="gardening-card">
+            <h3>11. Bonsai Gardening</h3>
+            <p>Growing and training miniature trees in containers.</p>
+          </div>
+          <div class="gardening-card">
+            <h3>12. Community Gardening</h3>
+            <p>Growing plants collectively in shared spaces.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- diff and benifits -->
+      <section id="differences">
+        <h2>Differences Between Farming and Gardening</h2>
+        <div class="differences-container">
+          <div class="difference-card">
+            <h3>Farming</h3>
+            <ul>
+              <li>
+                Farming is done on a large scale using machinery and tools.
+              </li>
+              <li>
+                Primarily focused on crop and livestock production for sale and
+                consumption.
+              </li>
+              <li>Requires more labor, investment, and land area.</li>
+              <li>
+                Uses advanced techniques like irrigation and fertilization.
+              </li>
+            </ul>
+          </div>
+          <div class="difference-card">
+            <h3>Gardening</h3>
+            <ul>
+              <li>
+                Gardening is done on a small scale, often in homes or community
+                spaces.
+              </li>
+              <li>
+                Primarily focused on growing fruits, vegetables, and flowers for
+                personal use.
+              </li>
+              <li>Requires less land and investment.</li>
+              <li>More focused on manual care and organic methods.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="benefits">
+        <h2>Benefits of Farming and Gardening</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <h3>Farming Benefits</h3>
+            <ul>
+              <li>Provides food supply for communities and markets.</li>
+              <li>Creates job opportunities in agriculture.</li>
+              <li>Contributes to the economy through trade and exports.</li>
+              <li>Encourages technological advancements in agriculture.</li>
+            </ul>
+          </div>
+          <div class="benefit-card">
+            <h3>Gardening Benefits</h3>
+            <ul>
+              <li>Improves mental health and reduces stress.</li>
+              <li>Provides fresh, organic produce at home.</li>
+              <li>Enhances environmental quality and biodiversity.</li>
+              <li>Encourages sustainable living and self-sufficiency.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!--  Quiz  -->
+      <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+          <a href="/frontend/quizzes/farming/quiz1.html" class="quiz-btn"
+            >Take a Quiz</a
+          >
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="/frontend/assets/js/main/script.js"></script>
+  </body>
+</html>

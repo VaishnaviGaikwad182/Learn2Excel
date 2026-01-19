@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farming Skill Development</title>
+    <link rel="stylesheet" href="../../assets/css/main/farming.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#home">
+            <img
+              src="../../assets/images/logos/logo.png"
+              alt="Learn2Excel Logo"
+              class="logo-img"
+            />
+            <span class="logo-text">Learn2Excel</span>
+          </a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="../../index.html#home">Home</a></li>
+          <li><a href="../../index.html#courses">Courses</a></li>
+          <li><a href="../../index.html#testimonials">Testimonials</a></li>
+          <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+        </ul>
+
+        <div class="auth-links">
+          <div class="user-profile profile-dropdown">
+            <div class="profile-avatar" onclick="toggleDropdown()">AB</div>
+            <div class="dropdown-menu">
+              <a href="#">Profile</a>
+              <a href="#">Settings</a>
+              <a href="#">Logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+      <div class="banner-overlay">
+        <h1>Sow Today,</h1>
+        <h1>Harvest Tomorrow</h1>
+        <p>From soil to harvest — master modern farming skills.</p>
+      </div>
+    </div>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+      <div class="intro-text">
+        <h2>Ready to Cultivate Your Farming Skills?</h2>
+        <p>
+          Learn practical farming and gardening techniques designed for
+          sustainable growth and higher productivity.
+        </p>
+      </div>
+      <div class="intro-images">
+        <img
+          src="../../assets/images/farming/farming_side_img.jpg"
+          alt="Farming"
+        />
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <section id="modules" class="module-section">
+        <h2>Start Learning with Our Modules</h2>
+
+        <div class="module-container">
+          <!-- Module 1 -->
+          <div class="module">
+            <h3>1. Introduction to Farming & Gardening</h3>
+            <p>Understand the basics, benefits, and farming practices.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module1.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q1')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="module">
+            <h3>2. Types of Soil & Composting</h3>
+            <p>Improve soil health using compost and organic matter.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module2.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q2')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="module">
+            <h3>3. Seed Selection & Preparation</h3>
+            <p>Choose the right seeds for different climates.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module3.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q3')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 4 -->
+          <div class="module">
+            <h3>4. Planting Techniques</h3>
+            <p>Sowing, transplanting, and propagation methods.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module4.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q4')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 5 -->
+          <div class="module">
+            <h3>5. Watering & Irrigation</h3>
+            <p>Efficient water usage and irrigation systems.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module5.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q5')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 6 -->
+          <div class="module">
+            <h3>6. Pest & Disease Control</h3>
+            <p>Protect crops using natural and chemical methods.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module6.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q6')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 7 -->
+          <div class="module">
+            <h3>7. Seasonal Farming & Crop Rotation</h3>
+            <p>Maximize yield with proper seasonal planning.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module7.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q7')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 8 -->
+          <div class="module">
+            <h3>8. Harvesting & Storage</h3>
+            <p>Harvest crops efficiently and store them safely.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module8.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q8')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 9 -->
+          <div class="module">
+            <h3>9. Modern Farming Techniques</h3>
+            <p>Explore innovations like hydroponics, smart farming, and
+                precision agriculture.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module9.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q9')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+
+          <!-- Module 10 -->
+          <div class="module">
+            <h3>10. Essential First Aid Tips</h3>
+            <p>Learn life-saving first aid techniques, emergency response
+                strategies, and basic medical care.</p>
+            <div class="module-actions">
+              <a href="/frontend/modules/farming/module10.html" class="learn-btn"
+                >Learn</a
+              >
+              <button onclick="takeQuiz('farm_q10')" class="quiz-btn">
+                Take Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Tools -->
+      <section class="interactive-tools">
+        <h2>Interactive Tools</h2>
+        <div class="tool">
+          <a href="/frontend/games/farm_game1.html">
+            <h3>Game 1: Smart Farming Simulator</h3>
+          </a>
+        </div>
+        <div class="tool">
+          <a href="/frontend/games/farm_game2.html">
+            <h3>Game 2: Crop Matching Game</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Farming Skill Development | <a href="#">Contact Us</a></p>
+    </footer>
+
+    <!-- Quiz Script -->
+    <script>
+      function takeQuiz(quizId) {
+        if (!requireAuth()) return;
+
+        const quizUrls = {
+          farm_q1: "../../quizzes/farming/quiz1.html",
+          farm_q2: "../../quizzes/farming/quiz2.html",
+          farm_q3: "../../quizzes/farming/quiz3.html",
+          farm_q4: "../../quizzes/farming/quiz4.html",
+          farm_q5: "../../quizzes/farming/quiz5.html",
+          farm_q6: "../../quizzes/farming/quiz6.html",
+          farm_q7: "../../quizzes/farming/quiz7.html",
+          farm_q8: "../../quizzes/farming/quiz8.html",
+        };
+
+        quizUrls[quizId]
+          ? (window.location.href = quizUrls[quizId])
+          : alert("Quiz not available yet");
+      }
+    </script>
+
+    <script src="../../assets/js/main/script.js"></script>
+  </body>
+</html>

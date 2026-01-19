@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Selection and Preparation for Farming and Gardening in India</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f5fff0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 1em;
+            background-color: #003049;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 3.5rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        /* Logo Section */
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #eae2b7;
+        }
+
+        .navbar .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .navbar .logo a:hover .logo-text {
+            color: #dfe9e1;
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.2em;
+        }
+
+        .nav-links a {
+            color: #fcfbff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .nav-links li a:not(.signup-btn):hover {
+            color: #f4d03f;
+        }
+
+        /* Signup Button */
+        .signup-btn {
+            background: #fca311;
+            color: #f1f3f4;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background: #ffba49;
+            color: #241e60;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fcfbff;
+            cursor: pointer;
+        }
+
+        .auth-links {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .login-link {
+            color: #fcfbff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            color: #f4d03f;
+        }
+
+        /* Profile dropdown styles */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fca311, #ffba49);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .profile-dropdown .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            background: #ffffff;
+            border-radius: 8px;
+            min-width: 160px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            z-index: 2000;
+        }
+
+        .profile-dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #003049;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f1f1f1;
+        }        
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        h2 {
+            color: #4d290f;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #1f989a;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+        }
+
+        /* ================== QUIZ ================== */
+      .quiz-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .quiz-btn {
+        background-color: #45a049;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      .quiz-btn:hover {
+        background-color: #52bb56;
+      }
+
+      /* ================== FOOTER ================== */
+      footer {
+        text-align: center;
+        background-color: #003049;
+        color: white;
+        padding: 0.25px 0;
+        font-size: 15px;
+      }
+
+      footer a {
+        color: #ff7a18;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Seed Selection Card -->
+         <h2>Introduction</h2>
+        <div class="card">
+            <p>Modern farming techniques focus on maximizing productivity, sustainability, and minimizing environmental
+                impacts through the use of advanced technologies and methods. Below are some of the key modern farming
+                techniques:
+            </p>
+        </div>
+
+        <!-- Additional Modern Agricultural Techniques -->
+
+        <!-- Precision Agriculture -->
+        <div class="card">
+            <h2>1. Precision Agriculture</h2>
+            <p>Precision Agriculture uses technology like GPS, IoT (Internet of Things), sensors, and drones to monitor
+                and optimize farming practices. It involves the collection and analysis of data to make farming more
+                efficient.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>GPS-guided Tractors: Tractors with GPS systems for precise seed planting, irrigation, and
+                    fertilization.</li>
+                <li>Drones: Used for aerial monitoring of crop health, irrigation management, and pest detection.</li>
+                <li>Sensors and IoT: Soil moisture, temperature, and nutrient sensors help optimize irrigation,
+                    fertilization, and crop management.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Increased efficiency.</li>
+                <li>Reduced input costs (water, fertilizers).</li>
+                <li>Improved yields.</li>
+                <li>Reduced environmental impact.</li>
+            </ul>
+        </div>
+
+        <!-- Vertical Farming -->
+        <div class="card">
+            <h2>2. Vertical Farming</h2>
+            <p>Vertical Farming involves growing crops in stacked layers or vertically, often in urban settings. This
+                technique is typically used for high-value crops like leafy greens, herbs, and microgreens.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Hydroponics: Growing plants without soil, using mineral nutrient solutions in water.</li>
+                <li>Aeroponics: Growing plants in an air or mist environment without the use of soil or an aggregate
+                    medium.</li>
+                <li>Controlled Environment Agriculture (CEA): Indoor environments are regulated in terms of temperature,
+                    humidity, and light.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Efficient land use.</li>
+                <li>Less water consumption compared to traditional farming.</li>
+                <li>Suitable for urban areas with limited arable land.</li>
+                <li>Reduces transportation costs by being close to consumer markets.</li>
+            </ul>
+        </div>
+
+        <!-- Hydroponics -->
+        <div class="card">
+            <h2>3. Hydroponics</h2>
+            <p>Hydroponics is the practice of growing plants in a water-based solution, often with added nutrients,
+                without soil. It can be used in greenhouses or indoor farms.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Nutrient-rich water is used to feed the plants directly.</li>
+                <li>Can be done in greenhouses or indoors.</li>
+                <li>Reduced water use compared to soil-based farming.</li>
+                <li>More precise control over nutrient availability.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Faster plant growth due to better nutrient control.</li>
+                <li>No need for soil, reducing land degradation.</li>
+                <li>Less water consumption compared to traditional farming.</li>
+                <li>Ideal for regions with poor or contaminated soil.</li>
+            </ul>
+        </div>
+
+        <!-- Aquaponics -->
+        <div class="card">
+            <h2>4. Aquaponics</h2>
+            <p>Aquaponics combines hydroponics with aquaculture (the raising of fish). The fish waste provides an
+                organic nutrient source for the plants, and the plants help filter and clean the water for the fish.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>The system uses fish tanks and plant grow beds in a closed-loop system.</li>
+                <li>Fish provide nutrients to plants through their waste.</li>
+                <li>Plants clean the water for the fish.</li>
+                <li>Used for growing vegetables, fruits, and fish in a sustainable manner.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Sustainability: Reduces waste and resource consumption.</li>
+                <li>Efficient water use.</li>
+                <li>No need for chemical fertilizers.</li>
+                <li>Ideal for areas with limited arable land or freshwater resources.</li>
+            </ul>
+        </div>
+
+        <!-- Genetically Modified Organisms (GMOs) -->
+        <div class="card">
+            <h2>5. Genetically Modified Organisms (GMOs)</h2>
+            <p>GMOs are crops that have been genetically engineered to enhance specific traits, such as resistance to
+                pests, diseases, or herbicides, or improved nutritional content.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Genetic modification of crops to improve their resistance to pests or environmental stress.</li>
+                <li>GMOs include varieties of maize, soybeans, cotton, and rice, among others.</li>
+                <li>Modified to improve shelf-life, nutrient content, and resistance to pests or diseases.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Higher yields and efficiency.</li>
+                <li>Resistance to pests, reducing the need for pesticides.</li>
+                <li>Enhanced nutritional content (e.g., Golden Rice enriched with Vitamin A).</li>
+                <li>Reduced environmental impact due to fewer pesticide applications.</li>
+            </ul>
+        </div>
+
+        <!-- Conservation Tillage -->
+        <div class="card">
+            <h2>6. Conservation Tillage</h2>
+            <p>Conservation tillage reduces the amount of tillage (soil turning) required, minimizing soil disturbance.
+                It helps preserve soil structure and moisture and prevents erosion.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>No-till farming: The practice of planting crops without disturbing the soil.</li>
+                <li>Reduced tillage: Only minimal soil disturbance to plant seeds.</li>
+                <li>Helps maintain soil health by reducing erosion and promoting water retention.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Reduces soil erosion and degradation.</li>
+                <li>Improves soil fertility over time.</li>
+                <li>Less energy consumption due to reduced tillage equipment use.</li>
+                <li>Increased water retention, reducing the need for irrigation.</li>
+            </ul>
+        </div>
+
+        <!-- Integrated Pest Management (IPM) -->
+        <div class="card">
+            <h2>7. Integrated Pest Management (IPM)</h2>
+            <p>IPM is a sustainable farming practice that uses a combination of biological, mechanical, and chemical
+                methods to control pests while minimizing environmental damage.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Biological control: Using natural predators like ladybugs to control pests.</li>
+                <li>Cultural control: Practices like crop rotation to reduce pest buildup.</li>
+                <li>Chemical control: Using pesticides only when necessary and in a controlled manner.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Reduces pesticide use and associated costs.</li>
+                <li>Helps protect non-target species, including pollinators.</li>
+                <li>Reduces the development of pesticide-resistant pests.</li>
+                <li>Sustainable and eco-friendly pest management.</li>
+            </ul>
+        </div>
+
+        <!-- Artificial Intelligence (AI) and Machine Learning -->
+        <div class="card">
+            <h2>8. Artificial Intelligence (AI) and Machine Learning</h2>
+            <p>AI and Machine Learning are being used to analyze large data sets collected from sensors, drones, and
+                satellites. This helps in making more informed decisions on planting, irrigation, pest management, and
+                harvesting.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Crop health monitoring: AI systems detect pests, diseases, and deficiencies in crops using images
+                    from drones or satellites.</li>
+                <li>Predictive analytics: Using weather patterns and historical data to predict optimal harvest times.
+                </li>
+                <li>Autonomous machinery: AI-powered tractors and harvesters can work with minimal human intervention.
+                </li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Increases accuracy and efficiency in crop management.</li>
+                <li>Predictive insights help in better resource allocation.</li>
+                <li>Autonomous machines reduce labor costs and improve consistency.</li>
+                <li>Faster decision-making through AI-powered systems.</li>
+            </ul>
+        </div>
+
+        <!-- Robotics and Automation -->
+        <div class="card">
+            <h2>9. Robotics and Automation</h2>
+            <p>Robotics and Automation are increasingly used in modern farming to perform repetitive tasks like
+                planting, weeding, and harvesting. This reduces human labor and increases precision.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Autonomous tractors and harvesters: Machines that work with minimal human supervision.</li>
+                <li>Robotic planters and weeders: Robots that plant seeds at precise depths and spacings or remove weeds
+                    without harming crops.</li>
+                <li>Drones: Drones can be used for spraying pesticides or fertilizers, reducing human exposure to
+                    chemicals.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Increases farm efficiency and precision.</li>
+                <li>Reduces the need for manual labor.</li>
+                <li>Minimizes waste by applying fertilizers and pesticides only where needed.</li>
+                <li>Improves consistency in farming practices.</li>
+            </ul>
+        </div>
+
+        <!-- Climate-Smart Agriculture -->
+        <div class="card">
+            <h2>10. Climate-Smart Agriculture</h2>
+            <p>Climate-smart agriculture (CSA) focuses on practices that help farmers adapt to climate change while
+                minimizing its impact. It involves using resilient crop varieties, efficient water use, and sustainable
+                land management.</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li>Resilient crop varieties: Using drought-resistant, heat-tolerant, or flood-resistant crops.</li>
+                <li>Water-efficient irrigation systems: Drip irrigation, sprinkler systems, and rainwater harvesting.
+                </li>
+                <li>Agroforestry: Integrating trees into agricultural systems to enhance biodiversity and reduce carbon
+                    emissions.</li>
+            </ul>
+            <h3>Benefits:</h3>
+            <ul>
+                <li>Helps farmers adapt to changing climate conditions.</li>
+                <li>Reduces greenhouse gas emissions from agriculture.</li>
+                <li>Increases agricultural productivity while conserving natural resources.</li>
+            </ul>
+        </div>
+
+    </div>
+   <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+            <a href="/frontend/quizzes/farming/quiz9.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+      <footer>
+        <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="/frontend/assets/js/main/script.js"></script>
+
+</body>
+
+</html>

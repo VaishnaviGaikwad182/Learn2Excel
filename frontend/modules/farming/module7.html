@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Farming and Crop Rotation in India</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f5fff0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 1em;
+            background-color: #003049;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 3.5rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        /* Logo Section */
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .navbar .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #eae2b7;
+        }
+
+        .navbar .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .navbar .logo a:hover .logo-text {
+            color: #dfe9e1;
+        }
+
+        /* Navbar Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.2em;
+        }
+
+        .nav-links a {
+            color: #fcfbff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .nav-links li a:not(.signup-btn):hover {
+            color: #f4d03f;
+        }
+
+        /* Signup Button */
+        .signup-btn {
+            background: #fca311;
+            color: #f1f3f4;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background: #ffba49;
+            color: #241e60;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #fcfbff;
+            cursor: pointer;
+        }
+
+        .auth-links {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .login-link {
+            color: #fcfbff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            color: #f4d03f;
+        }
+
+        /* Profile dropdown styles */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fca311, #ffba49);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .profile-dropdown .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 52px;
+            background: #ffffff;
+            border-radius: 8px;
+            min-width: 160px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+            z-index: 2000;
+        }
+
+        .profile-dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: #003049;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f1f1f1;
+        }        
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        h2 {
+            color: #4d290f;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #1f989a;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+        }
+
+        /* ================== QUIZ ================== */
+      .quiz-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .quiz-btn {
+        background-color: #45a049;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      .quiz-btn:hover {
+        background-color: #52bb56;
+      }
+
+      /* ================== FOOTER ================== */
+      footer {
+        text-align: center;
+        background-color: #003049;
+        color: white;
+        padding: 0.25px 0;
+        font-size: 15px;
+      }
+
+      footer a {
+        color: #ff7a18;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- Seasonal Farming in India -->
+        <div class="card">
+            <h2>Seasonal Farming in India</h2>
+            <p>
+                Seasonal farming refers to the practice of cultivating different crops based on the seasons and climatic conditions. India has a diverse climate, which allows farmers to grow a variety of crops throughout the year, but it's essential to align crop cultivation with the seasons to maximize productivity and minimize risks.
+            </p>
+        </div>
+
+        <!-- Kharif Season (Monsoon Cropping Season) -->
+        <div class="card">
+            <h3>Kharif Season (Monsoon Cropping Season)</h3>
+            <p><strong>Timeframe:</strong> June to September (During the monsoon season)</p>
+            <p><strong>Climate:</strong> This season is characterized by heavy rainfall and warm temperatures.</p>
+            <h4>Crops Grown:</h4>
+            <ul>
+                <li>Rice: The most significant crop during the Kharif season, requiring abundant water.</li>
+                <li>Maize: Grown in areas with moderate rainfall.</li>
+                <li>Cotton: Grown in regions with high rainfall and warm temperatures.</li>
+                <li>Groundnut: Needs a warm climate and moderate rainfall.</li>
+                <li>Soybean: Another crop suited to the monsoon season.</li>
+                <li>Sugarcane: Requires long periods of moisture and warmth.</li>
+            </ul>
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li>Kharif crops are generally sown at the beginning of the monsoon and harvested at the end of it.</li>
+                <li>These crops require a high amount of water and are mostly rain-fed.</li>
+            </ul>
+        </div>
+
+        <!-- Rabi Season (Winter Cropping Season) -->
+        <div class="card">
+            <h3>Rabi Season (Winter Cropping Season)</h3>
+            <p><strong>Timeframe:</strong> October to March (Winter season)</p>
+            <p><strong>Climate:</strong> Characterized by cooler temperatures and a dry period, with less rainfall.</p>
+            <h4>Crops Grown:</h4>
+            <ul>
+                <li>Wheat: The primary crop of the Rabi season, especially in regions like Punjab, Haryana, and Uttar Pradesh.</li>
+                <li>Barley: Grown in cooler climates.</li>
+                <li>Mustard: Often cultivated in the northern and western parts of India.</li>
+                <li>Gram (Chickpea): Widely grown in Rajasthan, Madhya Pradesh, and Uttar Pradesh.</li>
+                <li>Peas: Grown in cool climates during the winter.</li>
+                <li>Linseed: Grown in colder regions like parts of Uttar Pradesh and Rajasthan.</li>
+            </ul>
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li>Rabi crops are sown after the monsoon season and rely primarily on irrigation.</li>
+                <li>These crops require cooler temperatures, and many of them are harvested in late winter or early spring.</li>
+            </ul>
+        </div>
+
+        <!-- Zaid Season (Summer Cropping Season) -->
+        <div class="card">
+            <h3>Zaid Season (Summer Cropping Season)</h3>
+            <p><strong>Timeframe:</strong> March to June (Summer season)</p>
+            <p><strong>Climate:</strong> Hot and dry with minimal rainfall.</p>
+            <h4>Crops Grown:</h4>
+            <ul>
+                <li>Watermelon: Grown in regions with good irrigation and warm temperatures.</li>
+                <li>Cucumber: Requires a hot climate and moderate water supply.</li>
+                <li>Tomato: Needs a warm climate with controlled irrigation.</li>
+                <li>Lemon: Grown in warmer regions with adequate irrigation.</li>
+                <li>Okra (Ladyfinger): Thrives in high temperatures and needs well-drained soil.</li>
+                <li>Maize: Can be grown in the summer season with irrigation in certain regions.</li>
+            </ul>
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li>The Zaid season is mainly for crops that require minimal water and high temperatures.</li>
+                <li>These crops are grown in areas where irrigation is available since rainfall is scarce during this period.</li>
+            </ul>
+        </div>
+
+        <!-- Crop Rotation in India -->
+        <div class="card">
+            <h2>Crop Rotation in India</h2>
+            <p>
+                Crop rotation is the practice of growing different types of crops in the same field over successive seasons to improve soil fertility, control pests and diseases, and optimize yields. This method helps maintain soil health and reduces the dependency on chemical fertilizers and pesticides.
+            </p>
+        </div>
+
+        <!-- Importance of Crop Rotation -->
+        <div class="card">
+            <h3>Importance of Crop Rotation</h3>
+            <h4>Soil Fertility Management:</h4>
+            <p>
+                Some crops deplete specific nutrients in the soil, while others replenish them. For example, legumes like peas, beans, and lentils fix nitrogen in the soil, which benefits subsequent crops like wheat and maize.
+            </p>
+            <h4>Pest and Disease Control:</h4>
+            <p>
+                Growing the same crop in a field year after year can lead to the buildup of pests and diseases specific to that crop. By rotating crops, pests and diseases are less likely to survive and reproduce, reducing the need for chemical pesticides.
+            </p>
+            <h4>Weed Control:</h4>
+            <p>
+                Different crops have different growth habits, which helps in reducing weed competition. For example, a legume crop with a dense canopy can help suppress weeds.
+            </p>
+            <h4>Increased Yield:</h4>
+            <p>
+                Crop rotation helps in optimizing the use of the soil, leading to higher yields over time. Different crops have different rooting systems, and rotating them ensures better utilization of nutrients from the soil.
+            </p>
+        </div>
+
+        <!-- Common Crop Rotation Systems in India -->
+        <div class="card">
+            <h3>Common Crop Rotation Systems in India</h3>
+            <ul>
+                <li><strong>Legume-Cereal Rotation:</strong> Example: Wheat or Rice followed by Legumes (Chickpea, Peas, Soybean, etc.).</li>
+                <li><strong>Cereal-Oilseed Rotation:</strong> Example: Rice followed by Mustard or Soybean.</li>
+                <li><strong>Cotton-Soybean Rotation:</strong> Example: Cotton followed by Soybean.</li>
+                <li><strong>Rice-Wheat Rotation:</strong> Example: Rice followed by Wheat.</li>
+                <li><strong>Maize-Pulses Rotation:</strong> Example: Maize followed by Pulses (such as Lentils, Pigeon Pea).</li>
+            </ul>
+        </div>
+
+        <!-- Benefits of Crop Rotation -->
+        <div class="card">
+            <h3>Benefits of Crop Rotation in India</h3>
+            <ul>
+                <li><strong>Sustainable Agriculture:</strong> Crop rotation ensures that soil fertility is maintained without the need for excessive chemical fertilizers.</li>
+                <li><strong>Economic Efficiency:</strong> By reducing the cost of fertilizers and pesticides, crop rotation increases the overall profitability of the farm.</li>
+                <li><strong>Water Conservation:</strong> Some crops like legumes require less water than others, allowing farmers to use water more efficiently by rotating crops with different water requirements.</li>
+                <li><strong>Risk Mitigation:</strong> If one crop fails due to pests, diseases, or market fluctuations, the subsequent crop in the rotation may succeed, providing economic stability for farmers.</li>
+            </ul>
+        </div>
+
+        <!-- Challenges in Implementing Crop Rotation in India -->
+        <div class="card">
+            <h3>Challenges in Implementing Crop Rotation in India</h3>
+            <ul>
+                <li><strong>Lack of Awareness:</strong> Many farmers in India are still unaware of the benefits of crop rotation and often follow monocropping practices, which can lead to soil degradation and pest buildup.</li>
+                <li><strong>Water Dependency:</strong> Some crops require more water than others, making it difficult to implement effective rotation in regions where irrigation resources are limited.</li>
+                <li><strong>Market Demands:</strong> Farmers may face market pressure to grow a specific crop repeatedly if there is high demand or a better price, even if crop rotation is beneficial.</li>
+                <li><strong>Land Tenure Issues:</strong> In regions with small landholdings, farmers may struggle to implement crop rotation due to constraints in land availability and financial resources.</li>
+            </ul>
+        </div>
+
+    </div>
+    <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+            <a href="/frontend/quizzes/farming/quiz7.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+    </footer>
+    
+    <script src="/frontend/assets/js/main/script.js"></script>
+</body>
+
+</html>

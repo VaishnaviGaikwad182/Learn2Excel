@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planting Techniques for Farming and Gardening in India</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #f5fff0;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5em 1em;
+      background-color: #003049;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 3.5rem;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+    }
+
+    /* Logo Section */
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .navbar .logo a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #eae2b7;
+    }
+
+    .navbar .logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .navbar .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.4s ease;
+    }
+
+    .navbar .logo a:hover .logo-text {
+      color: #dfe9e1;
+    }
+
+    /* Navbar Links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2em;
+    }
+
+    .nav-links a {
+      color: #fcfbff;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: bold;
+    }
+
+    .nav-links li a:not(.signup-btn):hover {
+      color: #f4d03f;
+    }
+
+    /* Signup Button */
+    .signup-btn {
+      background: #fca311;
+      color: #f1f3f4;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .signup-btn:hover {
+      background: #ffba49;
+      color: #241e60;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #fcfbff;
+      cursor: pointer;
+    }
+
+    .auth-links {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 8px;
+    }
+
+    .login-link {
+      color: #fcfbff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link:hover {
+      color: #f4d03f;
+    }
+
+    /* Profile dropdown styles */
+    .profile-dropdown {
+      position: relative;
+    }
+
+    .profile-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fca311, #ffba49);
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .profile-dropdown .dropdown-menu {
+      position: absolute;
+      right: 0;
+      top: 52px;
+      background: #ffffff;
+      border-radius: 8px;
+      min-width: 160px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      display: none;
+      overflow: hidden;
+      z-index: 2000;
+    }
+
+    .profile-dropdown.active .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 16px;
+      color: #003049;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f1f1f1;
+    }
+
+    /*Layout Styling*/
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      color: #28a745;
+    }
+
+    .card h3 {
+      color: #1f989a;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .intro-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      padding: 1rem;
+    }
+
+    .intro-text {
+      width: 100%;
+      line-height: 1.5rem;
+    }
+
+    .intro-text h2 {
+      color: #301b06;
+    }
+
+    h1,
+    h2 {
+      color: #2c3e50;
+    }
+
+    h3 {
+      color: #0e6029;
+    }
+
+    .adv-disadv-container {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .adv-card,
+    .disadv-card {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      flex: 1;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+      color: #24372b;
+    }
+
+    .spacing p {
+      color: #160202;
+      line-height: 1.6rem;
+    }
+
+    .spacing h4 {
+      color: #c75e18;
+    }
+ 
+    /* ================== QUIZ ================== */
+        .quiz-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .quiz-btn {
+            background-color: #45a049;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .quiz-btn:hover {
+            background-color: #52bb56;
+        }
+
+        /* ================== FOOTER ================== */
+        footer {
+            text-align: center;
+            background-color: #003049;
+            color: white;
+            padding: 0.25px 0;
+            font-size: 15px;
+        }
+
+        footer a {
+            color: #ff7a18;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <!-- Logo Section (Image + Text) -->
+      <div class="logo">
+        <a href="#home">
+          <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+          <span class="logo-text">Learn2Excel</span>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="/frontend/index.html#home">Home</a></li>
+        <li><a href="/frontend/index.html#courses">Courses</a></li>
+        <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+        <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+      </ul>
+      <div class="auth-links">
+        <a href="login.html" class="login-link">Login</a>
+        <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+        <button class="hamburger">☰</button>
+      </div>
+    </nav>
+  </header>
+  <div class="intro-container">
+    <div class="intro-text">
+      <h2 id="intro">Introduction</h2>
+      <p>
+        Farming and gardening in India require a combination of traditional
+        and modern planting techniques to optimize yield and maintain soil
+        health. The country's diverse climate, soil types, and water
+        availability play a crucial role in determining the best practices for
+        growing crops and plants. Following is the detailed insights into soil
+        preparation, sowing methods, spacing, mulching, fertilization, and
+        crop rotation, ensuring sustainable and productive farming and
+        gardening.
+      </p>
+    </div>
+  </div>
+
+  <div class="intro-container">
+    <div class="intro-text">
+      <h2>Soil preparation</h2>
+      <p>
+        Soil preparation is essential for healthy plant growth in farming and
+        gardening. It improves soil structure, fertility, and drainage,
+        creating ideal conditions for roots. Key steps include clearing,
+        tilling, adding organic matter, and leveling. Proper preparation
+        enhances productivity and ensures sustainable plant development.
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <h2>1. Clearing the Land</h2>
+    <p>
+      <strong>Definition:</strong> Removing weeds, rocks, and plant residues
+      to prepare the field or garden for planting.
+    </p>
+    <ul>
+      <li>Prevents pest infestations and disease buildup.</li>
+      <li>Facilitates better root penetration.</li>
+      <li>Ensures an even planting surface.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>2. Soil Testing</h2>
+    <p>
+      <strong>Definition:</strong> Checking pH levels, nutrient content, and
+      soil type using a soil test kit or laboratory test.
+    </p>
+    <ul>
+      <li>Helps determine the need for soil amendments.</li>
+      <li>Prevents over-fertilization and nutrient imbalances.</li>
+      <li>Ensures optimal soil conditions for plant growth.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>3. Improving Soil Structure</h2>
+    <p>
+      <strong>Definition:</strong> Adjusting soil composition to enhance
+      aeration, drainage, and moisture retention.
+    </p>
+    <ul>
+      <li>Add sand or organic matter for clay soil.</li>
+      <li>Incorporate compost or peat moss for sandy soil.</li>
+      <li>Break up compacted soil for better root penetration.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Adding Organic Matter</h2>
+    <p>
+      <strong>Definition:</strong> Using compost, manure, or green manure to
+      improve soil fertility.
+    </p>
+    <ul>
+      <li>Enhances soil structure and nutrient availability.</li>
+      <li>Promotes microbial activity.</li>
+      <li>Reduces the need for chemical fertilizers.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>5. Plowing & Tilling</h2>
+    <p>
+      <strong>Definition:</strong> Loosening and aerating the soil using
+      manual tools or machinery.
+    </p>
+    <ul>
+      <li>Improves root penetration and soil aeration.</li>
+      <li>Mixes organic matter and fertilizers effectively.</li>
+      <li>Prepares a suitable seedbed for sowing.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>6. Fertilization</h2>
+    <p>
+      <strong>Definition:</strong> Adding nutrients based on soil test results
+      to enhance plant growth.
+    </p>
+    <ul>
+      <li>Use organic options like compost and manure.</li>
+      <li>Apply NPK fertilizers based on crop needs.</li>
+      <li>Avoid excessive fertilization to prevent soil degradation.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>7. Leveling the Soil</h2>
+    <p>
+      <strong>Definition:</strong> Flattening the soil surface to ensure
+      uniform water distribution.
+    </p>
+    <ul>
+      <li>Prevents waterlogging and soil erosion.</li>
+      <li>Ensures even crop growth.</li>
+      <li>Facilitates efficient irrigation.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>8. Irrigation Setup</h2>
+    <p>
+      <strong>Definition:</strong> Planning and installing an irrigation
+      system to provide adequate moisture.
+    </p>
+    <ul>
+      <li>Choose drip, sprinkler, or furrow irrigation.</li>
+      <li>Ensure proper drainage to prevent water stagnation.</li>
+      <li>Water the soil before sowing if necessary.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>9. Mulching</h2>
+    <p>
+      <strong>Definition:</strong> Applying organic or synthetic materials to
+      the soil surface to conserve moisture.
+    </p>
+    <ul>
+      <li>Suppresses weed growth.</li>
+      <li>Regulates soil temperature.</li>
+      <li>Prevents soil erosion.</li>
+    </ul>
+  </div>
+
+  <div class="intro-container">
+    <div class="intro-text">
+      <h2>Sowing Methods</h2>
+      <p>
+        Sowing is the process of planting seeds in soil for germination.
+        Choosing the right method ensures better crop yield and healthy plant
+        growth. Below are different sowing techniques for both gardening and
+        farming:
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1. Broadcasting Method (Manual Spreading)</h2>
+    <p>
+      <strong>Best for:</strong> Grains (wheat, rice, millet), grass, and
+      cover crops.
+    </p>
+    <p>
+      <strong>Definition:</strong> Seeds are scattered evenly by hand or
+      mechanically over the soil surface.
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>Simple, fast, and covers large areas.</li>
+          <li>Works well for quick germinating crops.</li>
+          <li>Can be done with or without plowing.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>Uneven growth.</li>
+          <li>Higher seed wastage.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2. Drilling Method (Row Sowing)</h2>
+    <p>
+      <strong>Best for:</strong> Wheat, barley, corn, soybeans, and
+      vegetables.
+    </p>
+    <p>
+      <strong>Definition:</strong> Seeds are placed in continuous furrows
+      (rows) at a uniform depth using a seed drill.
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>Efficient, saves seeds, ensures uniform germination.</li>
+          <li>Modern seed drills ensure even spacing and depth.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>Requires equipment.</li>
+          <li>Higher cost than broadcasting.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Dibbling Method (Hole Sowing)</h2>
+    <p>
+      <strong>Best for:</strong> Maize, cotton, sunflower, and large-seeded
+      crops.
+    </p>
+    <p>
+      <strong>Definition:</strong> Seeds are placed individually in holes made
+      at specific intervals.
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>Reduced seed wastage.</li>
+          <li>Proper spacing, better root development.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>Time-consuming for large areas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4. Transplanting Method</h2>
+    <p>
+      <strong>Best for:</strong> Rice, tomatoes, cabbage, chilies, onions, and
+      flowers.
+    </p>
+    <p>
+      <strong>Definition:</strong> Seedlings are first grown in nurseries and
+      later transplanted to the field.
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>Stronger plants.</li>
+          <li>Controlled spacing, early harvesting.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>Labor-intensive.</li>
+          <li>Requires water management.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5. Hill Sowing Method</h2>
+    <p>
+      <strong>Best for:</strong> Maize, melons, cucumbers, pumpkins, beans.
+    </p>
+    <p>
+      <strong>Definition:</strong> Seeds are placed in small hills/mounds,
+      often in a circular pattern.
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>Better aeration.</li>
+          <li>Suitable for uneven land.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>Requires spacing and manual labor.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6. Check Row Planting Method</h2>
+    <p><strong>Best for:</strong> Cotton, maize, and sorghum.</p>
+    <p>
+      <strong>Definition:</strong> Seeds are sown in rows with equal spacing
+      in both directions (grid pattern).
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>Easy weeding and irrigation.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>Requires more land and planning.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7. Line Sowing (Row Method)</h2>
+    <p><strong>Best for:</strong> Carrots, beets, radishes, leafy greens.</p>
+    <p>
+      <strong>Definition:</strong> Seeds are sown in straight rows with equal
+      spacing.
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>Organized growth.</li>
+          <li>Easy maintenance.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>Can take longer to plant compared to broadcasting.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>8. Seed Tape Sowing (Pre-Spaced Seeds on Tape)</h2>
+    <p>
+      <strong>Best for:</strong> Small gardens, carrots, lettuce, and herbs.
+    </p>
+    <p>
+      <strong>Definition:</strong> Seeds are embedded in pre-made
+      biodegradable seed tapes and laid in rows.
+    </p>
+    <div class="adv-disadv-container">
+      <div class="adv-card">
+        <h3>Advantages</h3>
+        <ul>
+          <li>No thinning required.</li>
+          <li>Perfect spacing.</li>
+        </ul>
+      </div>
+      <div class="disadv-card">
+        <h3>Disadvantages</h3>
+        <ul>
+          <li>More expensive than loose seeds.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Spacing & Arrangement</h2>
+    <div class="spacing">
+      <p>
+        Spacing and arrangement refer to how plants are positioned in the
+        field or garden after sowing. Proper spacing ensures each plant gets
+        adequate sunlight, water, and nutrients, reducing competition and
+        promoting healthy growth. Different crops require different spacing
+        methods to optimize yield and efficiency.
+      </p>
+      <h3>How It Differs from Sowing Methods</h3>
+      <p>
+        While sowing methods focus on how seeds are placed in the soil (e.g.,
+        broadcasting, drilling, transplanting), spacing & arrangement
+        determine the final layout of plants as they grow.
+      </p>
+      <ul>
+        <li>
+          <strong>Sowing Methods:</strong> Process of planting seeds into the
+          soil.
+        </li>
+        <li>
+          <strong>Spacing & Arrangement:</strong> The pattern and distance
+          between plants for optimal growth.
+        </li>
+      </ul>
+      <h3>Types of Spacing & Arrangement</h3>
+      <h4>Row Planting</h4>
+      <p>
+        <strong>Best for:</strong> Wheat, rice, maize, vegetables, and
+        legumes.
+      </p>
+      <p>
+        Seeds are sown in straight rows with equal spacing, allowing for easy
+        irrigation, weeding, and harvesting.
+      </p>
+
+      <h4>Grid or Check Row Planting</h4>
+      <p><strong>Best for:</strong> Cotton, corn, and root crops.</p>
+      <p>
+        Seeds are planted at equal distances in both directions, forming a
+        grid pattern. This makes mechanical weeding and intercropping easier.
+      </p>
+
+      <h4>Square Foot Gardening</h4>
+      <p>
+        <strong>Best for:</strong> Small gardens, leafy greens, herbs, and
+        flowers.
+      </p>
+      <p>
+        Divides the garden into small, equal sections (usually 1 square foot
+        per plant or group of plants), maximizing space while keeping plants
+        well-organized.
+      </p>
+
+      <h4>Broadcasting with Thinning</h4>
+      <p>
+        <strong>Best for:</strong> Cover crops, grasses, and densely growing
+        vegetables (like carrots and lettuce).
+      </p>
+      <p>
+        Seeds are spread randomly, and weaker plants are later removed to
+        ensure proper spacing.
+      </p>
+
+      <h4>Vertical Gardening</h4>
+      <p>
+        <strong>Best for:</strong> Cucumbers, beans, tomatoes, and ornamental
+        plants.
+      </p>
+      <p>
+        Uses trellises, hanging baskets, or wall planters to grow plants
+        upward, making it ideal for small spaces and urban gardening.
+      </p>
+
+      <h4>Companion Planting</h4>
+      <p>
+        <strong>Best for:</strong> Mixed vegetable gardens, flowers, and fruit
+        orchards.
+      </p>
+      <p>
+        Plants with mutual benefits are grown together (e.g., tomatoes with
+        basil, corn with beans), aiding natural pest control and improving
+        soil fertility.
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align: center; width: 100%">
+    <div class="quiz-container">
+      <a href="/frontend/quizzes/farming/quiz4.html" class="quiz-btn">Take a Quiz</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Farming Skill | <a href="#">Contact Us</a></p>
+  </footer>
+
+  <script src="/frontend/assets/js/main/script.js"></script>
+</body>
+
+</html>
