@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Neha Budget Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f3f6ff;
+        padding: 16px;
+        text-align: center;
+      }
+
+      .title {
+        margin-bottom: 10px;
+      }
+
+      .card {
+        background: white;
+        padding: 14px;
+        margin: 12px auto;
+        border-radius: 14px;
+        max-width: 900px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.4s ease;
+      }
+
+      .situation {
+        background: #fefefe;
+      }
+
+      .balance {
+        font-size: 18px;
+        font-weight: bold;
+        color: green;
+        transition: transform 0.2s ease;
+      }
+
+      .money-grid,
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+      }
+
+      .money {
+        background: #ff7b7b;
+        color: white;
+        padding: 12px;
+        border-radius: 12px;
+        cursor: grab;
+        font-weight: bold;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .money:active {
+        transform: scale(1.1);
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .dropzone {
+        border: 2px dashed #aaa;
+        padding: 14px;
+        border-radius: 12px;
+        background: #f9fbff;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .dropzone.over {
+        background: #d4f7dc;
+        border-color: green;
+        transform: scale(1.03);
+      }
+
+      .buttons {
+        margin-top: 14px;
+      }
+
+      button {
+        padding: 12px 18px;
+        margin: 5px;
+        border: none;
+        border-radius: 12px;
+        background: #4a6cff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      .back-wrap {
+        margin-top: 16px;
+      }
+
+      .back-btn {
+        background: #555;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">💰 Help Neha Manage Her Expenses</h1>
+
+    <!-- Situation -->
+    <div class="card situation">
+      <h3>Neha's Situation</h3>
+      <p>Salary: ₹55,000</p>
+      <p>🏠 EMI: ₹18,000 <strong>(Must Pay)</strong></p>
+      <p>🏍 Two-Wheeler: Save ₹6,000 <strong>(Must Save)</strong></p>
+      <p>Drag money into the correct categories.</p>
+    </div>
+
+    <!-- Balance -->
+    <div class="card balance">
+      Remaining Balance: ₹<span id="balance">55000</span>
+    </div>
+
+    <!-- Money -->
+    <div class="card">
+      <h3>Available Money</h3>
+      <div class="money-grid">
+        <div class="money" draggable="true" data-value="10000">₹10,000</div>
+        <div class="money" draggable="true" data-value="5000">₹5,000</div>
+        <div class="money" draggable="true" data-value="15000">₹15,000</div>
+        <div class="money" draggable="true" data-value="3000">₹3,000</div>
+        <div class="money" draggable="true" data-value="2000">₹2,000</div>
+        <div class="money" draggable="true" data-value="4000">₹4,000</div>
+        <div class="money" draggable="true" data-value="20000">₹20,000</div>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="card">
+      <h3>Expense Categories</h3>
+      <div class="category-grid">
+        <div class="dropzone" data-cat="Food">🍔 Food: ₹0</div>
+        <div class="dropzone" data-cat="Rent">🏠 Rent / EMI: ₹0</div>
+        <div class="dropzone" data-cat="Savings">💰 Savings: ₹0</div>
+        <div class="dropzone" data-cat="Transport">🚗 Transport: ₹0</div>
+        <div class="dropzone" data-cat="Fun">🎬 Fun: ₹0</div>
+        <div class="dropzone" data-cat="Emergency">🚑 Emergency: ₹0</div>
+        <div class="dropzone" data-cat="Misc">🎁 Misc: ₹0</div>
+        <div class="dropzone" data-cat="Bike">🏍 Two-Wheeler: ₹0</div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button id="undo">Undo</button>
+      <button id="submit">Submit</button>
+      <button id="reset">Reset</button>
+    </div>
+
+    <!-- Back button at bottom -->
+    <div class="back-wrap">
+      <button class="back-btn" onclick="goBack()">⬅ Back</button>
+    </div>
+
+    <script>
+      let balance = 55000;
+      let allocations = {};
+      let history = [];
+
+      const balanceEl = document.getElementById("balance");
+
+      document.querySelectorAll(".money").forEach((item) => {
+        item.addEventListener("dragstart", (e) => {
+          e.dataTransfer.setData("value", e.target.dataset.value);
+        });
+      });
+
+      document.querySelectorAll(".dropzone").forEach((zone) => {
+        zone.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          zone.classList.add("over");
+        });
+
+        zone.addEventListener("dragleave", () => {
+          zone.classList.remove("over");
+        });
+
+        zone.addEventListener("drop", (e) => {
+          e.preventDefault();
+          zone.classList.remove("over");
+
+          const value = parseInt(e.dataTransfer.getData("value"));
+          const cat = zone.dataset.cat;
+
+          if (balance < value) {
+            alert("❌ Not enough money!");
+            return;
+          }
+
+          allocations[cat] = (allocations[cat] || 0) + value;
+          balance -= value;
+
+          history.push({ cat, value });
+          animateBalance();
+          updateUI();
+        });
+      });
+
+      function updateUI() {
+        balanceEl.innerText = balance;
+
+        document.querySelectorAll(".dropzone").forEach((zone) => {
+          const cat = zone.dataset.cat;
+          const label = zone.innerText.split(":")[0];
+          zone.innerText = `${label}: ₹${allocations[cat] || 0}`;
+        });
+      }
+
+      function animateBalance() {
+        balanceEl.parentElement.style.transform = "scale(1.1)";
+        setTimeout(() => {
+          balanceEl.parentElement.style.transform = "scale(1)";
+        }, 150);
+      }
+
+      document.getElementById("undo").onclick = () => {
+        if (!history.length) return;
+
+        const last = history.pop();
+        allocations[last.cat] -= last.value;
+        balance += last.value;
+
+        animateBalance();
+        updateUI();
+      };
+
+      document.getElementById("reset").onclick = () => {
+        location.reload();
+      };
+
+      document.getElementById("submit").onclick = () => {
+        const rent = allocations["Rent"] || 0;
+        const bike = allocations["Bike"] || 0;
+
+        if (rent < 18000) {
+          alert("❌ You must pay at least ₹18,000 EMI!");
+          return;
+        }
+
+        if (bike < 6000) {
+          alert("❌ You must save ₹6,000 for the bike!");
+          return;
+        }
+
+        alert("🎉 You WIN! Neha is financially safe!");
+      };
+
+      function goBack() {
+        window.location.href = "finance.html";
+      }
+    </script>
+  </body>
+</html>

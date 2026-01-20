@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Finance Puzzle Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .game-wrapper {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      /* ===== ANIMATIONS ===== */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-5px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(5px);
+        }
+      }
+
+      @keyframes confettiFall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes correctPop {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        70% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* ===== TOP BAR ===== */
+      .top-bar {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        align-items: center;
+        gap: 15px;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      .character-box {
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+
+      .character-box img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+        animation: bounce 2s infinite;
+      }
+
+      .character-box img.happy {
+        animation:
+          pulse 0.5s ease 3,
+          bounce 2s infinite;
+      }
+
+      .character-box img.sad {
+        animation: shake 0.5s ease 1;
+      }
+
+      .avatar-feedback {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.3s ease;
+      }
+
+      .avatar-feedback.show {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .avatar-feedback.correct {
+        background: #22c55e;
+        color: white;
+      }
+
+      .avatar-feedback.wrong {
+        background: #ef4444;
+        color: white;
+      }
+
+      .level-title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .lifeline {
+        display: flex;
+        gap: 6px;
+        font-size: 22px;
+      }
+
+      .heart {
+        transition: all 0.3s ease;
+      }
+
+      .heart.grey {
+        filter: grayscale(1);
+        opacity: 0.4;
+        transform: scale(0.8);
+      }
+
+      .exit-btn {
+        background: #ef4444;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .exit-btn:hover {
+        background: #dc2626;
+        transform: scale(1.05);
+      }
+
+      /* ===== CLUE CARD ===== */
+      .clue-card {
+        background: linear-gradient(135deg, #1e293b, #334155);
+        margin: 25px 0;
+        padding: 25px;
+        border-radius: 14px;
+        text-align: center;
+        font-size: 18px;
+        animation: fadeIn 0.8s ease-out;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        border-left: 4px solid #3b82f6;
+      }
+
+      /* ===== DROP ZONES ===== */
+      .drop-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+        animation: fadeIn 1s ease-out;
+      }
+
+      .drop-box {
+        background: linear-gradient(145deg, #020617, #0f172a);
+        border: 2px dashed #64748b;
+        padding: 20px;
+        border-radius: 12px;
+        min-height: 100px;
+        transition: all 0.3s ease;
+      }
+
+      .drop-box:hover {
+        border-color: #3b82f6;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
+      }
+
+      .drop-box strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 15px;
+        color: #cbd5f5;
+      }
+
+      .drop-zone {
+        min-height: 50px;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .drop-zone.highlight {
+        background: rgba(59, 130, 246, 0.1);
+        border: 2px dashed #3b82f6;
+      }
+
+      /* ===== OPTIONS ===== */
+      .options-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        animation: fadeIn 1.2s ease-out;
+      }
+
+      .option {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: grab;
+        font-weight: bold;
+        user-select: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+
+      .option:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      }
+
+      .option:active {
+        cursor: grabbing;
+        transform: scale(0.95);
+      }
+
+      .option.dragging {
+        opacity: 0.5;
+        transform: scale(0.9);
+      }
+
+      /* ===== CORRECT PLACED ===== */
+      .correct {
+        display: inline-block;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        padding: 8px 16px;
+        border-radius: 20px;
+        margin: 5px;
+        font-size: 14px;
+        animation: correctPop 0.5s ease-out;
+        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+      }
+
+      /* ===== MODAL ===== */
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      .modal.hidden {
+        display: none;
+      }
+
+      .modal-content {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+        animation: fadeIn 0.5s ease-out;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .modal-content.level-complete {
+        border-top: 4px solid #22c55e;
+      }
+
+      .modal-content.game-complete {
+        border-top: 4px solid #f59e0b;
+      }
+
+      .confetti-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .trophy-animation {
+        font-size: 60px;
+        color: #fbbf24;
+        margin-bottom: 20px;
+        animation: float 2s ease-in-out infinite;
+      }
+
+      .medal-animation {
+        font-size: 60px;
+        color: #fbbf24;
+        margin-bottom: 20px;
+        animation: pulse 1s ease infinite;
+      }
+
+      .stars {
+        color: #fbbf24;
+        font-size: 30px;
+        margin: 20px 0;
+        animation: bounce 1s ease infinite;
+      }
+
+      .stars i {
+        margin: 0 10px;
+      }
+
+      .master-badge {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        padding: 15px 25px;
+        border-radius: 25px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0;
+        animation: pulse 1.5s ease infinite;
+      }
+
+      .master-badge i {
+        font-size: 24px;
+      }
+
+      .modal-buttons {
+        margin-top: 30px;
+      }
+
+      .modal-buttons button {
+        margin: 10px;
+        padding: 12px 24px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .primary-btn {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+      }
+
+      .primary-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      }
+
+      .secondary-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .secondary-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      /* ===== MOBILE ===== */
+      @media (max-width: 600px) {
+        .top-bar {
+          grid-template-columns: auto 1fr;
+          row-gap: 10px;
+        }
+
+        .character-box {
+          width: 60px;
+          height: 60px;
+        }
+
+        .character-box img {
+          width: 60px;
+          height: 60px;
+        }
+
+        .lifeline {
+          justify-content: flex-start;
+        }
+
+        .exit-btn {
+          justify-self: end;
+        }
+
+        .options-container {
+          gap: 8px;
+        }
+
+        .option {
+          padding: 10px 16px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-wrapper">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="character-box">
+          <img id="characterImg" src="/frontend/assets/images/finance/neutral.png" alt="character" />
+          <div class="avatar-feedback" id="avatarFeedback"></div>
+        </div>
+
+        <div class="level-title">Level <span id="levelNumber">1</span></div>
+
+        <div class="lifeline" id="lifeline">
+          <span class="heart active">❤️</span>
+          <span class="heart active">❤️</span>
+          <span class="heart active">❤️</span>
+        </div>
+
+        <button class="exit-btn" id="exitBtn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Clue Card -->
+      <div class="clue-card" id="clueBox">Loading...</div>
+
+      <!-- Drop Zones -->
+      <div class="drop-container" id="dropContainer"></div>
+
+      <!-- Options -->
+      <div class="options-container" id="optionsContainer"></div>
+    </div>
+
+    <!-- Level Complete Modal -->
+    <div id="levelCompleteModal" class="modal hidden">
+      <div class="modal-content level-complete">
+        <div class="confetti-container"></div>
+        <div class="trophy-animation">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h2 id="levelCompleteTitle">Level Complete!</h2>
+        <p id="levelCompleteMessage">Congratulations! You completed Level 1</p>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="modal-buttons">
+          <button id="nextLevelBtn" class="primary-btn">Next Level</button>
+          <button id="menuBtn" class="secondary-btn">Back to Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Complete Modal -->
+    <div id="gameCompleteModal" class="modal hidden">
+      <div class="modal-content game-complete">
+        <div class="confetti-container"></div>
+        <div class="medal-animation">
+          <i class="fas fa-medal"></i>
+        </div>
+        <h2>Master Achieved!</h2>
+        <p>Congratulations! You are now a master of financial planning!</p>
+        <div class="master-badge">
+          <i class="fas fa-crown"></i>
+          <span>Financial Planning Master</span>
+        </div>
+        <div class="modal-buttons">
+          <button id="playAgainBtn" class="primary-btn">Play Again</button>
+          <button id="finalMenuBtn" class="secondary-btn">Back to Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exit Modal -->
+    <div id="exitModal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Pause Game</h2>
+        <p>What do you want to do?</p>
+        <div class="modal-buttons">
+          <button id="resumeBtn" class="primary-btn">Resume</button>
+          <button id="quitBtn" class="secondary-btn">Quit</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let currentLevel = 1;
+      let attempts = 3;
+      let score = 0;
+      let isProcessingMove = false;
+
+      const levelNumber = document.getElementById("levelNumber");
+      const clueBox = document.getElementById("clueBox");
+      const dropContainer = document.getElementById("dropContainer");
+      const optionsContainer = document.getElementById("optionsContainer");
+      const hearts = document.querySelectorAll(".heart");
+      const characterImg = document.getElementById("characterImg");
+      const avatarFeedback = document.getElementById("avatarFeedback");
+
+      const exitBtn = document.getElementById("exitBtn");
+      const exitModal = document.getElementById("exitModal");
+      const resumeBtn = document.getElementById("resumeBtn");
+      const quitBtn = document.getElementById("quitBtn");
+
+      const levelCompleteModal = document.getElementById("levelCompleteModal");
+      const gameCompleteModal = document.getElementById("gameCompleteModal");
+      const levelCompleteTitle = document.getElementById("levelCompleteTitle");
+      const levelCompleteMessage = document.getElementById(
+        "levelCompleteMessage",
+      );
+      const nextLevelBtn = document.getElementById("nextLevelBtn");
+      const menuBtn = document.getElementById("menuBtn");
+      const playAgainBtn = document.getElementById("playAgainBtn");
+      const finalMenuBtn = document.getElementById("finalMenuBtn");
+
+      const levels = [
+        // LEVEL 1 – Basics of Financial Planning (Easy)
+        {
+          clue: "Riya has started earning. Help her understand basic money concepts.",
+          hint: "Think about needs, wants, safety, and future.",
+          boxes: [
+            { text: "Daily Needs", answers: ["FOOD", "RENT"] },
+            { text: "Wants", answers: ["MOVIE", "GAMING", "TEDDY"] },
+            { text: "Safety Net", answers: ["EMERGENCY FUND"] },
+            { text: "Monthly Habit", answers: ["SAVINGS"] },
+            { text: "Money That Grows", answers: ["INVESTMENT"] },
+            { text: "Locked & Safe", answers: ["FIXED DEPOSIT"] },
+          ],
+          options: [
+            "FOOD",
+            "RENT",
+            "MOVIE",
+            "GAMING",
+            "EMERGENCY FUND",
+            "SAVINGS",
+            "INVESTMENT",
+            "FIXED DEPOSIT",
+            "TEDDY",
+          ],
+        },
+
+        // LEVEL 2 – Budgeting & Smart Spending (Easy–Medium)
+        {
+          clue: "Aman wants to manage his salary wisely. Sort the expenses correctly.",
+          hint: "Some expenses change, some are fixed, some are unnecessary.",
+          boxes: [
+            { text: "Fixed Expenses", answers: ["RENT", "SCHOOL FEES"] },
+            {
+              text: "Variable Expenses",
+              answers: ["GROCERIES", "ELECTRICITY BILL"],
+            },
+            { text: "Savings", answers: ["SAVINGS"] },
+            { text: "Emergency Only", answers: ["EMERGENCY FUND"] },
+            { text: "Wants", answers: ["SHOPPING", "MOVIE"] },
+            { text: "Smart Habit", answers: ["BUDGETING"] },
+            { text: "Bad Habit", answers: ["IMPULSE BUYING"] },
+          ],
+          options: [
+            "RENT",
+            "SCHOOL FEES",
+            "GROCERIES",
+            "ELECTRICITY BILL",
+            "SAVINGS",
+            "EMERGENCY FUND",
+            "SHOPPING",
+            "MOVIE",
+            "BUDGETING",
+            "IMPULSE BUYING",
+            "CHOCOLATE",
+          ],
+        },
+
+        // LEVEL 3 – Saving vs Investing & Risk (Medium)
+        {
+          clue: "Sort these options based on risk and time.",
+          hint: "Higher return = higher risk. Long-term needs patience.",
+          boxes: [
+            { text: "Low Risk", answers: ["FIXED DEPOSIT", "PPF"] },
+            { text: "Medium Risk", answers: ["GOLD", "MUTUAL FUND"] },
+            { text: "High Risk", answers: ["STOCKS", "CRYPTO"] },
+            { text: "Long-Term Discipline", answers: ["SIP"] },
+            { text: "Short-Term Safe", answers: ["SAVINGS"] },
+            { text: "Not an Investment", answers: ["PIZZA"] },
+          ],
+          options: [
+            "FIXED DEPOSIT",
+            "PPF",
+            "GOLD",
+            "MUTUAL FUND",
+            "STOCKS",
+            "CRYPTO",
+            "SIP",
+            "SAVINGS",
+            "PIZZA",
+            "TOY",
+          ],
+        },
+
+        // LEVEL 4 – Debt & Bad Decisions (Hard – Situation Based)
+        {
+          clue: "Rohan has many expenses and loans. Help him take smart decisions.",
+          hint: "High interest should be paid first. Avoid waste.",
+          boxes: [
+            { text: "Pay First", answers: ["CREDIT CARD BILL"] },
+            { text: "Can Wait", answers: ["HOME LOAN"] },
+            { text: "Builds Future", answers: ["EDUCATION LOAN"] },
+            { text: "Avoid This", answers: ["BUY LATEST PHONE"] },
+            { text: "Emergency Support", answers: ["EMERGENCY FUND"] },
+            { text: "Bad Habit", answers: ["MINIMUM PAYMENT"] },
+          ],
+          options: [
+            "CREDIT CARD BILL",
+            "HOME LOAN",
+            "EDUCATION LOAN",
+            "BUY LATEST PHONE",
+            "EMERGENCY FUND",
+            "MINIMUM PAYMENT",
+            "PARTY",
+          ],
+        },
+
+        // LEVEL 5 – Life Planning & Security (Hard)
+        {
+          clue: "Plan a financially secure life for Neha.",
+          hint: "Think long-term, safety, protection, and goals.",
+          boxes: [
+            { text: "Protection", answers: ["INSURANCE"] },
+            { text: "Old Age Income", answers: ["RETIREMENT FUND", "PENSION"] },
+            { text: "Wealth Growth", answers: ["SIP", "STOCKS"] },
+            { text: "Emergency Safety", answers: ["EMERGENCY FUND"] },
+            { text: "Assets", answers: ["REAL ESTATE", "GOLD"] },
+            { text: "Short-Term Joy", answers: ["VACATION"] },
+            { text: "Bad Choice", answers: ["LUXURY SHOPPING"] },
+          ],
+          options: [
+            "INSURANCE",
+            "RETIREMENT FUND",
+            "PENSION",
+            "SIP",
+            "STOCKS",
+            "EMERGENCY FUND",
+            "REAL ESTATE",
+            "GOLD",
+            "VACATION",
+            "LUXURY SHOPPING",
+            "TOYS",
+          ],
+        },
+      ];
+
+      function loadLevel() {
+        const level = levels[currentLevel - 1];
+        levelNumber.textContent = currentLevel;
+        clueBox.textContent = level.clue;
+
+        dropContainer.innerHTML = "";
+        optionsContainer.innerHTML = "";
+
+        characterImg.src = "/frontend/assets/images/finance/neutral.png";
+        characterImg.className = "";
+        resetHearts();
+        isProcessingMove = false;
+
+        level.boxes.forEach((box, i) => {
+          const div = document.createElement("div");
+          div.className = "drop-box";
+          div.innerHTML = `<strong>${box.text}</strong><div class="drop-zone" data-index="${i}"></div>`;
+          dropContainer.appendChild(div);
+        });
+
+        const shuffledOptions = [...level.options].sort(
+          () => Math.random() - 0.5,
+        );
+        shuffledOptions.forEach((word) => {
+          const div = document.createElement("div");
+          div.className = "option";
+          div.textContent = word;
+          div.draggable = true;
+          div.setAttribute("data-value", word);
+          optionsContainer.appendChild(div);
+        });
+
+        setupDragDrop();
+        showFeedback("neutral", "");
+      }
+
+      function setupDragDrop() {
+        const draggables = document.querySelectorAll(".option");
+        const dropZones = document.querySelectorAll(".drop-zone");
+
+        draggables.forEach((drag) => {
+          drag.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData("text/plain", drag.textContent);
+            e.dataTransfer.setData("value", drag.getAttribute("data-value"));
+            drag.classList.add("dragging");
+          });
+
+          drag.addEventListener("dragend", () => {
+            drag.classList.remove("dragging");
+          });
+        });
+
+        dropZones.forEach((zone) => {
+          zone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            zone.classList.add("highlight");
+          });
+
+          zone.addEventListener("dragleave", () => {
+            zone.classList.remove("highlight");
+          });
+
+          zone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            zone.classList.remove("highlight");
+
+            if (isProcessingMove) return;
+
+            const draggedText = e.dataTransfer.getData("text/plain");
+            const draggedValue = e.dataTransfer.getData("value") || draggedText;
+            const boxIndex = parseInt(zone.dataset.index);
+            const correctAnswers =
+              levels[currentLevel - 1].boxes[boxIndex].answers;
+
+            // Check if the dragged item is already placed in this zone
+            const alreadyPlaced = Array.from(zone.children).some(
+              (child) => child.textContent === draggedValue,
+            );
+
+            if (alreadyPlaced) return;
+
+            isProcessingMove = true;
+
+            if (correctAnswers.includes(draggedValue)) {
+              handleCorrectAnswer(zone, draggedValue);
+            } else {
+              handleWrongAnswer();
+            }
+
+            setTimeout(() => {
+              isProcessingMove = false;
+            }, 300);
+          });
+        });
+      }
+
+      function handleCorrectAnswer(zone, text) {
+        showFeedback("correct", "✓");
+        characterImg.src = "/frontend/assets/images/finance/happy.png";
+        characterImg.className = "happy";
+
+        // Remove the dragged option from the options container
+        const optionToRemove = document.querySelector(
+          `.option[data-value="${text}"]`,
+        );
+        if (optionToRemove) {
+          optionToRemove.style.opacity = "0.3";
+          optionToRemove.style.pointerEvents = "none";
+        }
+
+        const span = document.createElement("span");
+        span.textContent = text;
+        span.className = "correct";
+        zone.appendChild(span);
+
+        checkWin();
+      }
+
+      function handleWrongAnswer() {
+        showFeedback("wrong", "✗");
+        characterImg.src = "/frontend/assets/images/finance/sad.png";
+        characterImg.className = "sad";
+
+        attempts--;
+
+        if (attempts >= 0) {
+          const heart = hearts[attempts];
+          heart.classList.add("grey");
+          heart.style.animation = "shake 0.5s ease";
+          setTimeout(() => {
+            heart.style.animation = "";
+          }, 500);
+        }
+
+        if (attempts <= 0) {
+          setTimeout(() => {
+            showLevelFailed();
+          }, 800);
+        }
+      }
+
+      function showFeedback(type, symbol) {
+        avatarFeedback.textContent = symbol;
+        avatarFeedback.className = `avatar-feedback ${type} show`;
+
+        setTimeout(() => {
+          avatarFeedback.classList.remove("show");
+        }, 1000);
+      }
+
+      function showLevelFailed() {
+        characterImg.src = "/frontend/assets/images/finance/sad.png";
+        characterImg.className = "sad";
+
+        setTimeout(() => {
+          alert("You lost this level. Restarting...");
+          attempts = 3;
+          loadLevel();
+        }, 300);
+      }
+
+      function resetHearts() {
+        attempts = 3;
+        hearts.forEach((h) => {
+          h.classList.remove("grey");
+          h.style.animation = "";
+        });
+      }
+
+      function checkWin() {
+        const zones = document.querySelectorAll(".drop-zone");
+        const level = levels[currentLevel - 1];
+        let allCorrect = true;
+
+        zones.forEach((zone, i) => {
+          const placed = Array.from(zone.children).map((el) => el.textContent);
+          const required = level.boxes[i].answers;
+
+          // Check if all required answers are placed
+          if (required.some((answer) => !placed.includes(answer))) {
+            allCorrect = false;
+          }
+
+          // Check for extra incorrect answers (shouldn't happen but just in case)
+          if (placed.some((item) => !required.includes(item))) {
+            allCorrect = false;
+          }
+        });
+
+        if (allCorrect) {
+          characterImg.src = "/frontend/assets/images/finance/happy.png";
+          characterImg.className = "happy";
+          showFeedback("correct", "🏆");
+
+          setTimeout(() => {
+            showLevelComplete();
+          }, 1000);
+        }
+      }
+
+      function showLevelComplete() {
+        levelCompleteTitle.textContent = "Level Complete!";
+        levelCompleteMessage.textContent = `Congratulations! You completed Level ${currentLevel}`;
+        createConfetti();
+        levelCompleteModal.classList.remove("hidden");
+      }
+
+      function showGameComplete() {
+        createConfetti();
+        gameCompleteModal.classList.remove("hidden");
+      }
+
+      function createConfetti() {
+        const confettiContainer = document.querySelector(".confetti-container");
+        confettiContainer.innerHTML = "";
+
+        const colors = ["#3b82f6", "#ef4444", "#22c55e", "#f59e0b", "#8b5cf6"];
+
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement("div");
+          confetti.style.position = "absolute";
+          confetti.style.width = Math.random() * 10 + 5 + "px";
+          confetti.style.height = Math.random() * 10 + 5 + "px";
+          confetti.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.left = Math.random() * 100 + "%";
+          confetti.style.top = "-50px";
+          confetti.style.borderRadius = "50%";
+          confetti.style.animation = `confettiFall ${Math.random() * 2 + 1}s linear forwards`;
+          confettiContainer.appendChild(confetti);
+
+          setTimeout(() => {
+            confetti.remove();
+          }, 3000);
+        }
+      }
+
+      function nextLevel() {
+        levelCompleteModal.classList.add("hidden");
+
+        if (currentLevel < levels.length) {
+          currentLevel++;
+          loadLevel();
+        } else {
+          showGameComplete();
+        }
+      }
+
+      // Event Listeners
+      exitBtn.addEventListener("click", () =>
+        exitModal.classList.remove("hidden"),
+      );
+      resumeBtn.addEventListener("click", () =>
+        exitModal.classList.add("hidden"),
+      );
+      quitBtn.addEventListener(
+        "click",
+        () => (window.location.href = "finance.html"),
+      );
+
+      nextLevelBtn.addEventListener("click", nextLevel);
+      menuBtn.addEventListener(
+        "click",
+        () => (window.location.href = "finance.html"),
+      );
+      playAgainBtn.addEventListener("click", () => {
+        gameCompleteModal.classList.add("hidden");
+        currentLevel = 1;
+        loadLevel();
+      });
+      finalMenuBtn.addEventListener(
+        "click",
+        () => (window.location.href = "finance.html"),
+      );
+
+      // Make sure to stop event propagation for modal clicks
+      [levelCompleteModal, gameCompleteModal, exitModal].forEach((modal) => {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+      });
+
+      // Start the game
+      loadLevel();
+    </script>
+  </body>
+</html>

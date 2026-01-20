@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/frontend/assets/css/main/finance.css" />
+    <title>Financial Planning</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <!-- Existing login/signup -->
+                <div class="user-profile profile-dropdown">
+                    <div class="profile-avatar" onclick="toggleDropdown()">AB</div>
+                    <div class="dropdown-menu">
+                        <a href="#">Profile</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Top Banner with Parallax Effect -->
+    <div class="top-banner">
+        <div class="banner-overlay">
+            <h1>Plan Today,</h1>
+            <h1>Prosper Tomorrow</h1>
+            <p>Start managing your finances wisely today for a secure and successful future ahead.</p>
+        </div>
+    </div>
+
+    <!-- Section Before Modules -->
+    <section class="intro-section">
+        <div class="intro-text">
+            <h2>Take Charge of Your Financial Future!</h2>
+            <p>
+                Unlock the power of financial planning and take control of your financial future. Learn how to budget,
+                save, invest, and make smart financial decisions that will help you achieve your goals. Whether you're
+                saving for a dream, a home, or retirement, mastering financial planning is your first step to success!
+            </p>
+        </div>
+        <div class="intro-images">
+            <img src="/frontend/assets/images/finance/finance2.avif" alt="Piggy bank">
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section id="modules" class="module-section">
+            <h2>Start Learning with Our Modules</h2>
+            <div class="module-container">
+                <div class="module">
+                    <h3>1. Introduction to Financial Planning</h3>
+                    <p>Get to know the basics of financial planning and how it helps you manage money to reach your
+                        goals.
+                    </p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m1.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 1)">Learn</a>
+                        <button onclick="takeQuiz('fin_q1', 'finance', 1)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>2. Mastering Budgeting & Saving</h3>
+                    <p>Learn how to create a budget and build your savings effectively.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m2.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 2)">Learn</a>
+                        <button onclick="takeQuiz('fin_q2', 'finance', 2)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>3. Investing for Financial Growth</h3>
+                    <p>Learn to make your money work for you through smart investments.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m3.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 3)">Learn</a>
+                        <button onclick="takeQuiz('fin_q3', 'finance', 3)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>4. Understanding Credit, Loans, and Debt Management</h3>
+                    <p>Learn about credit scores, loans, and responsible debt handling.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m4.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 4)">Learn</a>
+                        <button onclick="takeQuiz('fin_q4', 'finance', 4)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>5. Expense Management & Smart Spending</h3>
+                    <p>Understand how to track expenses and make wise financial decisions.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m5.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 5)">Learn</a>
+                        <button onclick="takeQuiz('fin_q5', 'finance', 5)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>6. Insurance & Risk Management</h3>
+                    <p>Learn how insurance protects your financial future and reduces risks.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m6.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 6)">Learn</a>
+                        <button onclick="takeQuiz('fin_q6', 'finance', 6)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>7. Retirement Planning & Future Security</h3>
+                    <p>Plan ahead for a financially secure and stress-free retirement.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m7.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 7)">Learn</a>
+                        <button onclick="takeQuiz('fin_q7', 'finance', 7)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>8. Achieving Financial Goals & Wealth Building</h3>
+                    <p>Set long-term financial goals and develop a strategy for wealth creation.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/finance/finance_m8.html" class="learn-btn"
+                            onclick="markLearned(event, 'finance', 8)">Learn</a>
+                        <button onclick="takeQuiz('fin_q8', 'finance', 8)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <section class="interactive-tools">
+        <h2>Interactive Tools</h2>
+        <div class="tool">
+            <a href="/frontend/games/finance_game.html">
+                <h3>Game 1: Manage Expenses</h3>
+            </a>
+        </div>
+        <div class="tool">
+            <a href="/frontend/games/finance_game1.html">
+                <h3>Game 2: MoneyCheck</h3>
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Financial Planning | <a href="#">Contact Us</a></p>
+    </footer>
+
+    <script>
+        async function takeQuiz(quizKey, course, moduleNumber) {
+            if (!requireAuth()) return;
+
+            const token = localStorage.getItem("token");
+
+            try {
+                const res = await fetch(
+                    `http://localhost:3000/api/progress/is-learned/${course}/${moduleNumber}`,
+                    {
+                        headers: {
+                            Authorization: "Bearer " + token,
+                        },
+                    },
+                );
+
+                const data = await res.json();
+
+                if (!data.learned) {
+                    alert("⚠️ Please learn the concepts first.");
+                    return;
+                }
+
+                const quizUrls = {
+                    fin_q1: "/frontend/quizzes/finance/finance1_quiz.html",
+                    fin_q2: "/frontend/quizzes/finance/finance2_quiz.html",
+                    fin_q3: "/frontend/quizzes/finance/finance3_quiz.html",
+                    fin_q4: "/frontend/quizzes/finance/finance4_quiz.html",
+                    fin_q5: "/frontend/quizzes/finance/finance5_quiz.html",
+                    fin_q6: "/frontend/quizzes/finance/finance6_quiz.html",
+                    fin_q7: "/frontend/quizzes/finance/finance7_quiz.html",
+                    fin_q8: "/frontend/quizzes/finance/finance8_quiz.html",
+                };
+
+                window.location.href = quizUrls[quizKey];
+            } catch (err) {
+                alert("Unable to verify learning progress");
+            }
+        }
+
+        async function markLearned(e, course, moduleNumber) {
+            if (!requireAuth()) {
+                e.preventDefault();
+                return;
+            }
+
+            const token = localStorage.getItem("token");
+
+            try {
+                await fetch("http://localhost:3000/api/progress/learn", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: "Bearer " + token,
+                    },
+                    body: JSON.stringify({
+                        course,
+                        module_number: moduleNumber,
+                    }),
+                });
+            } catch (err) {
+                console.error("Failed to mark progress", err);
+            }
+        }
+    </script>
+    <script src="/frontend/assets/js/main/script.js"></script>
+</body>
+
+</html>
