@@ -1,0 +1,6 @@
+# Ignore video files
+*.mp4
+*.crdownload
+
+# OS junk
+.DS_Store
