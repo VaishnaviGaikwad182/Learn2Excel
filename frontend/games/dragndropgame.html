@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Aid Kit Challenge - Learn2Excel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #28a745;
+            padding: 20px;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        footer {
+            background-color: #28a745;
+            padding: 10px;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 80px auto;
+            max-width: 900px;
+        }
+        #firstAidKit {
+            border: 2px solid #196801;
+            background-color: #c9e5fd;
+            position: relative;
+        }
+
+        .items, .first-aid-kit {
+            border: 2px solid #28a745;
+            padding: 20px;
+            width: 300px;
+            min-height: 350px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .items:hover, .first-aid-kit:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .item {
+            background-color: #ff8196;
+            color: #000000;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            cursor: grab;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .item:active {
+            cursor: grabbing;
+        }
+
+        .first-aid-kit.highlight {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.1);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .result.success {
+            color: #28a745;
+        }
+
+        .result.failure {
+            color: #dc3545;
+        }
+
+        #timer {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+            font-weight: bold;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+
+        #playAgainButton {
+            margin-top: 20px;
+            display: none;
+        }
+
+        #pauseResumeButton {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>First Aid Kit Challenge - Learn2Excel</h1>
+    </header>
+
+    <main>
+        <p>Drag essential first aid items into the first aid kit. Some items are tricky, think carefully!</p>
+
+        <div class="container">
+            <!-- Draggable First Aid Items (Correct and Tricky) -->
+            <div class="items">
+                <h2>Available Items</h2>
+                <div class="item" id="bandage" draggable="true" ondragstart="drag(event)">Bandage</div>
+                <div class="item" id="scissors" draggable="true" ondragstart="drag(event)">Scissors</div>
+                <div class="item" id="antiseptic" draggable="true" ondragstart="drag(event)">Antiseptic</div>
+                <div class="item" id="gauze" draggable="true" ondragstart="drag(event)">Gauze</div>
+                <div class="item" id="tape" draggable="true" ondragstart="drag(event)">Medical Tape</div>
+                <div class="item" id="thermometer" draggable="true" ondragstart="drag(event)">Thermometer</div>
+                <div class="item" id="gloves" draggable="true" ondragstart="drag(event)">Gloves</div>
+                <div class="item" id="mask" draggable="true" ondragstart="drag(event)">Face Mask</div>
+                <div class="item" id="syringe" draggable="true" ondragstart="drag(event)">Syringe</div>
+                <div class="item" id="painkiller" draggable="true" ondragstart="drag(event)">Painkiller</div>
+                <div class="item" id="alcohol" draggable="true" ondragstart="drag(event)">Alcohol (for cleaning)</div>
+                <div class="item" id="first-aid-manual" draggable="true" ondragstart="drag(event)">First Aid Manual</div>
+                <div class="item" id="bandana" draggable="true" ondragstart="drag(event)">Bandana</div> <!-- Wrong Item -->
+                <div class="item" id="tissue" draggable="true" ondragstart="drag(event)">Tissue</div> <!-- Wrong Item -->
+                <div class="item" id="eye-drops" draggable="true" ondragstart="drag(event)">Eye Drops</div>
+                <div class="item" id="tweezers" draggable="true" ondragstart="drag(event)">Tweezers</div>
+                <div class="item" id="cold-pack" draggable="true" ondragstart="drag(event)">Cold Pack</div>
+                <div class="item" id="sunscreen" draggable="true" ondragstart="drag(event)">Sunscreen</div>
+                <div class="item" id="ointment" draggable="true" ondragstart="drag(event)">Ointment</div>
+                <div class="item" id="stitches-kit" draggable="true" ondragstart="drag(event)">Stitches Kit</div>
+                <!-- Additional 'worth it' items -->
+                <div class="item" id="eye-wash" draggable="true" ondragstart="drag(event)">Eye Wash</div>
+                <div class="item" id="splint" draggable="true" ondragstart="drag(event)">Splint</div>
+                <div class="item" id="burn-gel" draggable="true" ondragstart="drag(event)">Burn Gel</div>
+            </div>
+
+            <!-- First Aid Kit Drop Area -->
+            <div class="first-aid-kit" id="firstAidKit" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h2>First Aid Kit</h2>
+                <p>Drop items here</p>
+            </div>
+        </div>
+
+        <div id="timer">Time Left: 60s</div>
+        <button onclick="checkItems()">Submit</button>
+        <button id="pauseResumeButton" onclick="pauseResumeGame()">Pause</button>
+        <div class="result" id="result"></div>
+        <button id="playAgainButton" onclick="playAgain()">Play Again</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn2Excel - All Rights Reserved</p>
+    </footer>
+
+    <audio id="backgroundMusic" src="https://www.soundjay.com/button/sounds/button-16.mp3" loop></audio>
+    <script>
+        let timer;
+        let countdownTime = 60; // in seconds
+        let timerRunning = false;
+
+        // Start/Resume Timer
+        function startTimer() {
+            if (!timerRunning) {
+                timerRunning = true;
+                timer = setInterval(function() {
+                    countdownTime--;
+                    document.getElementById('timer').innerText = "Time Left: " + countdownTime + "s";
+                    if (countdownTime <= 0) {
+                        clearInterval(timer);
+                        document.getElementById('result').innerText = "Oops! Time's up!";
+                        document.getElementById('result').classList.add("failure");
+                        document.getElementById('playAgainButton').style.display = "block";
+                    }
+                }, 1000);
+            }
+        }
+
+        // Pause/Resume Timer
+        function pauseResumeGame() {
+            if (timerRunning) {
+                clearInterval(timer);
+                document.getElementById('pauseResumeButton').innerText = "Resume";
+            } else {
+                startTimer();
+                document.getElementById('pauseResumeButton').innerText = "Pause";
+            }
+            timerRunning = !timerRunning;
+        }
+
+        // Dragging events
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggedItem = document.getElementById(data);
+            event.target.appendChild(draggedItem);
+            draggedItem.setAttribute("draggable", "false");
+        }
+
+        // Check if items are correctly placed
+        function checkItems() {
+            let correctItems = ["bandage", "scissors", "antiseptic", "gauze", "tape", "thermometer", "gloves", "mask"];
+            let incorrectItems = [];
+            let firstAidKit = document.getElementById('firstAidKit').children;
+
+            for (let item of firstAidKit) {
+                if (item.classList.contains("item") && !correctItems.includes(item.id)) {
+                    incorrectItems.push(item);
+                }
+            }
+
+            // If there are incorrect items, mark the game as failed
+            if (incorrectItems.length > 0) {
+                document.getElementById('result').innerText = "Incorrect items in the kit!";
+                document.getElementById('result').classList.add("failure");
+                document.getElementById('playAgainButton').style.display = "block";
+            } else {
+                document.getElementById('result').innerText = "You completed the kit successfully!";
+                document.getElementById('result').classList.add("success");
+                document.getElementById('playAgainButton').style.display = "block";
+            }
+        }
+
+        // Restart the game
+        function playAgain() {
+            // Reset the game state
+            countdownTime = 60;
+            document.getElementById('timer').innerText = "Time Left: " + countdownTime + "s";
+            document.getElementById('result').innerText = '';
+            document.getElementById('playAgainButton').style.display = "none";
+
+            // Clear the items and reset them
+            const firstAidKit = document.getElementById('firstAidKit');
+            while (firstAidKit.firstChild) {
+                firstAidKit.removeChild(firstAidKit.firstChild);
+            }
+
+            const items = document.querySelectorAll('.items .item');
+            items.forEach(item => {
+                document.querySelector('.items').appendChild(item);
+                item.setAttribute("draggable", "true");
+            });
+
+            startTimer(); // Start the timer again
+            timerRunning = false; // Allow timer to restart
+        }
+
+        // Initialize timer on page load
+        window.onload = function () {
+            startTimer();
+        };
+    </script>
+</body>
+</html>

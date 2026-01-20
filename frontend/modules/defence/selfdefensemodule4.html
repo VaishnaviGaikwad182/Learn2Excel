@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Defense Module 4</title>
+    <link rel="stylesheet" href="/frontend/assets/css/modules/selfdefensemodule2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/frontend/assets/js/modules/selfdefensemodule2.js" defer></script>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tool {
+            width: calc(50% - 20px);
+            padding: 15px;
+            background: #ddd;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .tool:hover {
+            transform: scale(1.1);
+            background: #bbb;
+        }
+
+        .tool img {
+            max-width: 200px;
+            display: block;
+            margin: auto;
+        }
+
+        .info-box {
+            display: none;
+            margin-top: 60px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            border-color: black;
+        }
+
+        .reset-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #ff5c5c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.4s;
+        }
+
+        .reset-btn:hover {
+            background: #d94444;
+        }
+
+        button {
+            display: inline-block;
+            background: #008cba;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #005f73;
+        }
+
+        .quiz-btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Using Everyday Objects as Defense Tools</h1>
+    </main>
+    <div class="container">
+        <h3>Introduction to Defensive Tools</h3>
+        <p>Defensive tools are essential for protecting yourself in various situations. They help in enhancing
+            reaction speed, improving balance, and ensuring stability during confrontations.Let us learn some of
+            them:</p>
+        <ul>
+            <h3>
+                <center>Watch this video to get yourselved prepared for using right defense tools at the right time!
+            </h3>
+            </center>
+
+            <center><video width="640" height="360" controls>
+                    <source
+                        src="/frontend/assets/images/self-defense/invideo-ai-1080 Everyday Objects_ Your Secret Self-Defen 2025-03-31.mp4.crdownload"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video></center><br>
+            <h3>
+                <center>Click on the tool you wish to learn about.The information appears at the bottom!(scroll
+                    down)
+            </h3>
+            </center>
+            <div class="tools" id="tools-container"></div>
+            <div class="info-box" id="info-box"></div>
+            <button class="reset-btn" onclick="resetSelection()">Reset</button>
+
+
+    </div>
+    <script>
+        const tools = [
+            { name: "Pen", desc: "A sturdy pen can be used to jab at an attacker's sensitive areas like the eyes or neck. It provides a firm grip and can be held in various ways to maximize impact. A tactical pen is even more effective due to its reinforced body. It can be used for pressure point control to inflict pain and force an attacker to back off. Even an ordinary pen, when used forcefully, can cause injury. It is a common item, making it a discreet self-defense tool. If necessary, it can also be thrown as a distraction.", img: "/frontend/assets/images/self-defense/pen.jfif" },
+            { name: "Keys", desc: "Holding keys between your fingers can help deliver powerful strikes to an attacker's face or hands. A key can be used to scratch an attacker’s skin, causing pain and disorientation. Striking vulnerable points like the eyes, throat, or soft tissue areas can be highly effective. A keyring with multiple keys adds weight and enhances the impact of strikes. Keys are easy to carry and can be accessed quickly in emergencies. They also provide a psychological advantage, giving the holder confidence. Additionally, they can be used to break glass in emergencies.", img: "/frontend/assets/images/self-defense/keys.jfif" },
+            { name: "Umbrella", desc: "A strong umbrella can be used to block attacks or deliver a forceful strike, particularly to the legs or midsection. A metal or reinforced umbrella is best suited for self-defense. It can be used as a barrier between you and an attacker to maintain distance. The pointed tip can be used for stabbing motions at an attacker’s hands or face. A well-timed swing can knock an attacker off balance or incapacitate them. It is an inconspicuous self-defense tool that can be carried anywhere. Some tactical umbrellas are specifically designed for defense with reinforced frames.", img: "/frontend/assets/images/self-defense/umberella.jfif" },
+            { name: "Belt", desc: "A belt with a heavy buckle can be swung to keep an attacker at bay or used to wrap and restrain them. It can serve as an improvised whip to create distance and deter an attack. The buckle end can be used for powerful strikes to the face, head, or hands. A belt can also be used to choke an attacker if needed in extreme situations. Wrapping it around your hand can reinforce your grip and provide extra protection. It is a commonly worn item, making it an accessible self-defense tool. Additionally, a belt can be used to tie up an assailant after subduing them.", img: "/frontend/assets/images/self-defense/belt.jfif" },
+            { name: "Scarf", desc: "A scarf can be used to choke an attacker, block incoming blows, or entangle their limbs to immobilize them. It can be used to shield your hands while grabbing a sharp weapon. Wrapping it around your hand can reinforce a punch and protect against injury. A long scarf can be used as a makeshift rope to trap an attacker’s arms. It is lightweight and easy to carry, making it a versatile defense tool. A scarf can also be used to shield your face from pepper spray or debris. In emergencies, it can serve as a tourniquet or bandage.", img: "/frontend/assets/images/self-defense/scarf.jfif" },
+            { name: "Mobile Phone", desc: "A phone can be used to hit an attacker's face or head, and it can also be used to call for help immediately. A sturdy smartphone can act as a blunt weapon when swung or thrown. The screen or edges can be used to scrape an attacker's skin, causing pain. If thrown at the face, it can create a distraction for a quick escape. Voice-activated emergency calls can be useful if you cannot physically dial for help. The flashlight feature can temporarily blind an attacker in the dark. Some smartphones allow sending emergency alerts with GPS location.", img: "/frontend/assets/images/self-defense/mobile.jfif" },
+            { name: "Water Bottle", desc: "A full water bottle adds weight and can be swung like a club to hit an attacker’s head or ribs. A metal or hard plastic bottle is best for delivering powerful strikes. It can be thrown at an attacker to create a distraction and gain time to escape. The weight of a full bottle increases its impact when swung forcefully. If necessary, the cap can be removed to splash water into an attacker’s face for distraction. It is a commonly carried item, making it an accessible self-defense tool. A frozen bottle can be even more effective as a striking weapon.", img: "/frontend/assets/images/self-defense/steelspray.jfif" },
+            { name: "Credit Card", desc: "The sharp edge of a card can scrape an attacker's skin, causing pain and momentary distraction. A rigid card can be used to press into pressure points for added defense. Swinging it with force can cause cuts or abrasions on exposed skin. If thrown at close range, it may create a distraction for a quick escape. It is a discreet self-defense tool that can be carried anywhere. Some specialized self-defense cards come with built-in blades or reinforced edges. Additionally, it can be used to open doors or break locks in emergencies.", img: "/frontend/assets/images/self-defense/creditcard.jfif" },
+            { name: "Flashlight", desc: "A bright flashlight can disorient an attacker at night, making it harder for them to see. A heavy flashlight can be used as a blunt-force weapon to strike the face, head, or hands. Strobe mode can cause confusion and temporarily disable an attacker’s vision. The metal body of a tactical flashlight enhances its durability and striking power. It can be used to signal for help in dark or isolated areas. Flashlights are easy to carry and are legal in most places. Some models come with built-in pepper spray or tasers for added protection.", img: "/frontend/assets/images/self-defense/flashlight.jfif" },
+            { name: "Shoes", desc: "Hard-soled shoes can deliver powerful kicks to an attacker’s shins, groin, or face. A strong heel can be used for stomping or striking an attacker’s foot. Shoes provide natural protection and stability for self-defense situations. Kicking with proper technique can generate significant force to incapacitate an attacker. Shoes with metal reinforcements can increase their effectiveness. They are always worn, making them a readily available tool. High heels can also be used as a sharp, pointed weapon for jabbing motions.", img: "/frontend/assets/images/self-defense/shoes.jfif" },
+
+            { name: "Bag", desc: "A bag filled with items acts as a shield or can be swung at an attacker. A heavier bag increases impact. It can be thrown to create distance. The strap can entangle an attacker's limbs. A bag can conceal other defensive tools. Holding it in front provides protection. Some bags have reinforced materials for added defense.", img: "/frontend/assets/images/self-defense/bag.jfif" },
+            { name: "Hairbrush", desc: "A hard brush can rake across an attacker’s skin or poke their eyes. The handle serves as a blunt weapon. Tactical hairbrushes feature concealed blades or sharp ends. It is discreet and does not raise suspicion. A heavy brush inflicts pain when swung forcefully. Brushing against the face can create a distraction. It can also press into pressure points.", img: "/frontend/assets/images/self-defense/comb.jfif" },
+            { name: "Glass Bottle", desc: "A glass bottle can be broken to create a sharp weapon, though caution is needed to avoid self-injury. A full bottle adds weight for stronger strikes. Throwing it at an attacker creates a distraction. The broken edge can act as a cutting tool. It is a common item that can be repurposed for defense. Proper handling reduces self-risk.", img: "/frontend/assets/images/self-defense/glassbottle.jfif" },
+            { name: "Chair", desc: "A chair can push an attacker away or serve as a barrier. Swinging it with force can knock down an assailant. It can be held defensively to maintain distance. The legs can trip an attacker. A sturdy chair delivers strong impact. It is a readily available tool in many locations.", img: "/frontend/assets/images/self-defense/chair.jfif" },
+            { name: "Pepper Spray", desc: "Pepper spray causes temporary blindness and breathing difficulties. Spraying it in the face gives time to escape. It is compact, easy to carry, and effective from a distance. Directing it at the eyes maximizes its impact. Wind direction should be considered when using it. Some sprays include UV dye for later identification of attackers.", img: "/frontend/assets/images/self-defense/pepperspray.jfif" }
+        ];
+
+
+        function loadTools() {
+            const container = document.getElementById('tools-container');
+            tools.forEach(tool => {
+                let toolDiv = document.createElement('div');
+                toolDiv.classList.add('tool');
+                toolDiv.innerHTML = `<img src="${tool.img}" alt="${tool.name}"><h3>${tool.name}</h3>`;
+                toolDiv.onclick = () => showInfo(tool.name, tool.desc);
+                container.appendChild(toolDiv);
+            });
+        }
+
+        function showInfo(title, description) {
+            const infoBox = document.getElementById('info-box');
+            infoBox.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+            infoBox.style.display = 'block';
+        }
+
+        function resetSelection() {
+            const infoBox = document.getElementById('info-box');
+            infoBox.style.display = 'none';
+            infoBox.innerHTML = "";
+        }
+
+        window.onload = loadTools;
+    </script>
+    <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+            <a href="/frontend/quizzes/defence/quiz4.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Self defence | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="/frontend/assets/js/main/script.js"></script>
+
+</body>
+
+</html>

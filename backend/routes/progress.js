@@ -26,8 +26,8 @@ router.get("/course-progress/:userId", auth, (req, res) => {
   const totalModules = {
     cooking: 8,
     farming: 10,
-    self_defence: 5,
-    finance: 4
+    self_defence: 8,
+    finance: 8
   };
 
   const sql = `

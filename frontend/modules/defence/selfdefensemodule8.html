@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Defense Module 6</title>
+<link rel="stylesheet" href="/frontend/assets/css/modules/selfdefensemodule2.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/frontend/assets/js/modules/selfdefensemodule2.js" defer></script>
+<style>
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #d63384;
+    }
+
+    h3 {
+        color: #333;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    .emergency {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .button {
+        padding: 10px 15px;
+        background-color: #d63384;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .button:hover {
+        background-color: #b02a6b;
+    }
+
+    .chatbot {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .chatbot-header {
+        background-color: #d63384;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .chatbot-body {
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    .chatbot input,
+    .chatbot button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .chatbot button {
+        background-color: #d63384;
+        color: white;
+        cursor: pointer;
+    }
+
+    .chatbot button:hover {
+        background-color: #b02a6b;
+    }
+
+    .image-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .image-container img {
+        width: 80%;
+        max-width: 500px;
+        border-radius: 8px;
+    }
+</style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <a href="login.html" class="login-link">Login</a>
+                <button class="signup-btn"><a href="signUp.html">Sign Up</a></button>
+                <button class="hamburger">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>EmpowerHer: A Self-Defense Safety Module for Women</h1>
+    </main>
+
+
+    <div class="container">
+
+        <h2>Objectives</h2>
+        <ul>
+            <li><strong>Understand Women's Legal Rights</strong> – Gain knowledge of laws protecting women,
+                including self-defense rights, workplace harassment laws (POSH Act), and cyber safety regulations.
+            </li>
+            <li><strong>Recognize Threats & Risk Assessment</strong> – Learn how to identify potential dangers in
+                various settings, from public spaces to digital environments.</li>
+            <li><strong>Develop Mental Resilience</strong> – Strengthen psychological preparedness, situational
+                awareness, and effective decision-making under stress.</li>
+            <li><strong>Learn Physical Self-Defense Techniques</strong> – Train in practical, easy-to-apply
+                self-defense moves against grabs, holds, and armed threats.</li>
+            <li><strong>Manage Post-Trauma Effects</strong> – Understand coping strategies for dealing with
+                emotional and psychological impacts after self-defense incidents.</li>
+            <li><strong>Enhance Cyber & Digital Safety</strong> – Learn how to protect personal information,
+                recognize online threats, and report cybercrimes effectively.</li>
+            <li><strong>Promote Community Safety & Awareness</strong> – Encourage bystander intervention, support
+                systems, and legal advocacy for women's safety.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2> Women's Safety & Self-Defense</h2>
+        <p>Empowering women with legal knowledge, self-defense techniques, and safety tips.</p>
+
+        <div class="emergency">
+            <a href="tel:112" class="button">Police Emergency (112)</a>
+            <a href="tel:1091" class="button"> Women's Helpline (1091)</a>
+            <a href="tel:1930" class="button">Cyber Crime (1930)</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2> Workplace Safety & The POSH Act (2013)</h2>
+        <p>The <strong>Prevention of Sexual Harassment (POSH) Act</strong> protects women at workplaces from any
+            form of harassment.</p>
+
+        <h3>🔹 Key Provisions:</h3>
+        <ul>
+            <li>Defines sexual harassment (unwanted touching, inappropriate messages, etc.)</li>
+            <li>Requires companies (10+ employees) to have an <strong>Internal Complaints Committee (ICC)</strong>
+            </li>
+            <li>Strict penalties for violators</li>
+        </ul>
+
+        <h3>🔹 How to File a Complaint?</h3>
+        <p>Report to your company's ICC, file at <a href="https://shebox.nic.in/" target="_blank">SHe-Box
+                Portal</a>, or contact the police.</p>
+    </div>
+
+    <div class="container">
+        <h2> Cyber Safety & Online Harassment</h2>
+        <p>Protecting yourself from cyber threats and stalking.</p>
+
+        <h3> Tips:</h3>
+        <ul>
+            <li>Use <strong>strong passwords</strong> and enable 2-step authentication.</li>
+            <li><strong>Do not share personal details</strong> online with strangers.</li>
+            <li>If harassed, report to <a href="https://cybercrime.gov.in/" target="_blank">Cyber Crime Portal</a>.
+            </li>
+        </ul>
+    </div>
+
+    <div class="container chatbot">
+        <div class="chatbot-header"> Women’s Safety Chatbot</div>
+        <div class="chatbot-body" id="chatbot-body">
+            <p><strong>Bot:</strong> Hello! How can I assist you today?</p>
+        </div>
+        <input type="text" id="user-input" placeholder="Type your question...">
+        <button onclick="chatbotResponse()">Ask</button>
+    </div>
+
+    <script>
+        function chatbotResponse() {
+            var userInput = document.getElementById("user-input").value.toLowerCase();
+            var chatbotBody = document.getElementById("chatbot-body");
+            var response = "<p><strong>You:</strong> " + userInput + "</p>";
+
+            if (userInput.includes("posh act")) {
+                response += "<p><strong>Bot:</strong> The POSH Act (2013) protects against workplace sexual harassment. File complaints at <a href='https://shebox.nic.in/' target='_blank'>SHe-Box</a>.</p>";
+            } else if (userInput.includes("cyber crime")) {
+                response += "<p><strong>Bot:</strong> Report online crimes at <a href='https://cybercrime.gov.in/' target='_blank'>Cyber Crime Portal</a> or call 1930.</p>";
+            } else if (userInput.includes("revenge porn") || userInput.includes("cyber blackmail")) {
+                response += "<p><strong>Bot:</strong> Do not give in to blackmail. Report to <a href='https://cybercrime.gov.in/' target='_blank'>Cyber Crime Portal</a>. Seek legal help immediately.</p>";
+            } else if (userInput.includes("self-defense")) {
+                response += "<p><strong>Bot:</strong> Learn simple moves: 1. Groin kick 2. Palm strike 3. Elbow strike. Consider a self-defense class.</p>";
+            } else if (userInput.includes("acid attack help")) {
+                response += "<p><strong>Bot:</strong> Rinse with cold water, do not rub the area. Call 1091 or 181 for immediate help.</p>";
+            } else if (userInput.includes("safe transport")) {
+                response += "<p><strong>Bot:</strong> Use trusted cabs, share trip details, sit near the driver in buses, and avoid isolated areas.</p>";
+            } else if (userInput.includes("dating safety") || userInput.includes("consent")) {
+                response += "<p><strong>Bot:</strong> Consent should be clear, enthusiastic, and continuous. Always meet in public places for the first few dates.</p>";
+            } else if (userInput.includes("fake job scams") || userInput.includes("human trafficking")) {
+                response += "<p><strong>Bot:</strong> Avoid job offers that demand advance payments. Verify companies before interviews. Call 100 if suspicious.</p>";
+            } else if (userInput.includes("legal rights in arrest")) {
+                response += "<p><strong>Bot:</strong> Women cannot be arrested after sunset and before sunrise without a magistrate’s permission.</p>";
+            } else if (userInput.includes("mental health support")) {
+                response += "<p><strong>Bot:</strong> Contact <a href='https://www.vandrevalafoundation.com/' target='_blank'>Vandrevala Foundation</a> or call 9152987821.</p>";
+            } else if (userInput.includes("dowry harassment")) {
+                response += "<p><strong>Bot:</strong> Report to 1091 or file a complaint under IPC 498A against dowry harassment.</p>";
+            } else if (userInput.includes("public transport safety")) {
+                response += "<p><strong>Bot:</strong> Avoid empty buses, sit near women’s sections, and keep emergency numbers ready.</p>";
+            } else if (userInput.includes("workplace discrimination")) {
+                response += "<p><strong>Bot:</strong> If facing discrimination, report to HR. If unresolved, file a case with the labor department.</p>";
+            } else if (userInput.includes("financial fraud")) {
+                response += "<p><strong>Bot:</strong> Be cautious with unknown investment schemes, ATM skimming, and phone scams. Report frauds at 1930.</p>";
+            } else if (userInput.includes("safe walking tips")) {
+                response += "<p><strong>Bot:</strong> Walk confidently, stay in well-lit areas, and be aware of your surroundings.</p>";
+            } else if (userInput.includes("neighborhood safety")) {
+                response += "<p><strong>Bot:</strong> Join local women’s safety groups, use neighborhood watch apps, and always lock doors.</p>";
+            } else if (userInput.includes("harassment in public")) {
+                response += "<p><strong>Bot:</strong> Loudly call for help, move to a crowded place, and report to police at 100.</p>";
+            } else if (userInput.includes("legal rights women")) {
+                response += "<p><strong>Bot:</strong> Women have rights to free legal aid, maternity benefits, and equal pay under Indian law.</p>";
+            } else {
+                response += "<p><strong>Bot:</strong> I can help with topics like 'POSH Act', 'Cyber Safety', 'Self-Defense', 'Travel Safety', 'Legal Rights', and more.</p>";
+            }
+
+            chatbotBody.innerHTML += response;
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            document.getElementById("user-input").value = "";
+        }
+    </script>
+
+    <div class="container">
+        <section id="introduction">
+            <h2>Understanding the Importance of Self-Defense and Safety</h2>
+            <p>
+                Self-defense and personal safety are crucial for individuals, especially women, to protect
+                themselves from potential threats. This section explores the importance of awareness, proactive
+                safety measures, and legal provisions to ensure safety in different environments.
+                Empowering individuals with knowledge about their rights, legal protections, and available resources
+                can help in taking timely action against any form of harassment or violence.
+            </p>
+        </section>
+
+        <section id="common-threats">
+            <h2>Common Threats and Risks Faced by Women in Different Environments</h2>
+            <p>
+                Women face various threats, including physical, verbal, and online harassment. Understanding these
+                risks can help in taking preventive measures. Key threats include:
+            </p>
+            <ul>
+                <li><strong>Street Harassment and Stalking:</strong> Catcalling, unwanted advances, and persistent
+                    stalking can make public spaces unsafe.</li>
+                <li><strong>Workplace Harassment and Discrimination:</strong> Sexual harassment, gender
+                    discrimination, and inappropriate behavior can impact professional growth and mental well-being.
+                </li>
+                <li><strong>Domestic Violence and Abuse:</strong> Many women face physical, emotional, and financial
+                    abuse within their homes, often making it difficult to seek help.</li>
+                <li><strong>Cybercrime and Online Harassment:</strong> Digital threats like cyberstalking, doxxing,
+                    revenge porn, and identity theft are increasingly affecting women worldwide.</li>
+            </ul>
+            <p>
+                Understanding these risks is the first step toward creating a safer environment and seeking legal
+                protection when necessary.
+            </p>
+        </section>
+
+        <section id="awareness-action">
+            <h2>Awareness vs. Action: Proactive Safety Measures and Key Acts and Legal Provisions</h2>
+            <p>
+                Awareness is the first step towards safety, but taking action is equally important. Implementing
+                proactive safety measures can help women avoid dangerous situations and respond effectively when
+                faced with threats. Some key actions include:
+            </p>
+            <ul>
+                <li><strong>Personal Safety Training:</strong> Learning self-defense techniques can empower
+                    individuals to respond to threats effectively.</li>
+                <li><strong>Using Safety Apps:</strong> Mobile applications like "bSafe," "MySafetipin," and "112
+                    India" provide emergency assistance and location tracking.</li>
+                <li><strong>Travel Safety:</strong> Avoiding poorly lit areas, using verified cab services, and
+                    informing trusted contacts about whereabouts can enhance safety.</li>
+                <li><strong>Legal Knowledge:</strong> Knowing one's rights and available legal protections can help
+                    in reporting crimes and seeking justice.</li>
+            </ul>
+        </section>
+
+        <section id="posh-act">
+            <h2>POSH Act (2013) – Prevention of Sexual Harassment at the Workplace</h2>
+            <p>
+                The POSH Act (2013) is designed to prevent sexual harassment in workplaces and provide a safe
+                environment for women. This act mandates organizations to create an Internal Complaints Committee
+                (ICC) to address grievances. Key aspects include:
+            </p>
+            <ul>
+                <li><strong>Definition of Sexual Harassment:</strong> Unwelcome physical, verbal, or non-verbal
+                    conduct of a sexual nature.</li>
+                <li><strong>Formation of an Internal Complaints Committee (ICC):</strong> Every workplace with more
+                    than ten employees must have an ICC to handle complaints.</li>
+                <li><strong>Procedure for Filing Complaints:</strong> Employees can file complaints within three
+                    months of an incident, and ICC must investigate and resolve cases within 90 days.</li>
+                <li><strong>Legal Consequences:</strong> Employers who fail to implement the act's provisions may
+                    face penalties, and perpetrators may face legal action.</li>
+            </ul>
+        </section>
+
+        <section id="ipc-sections">
+            <h2>Indian Penal Code (IPC) Sections Related to Women’s Safety</h2>
+            <p>
+                Several sections of the IPC provide legal protection against crimes against women. Understanding
+                these sections can help women take legal action when needed. Key sections include:
+            </p>
+            <ul>
+                <li><strong>Section 354:</strong> Deals with molestation and assault on women, prescribing
+                    imprisonment and fines for offenders.</li>
+                <li><strong>Section 376:</strong> Defines rape laws and outlines severe punishments, including life
+                    imprisonment in aggravated cases.</li>
+                <li><strong>Section 498A:</strong> Addresses domestic violence and dowry-related abuse, offering
+                    protection to married women facing cruelty.</li>
+                <li><strong>Section 509:</strong> Covers verbal and non-verbal harassment, including inappropriate
+                    gestures and comments that violate a woman's dignity.</li>
+            </ul>
+        </section>
+
+        <section id="cybercrime-laws">
+            <h2>Cybercrime Laws for Women</h2>
+            <p>
+                With increasing digital threats, cybercrime laws aim to protect women from online harassment. The
+                Information Technology (IT) Act includes provisions to tackle cyber offenses. Important sections
+                include:
+            </p>
+            <ul>
+                <li><strong>Section 66A:</strong> Addresses cyberstalking and online defamation, with provisions for
+                    imprisonment.</li>
+                <li><strong>Section 67:</strong> Penalizes obscene and sexually explicit content shared online
+                    without consent.</li>
+                <li><strong>Cybercrime Reporting:</strong> Women can report digital harassment through the <a
+                        href="https://cybercrime.gov.in/">Cybercrime Portal</a> or call the 155260 helpline for
+                    assistance.</li>
+            </ul>
+            <p>
+                Staying informed about these laws and using technology responsibly can help women protect themselves
+                from cyber threats.
+            </p>
+        </section>
+
+
+        <section id="case-studies">
+            <h2>Case Studies of Legal Self-Defense vs. Illegal Use of Force</h2>
+            <p>
+                Examining real-world cases helps illustrate how courts differentiate between lawful self-defense and
+                unlawful aggression:
+            </p>
+            <ul>
+                <li><strong>Case 1 (Justified Self-Defense):</strong> A homeowner shot an armed intruder in a
+                    "Castle Doctrine" state and was cleared of charges.</li>
+                <li><strong>Case 2 (Excessive Force):</strong> A man continued to attack an unarmed burglar after
+                    disarming him, leading to manslaughter charges.</li>
+                <li><strong>Case 3 (Stand Your Ground):</strong> A driver used deadly force during a road rage
+                    incident but was acquitted due to Stand Your Ground laws.</li>
+                <li><strong>Case 4 (Misuse of Self-Defense Claim):</strong> A person provoked a fight, then used
+                    force and falsely claimed self-defense but was convicted of assault.</li>
+            </ul>
+            <p>
+                These cases highlight the importance of acting lawfully and responsibly in self-defense situations.
+            </p>
+        </section>
+
+
+        <section id="armed-attackers">
+            <h2>Self-Defense Against Armed Attackers</h2>
+            <p>
+                Understanding strategies for defending oneself when confronted by an armed individual is crucial.
+                Key considerations include:
+            </p>
+            <ul>
+                <li>Maintaining distance and seeking cover.</li>
+                <li>Using verbal de-escalation techniques to avoid conflict.</li>
+                <li>Employing defensive maneuvers to neutralize threats safely.</li>
+            </ul>
+        </section>
+
+        <section id="defense-of-others">
+            <h2>Defense of Others vs. Self-Defense</h2>
+            <p>
+                Legal distinctions exist between defending oneself and protecting others. Important aspects include:
+            </p>
+            <ul>
+                <li>When intervention is legally justified.</li>
+                <li>The use of reasonable force in defense of another person.</li>
+                <li>Potential legal consequences of intervening in altercations.</li>
+            </ul>
+        </section>
+
+        <section id="vulnerable-groups">
+            <h2>Self-Defense for Vulnerable Groups</h2>
+            <p>
+                Special considerations for self-defense techniques and legal protections apply to:
+            </p>
+            <ul>
+                <li>Women: Awareness, escape strategies, and legal rights.</li>
+                <li>Children: Age-appropriate self-defense education.</li>
+                <li>Elderly: Mobility-based self-defense and legal considerations.</li>
+            </ul>
+        </section>
+
+        <section id="public-private-spaces">
+            <h2>Legal Rights of Self-Defense in Public vs. Private Spaces</h2>
+            <p>
+                Understanding how self-defense laws apply in different locations is essential:
+            </p>
+            <ul>
+                <li>Differences in self-defense rights at home, workplaces, and public spaces.</li>
+                <li>Legal implications of carrying defensive tools or weapons.</li>
+                <li>How jurisdictional laws influence self-defense claims.</li>
+            </ul>
+        </section>
+
+        <section id="drag-drop-women-safety">
+            <h2>Legal & Psychological Aspects of Women's Safety</h2>
+            <p>Match the legal or psychological aspect to its correct description:</p>
+
+            <div id="dragDropGame">
+                <!-- Draggable Items -->
+                <div class="draggable" draggable="true" id="selfDefenseLaw">Self-Defense Law</div>
+                <div class="draggable" draggable="true" id="sexualHarassmentLaw">Sexual Harassment Law</div>
+                <div class="draggable" draggable="true" id="helplineNumber">Women’s Helpline Number</div>
+                <div class="draggable" draggable="true" id="cyberStalking">Cyber Stalking</div>
+                <div class="draggable" draggable="true" id="traumaEffects">Trauma Effects</div>
+
+                <!-- Drop Zones -->
+                <div class="drop-zone" data-answer="Self-Defense Law">
+                    Drop here: Law allowing women to defend themselves in danger.
+                </div>
+                <div class="drop-zone" data-answer="Sexual Harassment Law">
+                    Drop here: Protection against unwanted advances & workplace harassment.
+                </div>
+                <div class="drop-zone" data-answer="Women’s Helpline Number">
+                    Drop here: Emergency contact number for immediate help.
+                </div>
+                <div class="drop-zone" data-answer="Cyber Stalking">
+                    Drop here: Online harassment, tracking, and threats.
+                </div>
+                <div class="drop-zone" data-answer="Trauma Effects">
+                    Drop here: Psychological impact after facing harassment or assault.
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>
+                Understanding self-defense laws and techniques is crucial for personal safety and legal protection.
+                While the right to defend oneself is universally recognized, it comes with legal and ethical
+                responsibilities.
+            </p>
+            <p>
+                By staying informed about the principles of proportional force, duty to retreat, and legal
+                distinctions between justified and excessive self-defense, individuals can make sound decisions in
+                high-pressure situations. Additionally, psychological preparedness plays a key role in handling such
+                encounters effectively.
+            </p>
+            <p>
+                Whether defending oneself, protecting others, or ensuring the safety of vulnerable groups,
+                responsible self-defense practices help maintain personal security while staying within legal
+                boundaries.
+            </p>
+        </section>
+    </div>
+    <div style="text-align: center; width: 100%">
+        <div class="quiz-container">
+            <a href="/frontend/quizzes/defence/quiz8.html" class="quiz-btn">Take a Quiz</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Self defence | <a href="#">Contact Us</a></p>
+    </footer>
+    <script src="/frontend/assets/js/main/script.js"></script>
+</body>
+</html>

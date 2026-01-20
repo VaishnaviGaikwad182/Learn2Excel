@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Defense Skill Development</title>
+    <link rel="stylesheet" href="/frontend/assets/css/main/selfdefense.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section (Image + Text) -->
+            <div class="logo">
+                <a href="#home">
+                    <img src="/frontend/assets/images/logos/logo.png" alt="Learn2Excel Logo" class="logo-img" />
+                    <span class="logo-text">Learn2Excel</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="/frontend/index.html#home">Home</a></li>
+                <li><a href="/frontend/index.html#courses">Courses</a></li>
+                <li><a href="/frontend/index.html#testimonials">Testimonials</a></li>
+                <li><a href="/frontend/pages/about/about.html">About Us</a></li>
+            </ul>
+            <div class="auth-links">
+                <!-- Existing login/signup -->
+                <div class="user-profile profile-dropdown">
+                    <div class="profile-avatar" onclick="toggleDropdown()">AB</div>
+                    <div class="dropdown-menu">
+                        <a href="#">Profile</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Top Banner with Parallax Effect -->
+    <div class="top-banner">
+        <div class="banner-overlay">
+            <h1>Self-Defense First,</h1>
+            <h1>Your Safety Matters!</h1>
+            <p>Master Self-Defense with Expert Techniques!</p>
+        </div>
+    </div>
+
+    <!-- Section Before Modules -->
+    <section class="intro-section">
+        <div class="intro-text">
+            <h2>Are You Ready to Defend Yourself?</h2>
+            <p>
+                Empower yourself with essential self-defense skills and expert techniques.
+                Join us to build confidence, enhance awareness, and stay safe in any situation!
+            </p>
+        </div>
+        <div class="intro-images">
+            <img src="/frontend/assets/images/self-defense/sd3.jpg" alt="self-defense">
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section id="modules" class="module-section">
+            <h2>Start Learning with Our Modules</h2>
+            <div class="module-container">
+                <div class="module">
+                    <h3>1. Situational Awareness & Risk Assessment</h3>
+                    <p>Learn how to identify threats, stay alert, and avoid dangerous situations.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule1.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 1)">Learn</a>
+                        <button onclick="takeQuiz('defence_q1', 'self_defence', 1)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>2. Basic Strikes & Blocks</h3>
+                    <p>Master essential punches, kicks, and blocking techniques for self-defense.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule2.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 2)">Learn</a>
+                        <button onclick="takeQuiz('defence_q2', 'self_defence', 2)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>3. Defensive Stance & Footwork</h3>
+                    <p>Improve balance, movement, and positioning to stay protected in any situation.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule3.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 3)">Learn</a>
+                        <button onclick="takeQuiz('defence_q3', 'self_defence', 3)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>4. Using Everyday Objects as Defense Tools</h3>
+                    <p>Learn how to use keys, bags, and other common items for self-defense.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule4.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 4)">Learn</a>
+                        <button onclick="takeQuiz('defence_q4', 'self_defence', 4)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>5. Self-Defense Against Multiple Attackers</h3>
+                    <p>Develop strategies to manage and defend yourself from more than one attacker.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule5.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 5)">Learn</a>
+                        <button onclick="takeQuiz('defence_q5', 'self_defence', 5)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>6. Ground Defense & Recovery Techniques</h3>
+                    <p>Learn how to defend yourself if taken to the ground and regain control.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule6.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 6)">Learn</a>
+                        <button onclick="takeQuiz('defence_q6', 'self_defence', 6)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>7. Legal & Psychological Aspects of Self-Defense</h3>
+                    <p>Understand self-defense laws and stay mentally prepared for emergencies.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule7.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 7)">Learn</a>
+                        <button onclick="takeQuiz('defence_q7', 'self_defence', 7)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <h3>8. EmpowerHer: A Self-Defense Safety Module for Women</h3>
+                    <p>Learn life-saving self-defense tactics, legal rights, and the mindset to stay fearless.</p>
+                    <div class="module-actions">
+                        <a href="/frontend/modules/defence/selfdefensemodule8.html" class="learn-btn"
+                            onclick="markLearned(event, 'self_defence', 8)">Learn</a>
+                        <button onclick="takeQuiz('defence_q8', 'self_defence', 8)" class="quiz-btn">
+                            Take Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-tools">
+            <h2>Interactive Tools</h2>
+            <div class="tool">
+                <a href="/frontend/games/time-management.html">
+                    <h3>Game 1: Self Defence Management</h3>
+                </a>
+            </div>
+            <div class="tool">
+                <a href="/frontend/games/memory-game.html">
+                    <h3>Game 2: First Aid Game</h3>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Self Defense Skill Development | <a href="#">Contact Us</a></p>
+    </footer>
+    <script>
+      async function takeQuiz(quizKey, course, moduleNumber) {
+        if (!requireAuth()) return;
+
+        const token = localStorage.getItem("token");
+
+        try {
+          const res = await fetch(
+            `http://localhost:3000/api/progress/is-learned/${course}/${moduleNumber}`,
+            {
+              headers: {
+                Authorization: "Bearer " + token,
+              },
+            },
+          );
+
+          const data = await res.json();
+
+          if (!data.learned) {
+            alert("⚠️ Please learn the concepts first.");
+            return;
+          }
+
+          const quizUrls = {
+            defence_q1: "/frontend/quizzes/defence/quiz1.html",
+            defence_q2: "/frontend/quizzes/defence/quiz2.html",
+            defence_q3: "/frontend/quizzes/defence/quiz3.html",
+            defence_q4: "/frontend/quizzes/defence/quiz4.html",
+            defence_q5: "/frontend/quizzes/defence/quiz5.html",
+            defence_q6: "/frontend/quizzes/defence/quiz6.html",
+            defence_q7: "/frontend/quizzes/defence/quiz7.html",
+            defence_q8: "/frontend/quizzes/defence/quiz8.html",
+          };
+
+          window.location.href = quizUrls[quizKey];
+        } catch (err) {
+          alert("Unable to verify learning progress");
+        }
+      }
+
+      async function markLearned(e, course, moduleNumber) {
+        if (!requireAuth()) {
+          e.preventDefault();
+          return;
+        }
+
+        const token = localStorage.getItem("token");
+
+        try {
+          await fetch("http://localhost:3000/api/progress/learn", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
+            body: JSON.stringify({
+              course,
+              module_number: moduleNumber,
+            }),
+          });
+        } catch (err) {
+          console.error("Failed to mark progress", err);
+        }
+      }
+    </script>
+    <script src="/frontend/assets/js/main/script.js"></script>
+</body>
+</html>

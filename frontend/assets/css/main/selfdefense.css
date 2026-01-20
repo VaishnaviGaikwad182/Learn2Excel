@@ -174,33 +174,34 @@ body {
 
 /* Top Banner */
 .top-banner {
-  position: relative;
-  height: 100vh;
-  background-image: url("../../images/ui/c_hero.png");
-  background-size: cover;
-  background-attachment: fixed; /* Parallax effect */
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    position: relative;
+    height: 100vh;
+    background-image: url('/frontend/assets/images/self-defense/sd5.jpg');
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    text-align: left;
 }
 
 .banner-overlay {
-  color: black;
-  font-family: "Times New Roman", Times, serif;
-  padding: 2vh;
-  border-radius: 2vh;
+    color: rgb(36, 34, 34);
+    font-family:'Times New Roman', Times, serif;
+    padding: 2vh;
+    border-radius: 2vh;
+    
 }
 
 .banner-overlay h1 {
-  font-size: 7rem;
-  margin-bottom: 1rem;
-  letter-spacing: 0.1rem;
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
 }
 
 .banner-overlay p {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 /* Intro Section (Before Modules) */
@@ -255,7 +256,7 @@ body {
 .module-section {
   text-align: center;
   padding: 30px;
-  background-color: #ddedf1;
+  background-color: #f6ecc3;
 }
 
 .module-section h2 {
