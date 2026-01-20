@@ -204,13 +204,6 @@ section {
   list-style: none;
 }
 
-video {
-  width: 100%;
-  max-width: 700px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
 .correct {
   background: #2ecc71 !important;
   color: white;

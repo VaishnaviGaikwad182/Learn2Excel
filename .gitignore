@@ -1,6 +1,0 @@
-# Ignore video files
-*.mp4
-*.crdownload
-
-# Ignore self-defense media folder
-frontend/assets/images/self-defense/
