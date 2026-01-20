@@ -1,5 +1,5 @@
 # Learn2Excel
-**Learn2Excel – Online Skill Development Platform** Built a responsive UI with HTML, CSS, and JavaScript. Developed interactive pages like Login, Signup, and Quiz Dashboard with real-time feedback and form validation. Integrated a simple game into the platform to improve user engagement and learning experience. 
+**Learn2Excel – Online Skill Development Platform** is a full-stack educational web platform designed for structured skill development. It offers modular courses, interactive learning, quizzes, progress tracking, and user profiles. Built using HTML, CSS, JavaScript, Node.js, Express, and MySQL for a scalable and reliable learning experience.
 
 <img width="1911" height="731" alt="Screenshot 2026-01-04 134956" src="https://github.com/user-attachments/assets/3662ddae-21fd-405a-8b50-7b3f5cef6b55" />
 <img width="1919" height="652" alt="Screenshot 2026-01-04 135017" src="https://github.com/user-attachments/assets/817b4a53-11dd-4feb-9447-3191011fb8f4" />
